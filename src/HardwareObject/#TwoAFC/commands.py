@@ -1,7 +1,10 @@
 import nidaqmx as mx
 import time
+from HW_class import *
+from initialize import hw_rate
 
-sample_rate = 1000
+
+sample_rate = hw_rate
 
 def activate_pump(pump,duration) :
     with mx.Task() as pump_act :
@@ -42,6 +45,13 @@ def turnOff_light(light):
             
             
 def play_sound(speaker,sound):
+    if (sound.__class__.__base__ != Sound) and (sound.__class__ != Sound) :
+        print('Need a correct Sound object to play sound')
+        return
+    if speaker.__class__ != Speaker :
+        print('Need a correct Speaker object to play sound')
+        return
+    
     sample = sound.waveform
     
     with mx.Task() as play_sound :

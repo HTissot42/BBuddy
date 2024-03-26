@@ -1,20 +1,17 @@
 import nidaqmx as mx
 from commands import *
+from HW_class import *
 
 
 card_ID = "D0/"
-sample_rate = 1000
+hw_rate = 1000
+        
 
+hw_setup = HW_setup(hw_rate)
 
-class HW_setup :
-    def __init__(self,sample_rate) :
-        self.s_rate = sample_rate
-
-
-hw_setup = HW_setup(1000)
 
     
-""" Enter the various hardware elements and corresponding ports """
+""" Enter the various hardware elements and corresponding ports"""
 r_pump = Pump('Right pump')
 l_pump = Pump('Left pump')
 
@@ -27,9 +24,13 @@ l_pump.configure_port(card_ID+"port1/line3")
 b_light.configure_port(card_ID+"port0/line4")
 r_light.configure_port(card_ID+"port2/line3")
 
-speaker1 = Speaker('Speaker 1')
-speaker2 = Speaker('Speaker 2')
+speaker = Speaker('Speaker')
 
-speaker1.configure_port(card_ID+"ao0")
-speaker2.configure_port(card_ID+"ao1")
 
+speaker.configure_port(card_ID+"ao1")
+#speaker2.configure_port(card_ID+"ao1")
+
+
+hw_setup.speakers.append([speaker])
+hw_setup.pumps.append([r_pump, l_pump])
+hw_setup.lights.append([b_light, r_light])
