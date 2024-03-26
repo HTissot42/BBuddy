@@ -1,7 +1,7 @@
 import nidaqmx as mx
 import time
-from HW_class import *
 from initialize import hw_rate
+from sounds import *
 
 
 sample_rate = hw_rate
@@ -45,10 +45,10 @@ def turnOff_light(light):
             
             
 def play_sound(speaker,sound):
-    if (sound.__class__.__base__ != Sound) and (sound.__class__ != Sound) :
+    if not isinstance(sound,Sound) :
         print('Need a correct Sound object to play sound')
         return
-    if speaker.__class__ != Speaker :
+    if not isinstance(speaker,Speajer):
         print('Need a correct Speaker object to play sound')
         return
     

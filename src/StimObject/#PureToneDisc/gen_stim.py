@@ -5,7 +5,7 @@ from sounds import *
 target_pitch = "High"
 
 amp = 1
-duration = 1
+duration = 2
 boundary = 1000
 frequencies = [200,600,2600,8000]
 
