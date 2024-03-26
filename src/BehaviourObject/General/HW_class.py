@@ -2,19 +2,6 @@ import nidaqmx as mx
 from commands import *
 
 
-card_ID = "D0/"
-sample_rate = 1000
-
-
-class HW_setup :
-    def __init__(self,sample_rate) :
-        self.s_rate = sample_rate
-
-
-hw_setup = HW_setup(1000)
-
-
-
 
 class HW_element :
     def __init__(self,name) :
@@ -73,11 +60,6 @@ speaker2 = Speaker('Speaker 2')
 speaker1.configure_port(card_ID+"ao0")
 speaker2.configure_port(card_ID+"ao1")
 
-
-'''-----'''
-import os
-os.chdir("../../StimObject")
-from Sounds import low_freq
 
 #def clear_hw() :
 #    task.
