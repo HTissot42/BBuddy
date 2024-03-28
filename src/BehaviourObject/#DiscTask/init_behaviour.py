@@ -1,23 +1,11 @@
 import numpy as np
-from gen_stim import stims
-import time
-from commands import *
-from initialize import hw_setup
 import random
+from time_handling import tic, wait, timestep
 
-timestep = 1/1000
+from commands import play_sound
 
-def tic() :
-    time.sleep(timestep)
-
-def wait(duration) :
-    if duration >= timestep :
-        print("waiting for " + str(duration) + " s..")
-        
-        for t in range(int(duration//timestep)) :
-            tic()
-            
-        
+from init_hardware import hw_setup
+from init_stim import stims
 
 speaker_to_display = hw_setup.speakers[0]
 spout_motors = None
@@ -72,6 +60,7 @@ class Trial:
     def run_trial(self) :
         wait(self.timeline.starting)
         
+
         self.run_stim(speaker_to_display)
         
         wait(self.timeline.delay)
@@ -83,9 +72,9 @@ class Trial:
         
     
     def run_stim(self, speaker) :
-        play_sound(self.stim, speaker)
+        play_sound(speaker,self.stim)
         #print(self.stim.duration)
-        wait(self.stim.duration)
+        #wait(self.stim.duration)
     
     
     def run_response(self, motors, piezos) :

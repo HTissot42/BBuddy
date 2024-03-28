@@ -1,13 +1,13 @@
 import numpy as np
-from sounds import *
+from sounds import PureTone
 
 
 target_pitch = "High"
 
-amp = 1
+amp = 0.1
 duration = 2
 boundary = 1000
-frequencies = [200,600,2600,8000]
+frequencies = [400,1000,4000,10000]
 
 stims = np.array([PureTone(amp,freq,duration) for freq in frequencies])
 

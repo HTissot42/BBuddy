@@ -28,7 +28,7 @@ class Behaviour_query:
     def __init__(self) :
         self.variables = []
         self.gui_fields = []
-        self.gui_widget = []
+        self.widget = []
         self.completed = False
         
     def add_query(self, variable, question, w_type) :
