@@ -65,7 +65,7 @@ class Light(HW_element):
         with mx.Task() as light_off :
             light_off.do_channels.add_do_chan(self.port)
             
-            light_off.write(1)
+            light_off.write(0)
             
             if self.verbalize :
                 print("Turning off " + self.name)
@@ -97,19 +97,45 @@ class Speaker(HW_element) :
         
 
     
-detect_rate = 1000
+detect_rate = 100
 class Piezo(HW_element) :
     def detect_lick(self,duration) :
         if not self.check_port() :
             return
-        
+        lick_events = []
         with mx.Task() as d_lick :
             d_lick.di_channels.add_di_chan(self.port)
             d_lick.timing.cfg_samp_clk_timing(detect_rate)
+            for t in range(detect_rate*duration) :
+                lick_event = d_lick.read(number_of_samples_per_channel = 1, auto_start = True)
+                
+                if lick_event :
+                    self.lick_call()
+            
+        return lick_events.append(lick_event)
     
-            lick_events = d_lick.read(number_of_samples_per_channel = detect_rate*duration, auto_start = True)
+    
+    def lick_call(self) :
+        pass
+
+class Motor(HW_element) :
+    def activate(self) :
+        if not self.check_port() :
+            return
         
-        return lick_events
+        with mx.Task() as act_motor :
+            act_motor.do_channels.add_do_chan(self.port)
+            
+            act_motor.write(1)
+    
+    def desactivate(self) :
+        if not self.check_port() :
+            return
+        
+        with mx.Task() as des_motor :
+            des_motor.do_channels.add_do_chan(self.port)
+            
+            des_motor.write(0)
 
 
 class HW_setup:
