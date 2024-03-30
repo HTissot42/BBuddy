@@ -1,6 +1,6 @@
 import time
 
-timestep = 1/100
+timestep = 1/50
 
 def tic() :
     #t1 = time.time()
@@ -9,13 +9,13 @@ def tic() :
     #print((t2-t1) - timestep)
 
 def wait(duration) :
-    #t1 = time.time()
+    t1 = time.time()
     if duration >= timestep :
         print("waiting for " + str(duration) + " s..")
         #print((int(duration//timestep)))
         for t in range(int(duration//timestep)) :
             tic()
             
-    #t2 = time.time()
-    #print((t2-t1) - duration)
+    t2 = time.time()
+    print((t2-t1) - duration)
     

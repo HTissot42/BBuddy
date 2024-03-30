@@ -1,15 +1,17 @@
 import numpy as np
 import random
+import time
 from time_handling import tic, wait, timestep
-
-from commands import play_sound
 
 from init_hardware import hw_setup
 from init_stim import stims
+from commands import Piezo_set
+
 
 speaker_to_display = hw_setup.speakers[0]
-spout_motors = None
-detecting_piezos = None
+spout_motors = hw_setup.motors
+detecting_piezos = Piezo_set(hw_setup.piezos)
+
 
 n_stim = len(stims)
 
@@ -19,9 +21,9 @@ rep_per_block = 2
 
 trial_duration = 5
 starting_delay = 1
-stim_window = [1,3]
-response_delay = 0
-response_window = [3,4]
+stim_window = [1,2]
+response_delay = 0.5
+response_window = [2.5,5]
 ending_delay = trial_duration - response_window[-1]
 ###---###
 
@@ -56,7 +58,6 @@ class Trial:
         self.identity = stim.istarget
         self.timeline = timeline
     
-    
     def run_trial(self) :
         wait(self.timeline.starting)
         
@@ -72,21 +73,36 @@ class Trial:
         
     
     def run_stim(self, speaker) :
-        play_sound(speaker,self.stim)
+        speaker.play(self.stim)
         #print(self.stim.duration)
-        #wait(self.stim.duration)
+        wait(self.stim.duration)
     
     
     def run_response(self, motors, piezos) :
         
         
-        #activate_motor(motors)
-        #detect_licks(piezos)
+        for motor in motors :
+            motor.activate()
+        
+    
         
         response_duration = self.timeline.response[1] - self.timeline.response[0]
-        wait(response_duration)
         
-
+        
+        #for t in range(int(response_duration/timestep)) :
+           # t1 = time.time()
+        
+        piezos.detect_lick(response_duration)
+        
+        #wait(response_duration)
+            #tic()
+            #t2 = time.time()
+            #print((t2 - t1) - timestep)
+            
+            
+        for motor in motors :
+            motor.desactivate()
+            
 timeline = Timeline(trial_duration, starting_delay,stim_window,response_delay,response_window,ending_delay)
 timeline.compute_timeserie()
 

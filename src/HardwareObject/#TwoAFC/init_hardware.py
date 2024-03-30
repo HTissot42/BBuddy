@@ -1,5 +1,5 @@
 import nidaqmx as mx
-from commands import Pump, Light, Speaker, hw_setup
+from commands import *
 
 card_ID = "D0/"
 
@@ -23,11 +23,22 @@ r_light.configure_port(card_ID+"port2/line3")
 
 speaker = Speaker('Speaker')
 
-
 speaker.configure_port(card_ID+"ao1")
-#speaker2.configure_port(card_ID+"ao1")
 
+r_motor = Motor('Right motor')
+l_motor = Motor('Left motor')
 
-hw_setup.speakers += [speaker]
-hw_setup.pumps += [r_pump, l_pump]
-hw_setup.lights += [b_light, r_light]
+r_piezo = Piezo('Right Piezo')
+l_piezo = Piezo('Left Piezo')
+
+r_motor.configure_port(card_ID+"port0/line7")
+l_motor.configure_port(card_ID+"port1/line7")
+
+r_piezo.configure_port(card_ID+"port0/line5")
+l_piezo.configure_port(card_ID+"port0/line3")
+
+hw_setup.speakers = [speaker]
+hw_setup.pumps = [r_pump, l_pump]
+hw_setup.lights = [b_light, r_light]
+hw_setup.motors = [r_motor, l_motor]
+hw_setup.piezos = [r_piezo, l_piezo]
