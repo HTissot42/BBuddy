@@ -2,6 +2,8 @@ import numpy as np
 import random
 import time
 from time_handling import tic, wait, timestep
+from gui_behaviour import n_block, rep_per_block, trial_duration, starting_delay, \
+              stim_window, response_delay, response_window
 
 from init_hardware import hw_setup
 from init_stim import stims
@@ -15,6 +17,9 @@ detecting_piezos = Piezo_set(hw_setup.piezos)
 
 n_stim = len(stims)
 
+ending_delay = trial_duration - response_window[-1]
+
+"""
 ###---###
 n_block = 10
 rep_per_block = 2
@@ -24,8 +29,9 @@ starting_delay = 1
 stim_window = [1,2]
 response_delay = 0.5
 response_window = [2.5,5]
-ending_delay = trial_duration - response_window[-1]
+
 ###---###
+"""
 
 class Timeline:
     def __init__(self, duration, starting, stim, delay, response, ending) :

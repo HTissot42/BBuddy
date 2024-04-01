@@ -2,6 +2,7 @@ import numpy as np
 from tkinter import *
 from tkinter import ttk, messagebox
 
+
 n_block = 10
 rep_per_block = 2
 
@@ -19,7 +20,7 @@ question =   ['Block number','Repetition per block','Trial duration','Starting d
               'Stim window','Reponse delay','Response window']
     
 w_types =    ['Edit', 'Edit', 'Edit', 'Edit', \
-              'Slider', 'Edit', 'Slider']
+              'Edit', 'Edit', 'Edit']
 
 
 
@@ -34,29 +35,17 @@ class Behaviour_query:
     def add_query(self, variable, question, w_type) :
         self.variables.append(variable)
         self.gui_fields.append([question,w_type])
-
-
+    
+    def load_parameters(self) :
+        for i in range(len(self.variables)) :
+            self.variables[i] = self.widget[i].get()
+            
+        n_block, rep_per_block, trial_duration, starting_delay, \
+                      stim_window, response_delay, response_window = self.variables
+            
 b_query = Behaviour_query()
 
 for v in range(len(var_to_ask)) :
     b_query.add_query(var_to_ask[v],question[v],w_types[v])
 
     
-        
-class MyFirstGUI:
-    def __init__(self, master):
-        self.master = master
-        master.title("A simple GUI")
-
-        self.label = Label(master, text="This is our first GUI!")
-        self.label.pack()
-
-        self.greet_button = Button(master, text="Greet", command=self.greet)
-        self.greet_button.pack()
-
-        self.close_button = Button(master, text="Close", command=master.quit)
-        self.close_button.pack()
-
-    def greet(self):
-        print("Greetings!")
-
