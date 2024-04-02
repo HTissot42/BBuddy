@@ -22,8 +22,6 @@ sys.path.append(os.path.realpath(f_path + "/StimObject/General"))
 sys.path.append(os.path.realpath(f_path + "/HardwareObject/General"))
 
 
-
-
 def refresh_path(b_obj, s_obj, hw_obj) :
     global b_path
     global s_path
@@ -42,10 +40,11 @@ def refresh_path(b_obj, s_obj, hw_obj) :
     sys.path.append(hw_path)
 
 
-#execfile(f_path + "/gui.py")
+execfile(f_path + "/gui.py")
 
 
 
 execfile(f_path + "/HardwareObject/" + hw_object + "/init_hardware.py")
 execfile(f_path + "/StimObject/" + s_object + "/init_stim.py")
 execfile(f_path + "/BehaviourObject/" + b_object + "/init_behaviour.py")
+
