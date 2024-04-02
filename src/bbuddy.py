@@ -40,7 +40,7 @@ def refresh_path(b_obj, s_obj, hw_obj) :
     sys.path.append(hw_path)
 
 
-execfile(f_path + "/gui.py")
+#execfile(f_path + "/gui.py")
 
 
 
