@@ -44,6 +44,8 @@ class Behaviour_query:
         
         n_block, rep_per_block, trial_duration, starting_delay, \
                       stim_window, response_delay, response_window, one_motor = self.variables
+                      
+        print(n_block)
         
 b_query = Behaviour_query()
 
