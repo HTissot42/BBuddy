@@ -23,11 +23,7 @@ class Hardware_query:
         self.gui_fields.append([question,w_type])
     
     def load_parameters(self) :
-        #print(self.widget)
-        #print(self.widget[0].get())
-        #for i in range(len(self.variables)) :
-        #    self.variables[i] = self.widget[i].get()
-            
+
         pump_duration = self.variables
             
 hw_query = Hardware_query()
