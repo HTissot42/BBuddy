@@ -1,19 +1,22 @@
 from tkinter import *
-from tkinter import ttk, messagebox, filedialog, StringVar, Checkbutton, IntVar
+from tkinter import ttk, messagebox, filedialog, StringVar, Checkbutton, IntVar, DoubleVar, END
+import csv
 import os
 import sys
-from bbuddy import b_object, s_object, hw_object, refresh_path
+from bbuddy import b_object, s_object, hw_object, refresh_path, initialize_object
 
 f_path = os.path.dirname(__file__)
+
+
+
 
 def execute_all_gui() :
     execfile(f_path + "/HardwareObject/" + hw_object + "/gui_hardware.py")
     execfile(f_path + "/BehaviourObject/" + b_object + "/gui_behaviour.py")
     execfile(f_path + "/StimObject/" + s_object + "/gui_stim.py")
 
+
 execute_all_gui()
-
-
 
 
 
@@ -38,6 +41,10 @@ for hw_file in hw_files :
         
 
 
+
+def set_entry_value(entry, value):
+    entry.delete(0, END)  # Clear the existing value in the entry
+    entry.insert(0, value)
 
 
 
@@ -82,7 +89,7 @@ class GUI :
         
         
         Label(root,text = 'Save directory').grid(row=0,column=2)
-        btn_text = StringVar(root,'?')
+        btn_text = StringVar()
         self.btn_text = btn_text
         save_path = Button(text=self.btn_text, command=self.browse_button)
         
@@ -90,8 +97,21 @@ class GUI :
         save_path.grid(row = 1, column = 2)
         
         self.animal_entry = animal_entry
-        self.save_path = save_path
+        #self.save_path = save_path
         
+        
+            
+        
+        if os.path.isfile(f_path + '/general_param_buffer.csv') :
+            self.load_var_from_buffer()
+        
+        else :
+            self.animal = ''
+            self.dirname = ''
+        
+        set_entry_value(self.animal_entry, self.animal)
+        
+            
         
         start_button = Button(text='Start', command=self.load_all_params).grid(row = 20, column = 2)
         
@@ -99,7 +119,10 @@ class GUI :
         
         self.load_choice_box()
 
-        
+    
+    def load_general(self) :
+        self.animal = self.animal_entry.get()
+
     def browse_button(self):
         self.dirname = filedialog.askdirectory()
         self.btn_text.set(self.dirname)
@@ -214,14 +237,14 @@ class GUI :
             if field[1] == 'Edit' :
                 widg = Entry(parent)
                 widg.grid(row = c+1, column = 0)
-                
+                set_entry_value(widg, query.variables[int(c/2)])
                 if not query.completed :
                     query.widget.append(widg)
                     
                 
-                
             elif field[1] == 'CheckBox' :
                 var = IntVar()
+                var.set(bool(query.variables[int(c/2)]))
                 widg = Checkbutton(parent, variable = var)
                 widg.grid(row = c+1, column = 0)
                 if not query.completed :
@@ -246,10 +269,17 @@ class GUI :
         self.hw_query.load_parameters()
         self.b_query.load_parameters()
         self.s_query.load_parameters()
+        self.load_general()
+        self.write_buffer()
+        
         
         self.stop_gui()
+        
+        initialize_object()
+        
         execfile(f_path + "/BehaviourObject/" + b_object + "/cycle.py")
         
+    
     def loop(self) :
         self.root.mainloop()
     
@@ -262,9 +292,38 @@ class GUI :
         self.root.destroy()
         self.root.quit()
         
-    #def test(self):
-        #self.bfrm"<<ComboboxSelected>>"
-        #print(self.bfrm.winfo_children())
+        
+    def write_buffer(self) :
+    
+        with open(f_path + '/general_param_buffer.csv', 'w', newline='') as csvfile:
+            fieldnames = ['Animal', 'Save directory']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+            writer.writeheader()
+            input_dict = {'Animal' : self.animal, 'Save directory' : self.dirname}
+            writer.writerow(input_dict)
+            
+        
+    def load_var_from_buffer(self) :
+        with open(f_path + '/general_param_buffer.csv',newline='') as csvfile:
+            buffer_reader = csv.reader(csvfile, delimiter=',')
+            
+            c = 0
+            for row in buffer_reader :
+                if c == 0 :   
+                    title = row
+                elif c == 1 :            
+                    value = row
+                
+                c += 1
+            
+            
+            for t in title :
+                if t == 'Animal' :
+                    self.animal = value[title.index(t)]
+                elif t == 'Save directory' :
+                    self.dirname = value[title.index(t)]
+
 
 
 gui = GUI()
