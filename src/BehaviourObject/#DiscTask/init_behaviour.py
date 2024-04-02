@@ -11,6 +11,7 @@ from commands import Piezo_set
 
 
 speaker_to_display = hw_setup.speakers[0]
+delivering_pumps = hw_setup.pumps
 spout_motors = hw_setup.motors
 detecting_piezos = Piezo_set(hw_setup.piezos)
 
@@ -18,7 +19,7 @@ detecting_piezos = Piezo_set(hw_setup.piezos)
 n_stim = len(stims)
 
 ending_delay = trial_duration - response_window[-1]
-
+motor_lapse = 0.35
 """
 ###---###
 n_block = 10
@@ -63,6 +64,7 @@ class Trial:
         self.stim = stim
         self.identity = stim.istarget
         self.timeline = timeline
+        self.rewarded = False
     
     def run_trial(self) :
         wait(self.timeline.starting)
@@ -72,7 +74,7 @@ class Trial:
         
         wait(self.timeline.delay)
         
-        self.run_response(spout_motors, detecting_piezos)
+        self.run_response(spout_motors,detecting_piezos)
         
         wait(self.timeline.ending)
         
@@ -90,24 +92,30 @@ class Trial:
         for motor in motors :
             motor.activate()
         
-    
+        wait(motor_lapse)
         
         response_duration = self.timeline.response[1] - self.timeline.response[0]
         
+        piezos.detect_lick(response_duration, self, isResponse = True)
         
-        #for t in range(int(response_duration/timestep)) :
-           # t1 = time.time()
-        
-        piezos.detect_lick(response_duration)
-        
-        #wait(response_duration)
-            #tic()
-            #t2 = time.time()
-            #print((t2 - t1) - timestep)
-            
+
             
         for motor in motors :
             motor.desactivate()
+            
+    def check_response(self, response) : 
+        print(int(self.identity))
+        print(response)
+        if int(self.identity) == response :
+            print('Licked on correct side')
+            if not self.rewarded :
+                delivering_pumps[response].activate(0.2)
+                delivering_pumps[response].desactivate()
+                self.rewarded = True
+        else :
+            print('Licked on incorrect side')
+            spout_motors[response].desactivate()
+            
             
 timeline = Timeline(trial_duration, starting_delay,stim_window,response_delay,response_window,ending_delay)
 timeline.compute_timeserie()

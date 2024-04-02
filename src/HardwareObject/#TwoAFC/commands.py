@@ -11,7 +11,6 @@ from sounds import Sound
 
 sample_rate = 50000
 
-
 class HW_setup:
     def __init__(self, hw_rate) :
         self.speakers = []
@@ -49,14 +48,22 @@ class Pump(HW_element):
         with mx.Task() as pump_act :
             pump_act.do_channels.add_do_chan(self.port)
             
-            pump_act.write(1)
+            pump_act.write(True)
+            
+            pump_act.wait_until_done()
             
             if self.verbalize :
                 print("Activating " + self.name + " for " + str(duration) + "s..")
             
             wait(duration)
+        
+    def desactivate(self) :
+        with mx.Task() as pump_desact :
+            pump_desact.do_channels.add_do_chan(self.port)
             
-            pump_act.write(0)
+            pump_desact.write(False)
+            
+            pump_desact.wait_until_done()
             
             if self.verbalize :
                 print("Closing " + self.name)
@@ -127,25 +134,38 @@ class Piezo_set() :
     
     
     def callback(self,task_handle, every_n_samples_event_type, number_of_samples, callback_data):
-        print("OK callback")
         l_event = self.task.read(int(detection_per_timestep))
-        print(l_event)
+        #print(l_event)
         self.lick_events += l_event
+        #print(np.shape(l_event))
+        #print(self.lick_events)
+        #print(np.any(l_event[0]) == True)
+        #print(np.any(l_event[1]) == True)
+        if True in l_event[0] :
+            print("Lick detected on " + self.piezos[0].name)
+            if self.onResponse :
+                self.current_trial.check_response(response = 0)
+        
+        elif True in l_event[1] :
+            print("Lick detected on " + self.piezos[1].name)
+            if self.onResponse :
+                self.current_trial.check_response(response = 1)
+                    
         
         
-        #if np.any(lick_events) == True :
-         #   print("Lick detected on " + self.name)
-          #  print(lick_events)
-           # return 1
-        #else :
+
+
         return 0
 
 
     
-    
-    def detect_lick(self,duration) :
+    def detect_lick(self,duration, trial, isResponse = False) :
         
-        print('OK')
+        #print('OK')
+        
+        self.onResponse = isResponse
+        self.current_trial = trial
+        
         self.lick_events = []
         with mx.Task() as d_task :
             self.task = d_task
@@ -157,8 +177,11 @@ class Piezo_set() :
             
             self.task.timing.cfg_samp_clk_timing(int(detection_per_timestep/timestep),sample_mode=AcquisitionType.CONTINUOUS,\
                                                      samps_per_chan = int(detection_per_timestep/timestep*duration))
+            
+
             self.task.register_every_n_samples_acquired_into_buffer_event(detection_per_timestep, self.callback)
-                
+            
+            
             self.task.start()
                 
             wait(duration)
@@ -170,7 +193,7 @@ class Piezo_set() :
 
     
     
-    
+
 class Motor(HW_element) :
     def activate(self) :
         if not self.check_port() :
@@ -180,7 +203,6 @@ class Motor(HW_element) :
             act_motor.do_channels.add_do_chan(self.port)
             
             act_motor.write(True)
-            
     
     def desactivate(self) :
         if not self.check_port() :
