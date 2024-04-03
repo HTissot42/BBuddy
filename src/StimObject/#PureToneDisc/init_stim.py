@@ -1,9 +1,9 @@
 import numpy as np
 from sounds import PureTone
-from gui_stim import frequencies
+from gui_stim import frequencies, target_pitch
 
 
-target_pitch = "High"
+#target_pitch = "High"
 
 amp = 0.1
 duration = 2

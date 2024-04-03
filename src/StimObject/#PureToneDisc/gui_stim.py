@@ -4,29 +4,38 @@ from tkinter import ttk, messagebox
 import os
 import csv
 
+
 s_f_path = os.path.dirname(__file__)
 
 frequencies = [800,2000,4400,10000]
+target_pitch = 'High'
 
-var_to_ask = [frequencies]
-question =   ['Sound frequencies']
+
+var_to_ask = [frequencies, target_pitch]
+question =   ['Sound frequencies', 'Target']
     
-w_types =    ['Edit']
+w_types =    ['Edit', 'Choice High,Low']
 
 def unwrap(string) :
-    if ' ' in string :
+    isText = any(c.isalpha() for c in string)
     
-        splitted_string = string.split()
-        
-        result = []
-        for s in splitted_string :
-            result.append(float(s))
-            
-        
-        return result
+    if isText :
+        return string
     
     else :
-        return float(string)
+        if ' ' in string :
+        
+            splitted_string = string.split()
+            
+            result = []
+            for s in splitted_string :
+                result.append(float(s))
+                
+            
+            return result
+        
+        else :
+            return float(string)
 
 
 class Stim_query:
@@ -44,7 +53,7 @@ class Stim_query:
         #for i in range(len(self.variables)) :
         #    self.variables[i] = self.widget[i].get()
             
-        frequencies = self.variables
+        frequencies, target_pitch = self.variables
             
         
         with open(s_f_path + '/stim_param_buffer.csv', 'w', newline='') as csvfile:

@@ -3,7 +3,7 @@ from tkinter import ttk, messagebox, filedialog, StringVar, Checkbutton, IntVar,
 import csv
 import os
 import sys
-from bbuddy import b_object, s_object, hw_object, refresh_path, initialize_object
+from bbuddy import b_object, s_object, hw_object, refresh_path, initialize_object, execfile
 
 f_path = os.path.dirname(__file__)
 
@@ -14,10 +14,14 @@ def execute_all_gui() :
     execfile(f_path + "/HardwareObject/" + hw_object + "/gui_hardware.py")
     execfile(f_path + "/BehaviourObject/" + b_object + "/gui_behaviour.py")
     execfile(f_path + "/StimObject/" + s_object + "/gui_stim.py")
-
+"""
+def execute_all_gui() :
+    exec(open(f_path + "/HardwareObject/" + hw_object + "/gui_hardware.py").read())
+    exec(open(f_path + "/BehaviourObject/" + b_object + "/gui_behaviour.py").read())
+    exec(open(f_path + "/StimObject/" + s_object + "/gui_stim.py").read())
+"""
 
 execute_all_gui()
-
 
 
 b_files = os.listdir(f_path + '/BehaviourObject/')
@@ -49,7 +53,7 @@ def set_entry_value(entry, value):
 
 
 class GUI :
-    def __init__(self, size ="1000x800"):
+    def __init__(self, size ="900x1000"):
         
         
         root = Tk() 
@@ -60,46 +64,33 @@ class GUI :
         
         root.option_add("*Font", "aerial 15")
         root.option_add("*Label.Font", "aerial 16 bold")
-
+        
+        #root.wm_attributes("-alpha", 0.7)
         
         self.root = root
         
-        b_frm = Frame(root,border=25)
-        b_frm.grid(row = 2, column = 0)
-        #b_frm.pack(fill='both', side='left', expand='True')
+        self.header = Frame(root, border = 25)
         
-        self.bfrm = b_frm
-        
-        hw_frm = Frame(root,border=25)
-        hw_frm.grid(row = 2, column = 2)
-        #hw_frm.pack(fill='both',side='right', expand='True')
-        
-        self.hwfrm = hw_frm
-        
-        s_frm = Frame(root,border=25)
-        s_frm.grid(row = 2, column = 1)
-        #s_frm.pack(fill='both',side='bottom', expand='True')
-        
-        self.sfrm = s_frm
+        self.header.pack(fill='both',side='top')
+        Label(self.header,text = 'Ferret name').pack(fill='both',side='left')
+        #Label(self.header,text = 'Ferret name').grid(row=0,column=0)
+        animal_entry = Entry(self.header)
         
         
-        
-        Label(root,text = 'Ferret name').grid(row=0,column=0)
-        animal_entry = Entry(root)
-        
-        
-        Label(root,text = 'Save directory').grid(row=0,column=2)
+        #Label(self.header,text = 'Save directory').grid(row=0,column=2)
         btn_text = StringVar()
         self.btn_text = btn_text
-        save_path = Button(text=self.btn_text, command=self.browse_button)
+        save_path = Button(self.header,text=self.btn_text, command=self.browse_button)
         
-        animal_entry.grid(row = 1, column = 0)
-        save_path.grid(row = 1, column = 2)
+        #animal_entry.grid(row = 1, column = 0)
+        #save_path.grid(row = 1, column = 2)
+        
+        animal_entry.pack(fill='both',side='left')
+        save_path.pack(fill='both',side='right')
         
         self.animal_entry = animal_entry
-        #self.save_path = save_path
         
-        
+        Label(self.header,text = 'Save directory').pack(fill='both',side='right')
             
         
         if os.path.isfile(f_path + '/general_param_buffer.csv') :
@@ -111,12 +102,41 @@ class GUI :
         
         set_entry_value(self.animal_entry, self.animal)
         
-            
         
-        start_button = Button(text='Start', command=self.load_all_params).grid(row = 20, column = 2)
+        last_line = Frame(self.root)
+        last_line.pack(fill='both',side='bottom')
         
-        stop_button = Button(text='Stop', command=self.stop_gui).grid(row = 20, column = 0)
+        start_button = Button(last_line,text='Start', command=self.load_all_params)
+        start_button.pack(fill='both',side='right', expand='True')
+        #start_button.grid(row = 20, column = 2)
+        start_button.configure(bg='blue')
         
+        
+        stop_button = Button(last_line,text='Stop', command=self.stop_gui)
+        stop_button.pack(fill='both',side='left', expand='True')
+        #stop_button.grid(row = 20, column = 0)
+        stop_button.configure(bg='red')
+
+        
+        
+        self.bfrm = Frame(root,border=25)
+        #b_frm.grid(row = 2, column = 0)
+        self.bfrm.pack(fill='both', side='left')
+        
+        
+        self.hwfrm = Frame(root,border=25)
+        
+        #hw_frm.grid(row = 2, column = 2)
+        self.hwfrm.pack(fill='both',side='left')
+        
+
+        self.sfrm = Frame(root,border=25)
+        #s_frm.grid(row = 2, column = 1)
+        self.sfrm.pack(fill='both',side='left')
+        
+        
+        
+     
         self.load_choice_box()
 
     
@@ -132,30 +152,36 @@ class GUI :
     
     def load_choice_box(self) :
         b_choicebox = Label(self.bfrm, text = "Behaviour object:")
-        b_choicebox.grid(row=0,column=0)
+        b_choicebox.pack(fill='both',side='top')
+        #b_choicebox.grid(row=0,column=0)
         
         s_choicebox = Label(self.sfrm, text = "Stim object:")
-        s_choicebox.grid(row=0,column=0)
+        s_choicebox.pack(fill='both',side='top')
+        #s_choicebox.grid(row=0,column=0)
         
         hw_choicebox = Label(self.hwfrm, text = "Hardware object:")
-        hw_choicebox.grid(row=0,column=0)
+        hw_choicebox.pack(fill='both',side='top')
+        #hw_choicebox.grid(row=0,column=0)
         
         b_choicelist = ttk.Combobox(self.bfrm, values=b_obj_list)
-        b_choicelist.grid(row=1,column=0)
+        b_choicelist.pack(fill='both',side='top')
+        #b_choicelist.grid(row=1,column=0)
         b_choicelist.current(0)
         b_object = b_obj_list[0]
         
         self.b_choice = b_choicelist
 
         s_choicelist = ttk.Combobox(self.sfrm, values=s_obj_list)
-        s_choicelist.grid(row=1,column=0)
+        s_choicelist.pack(fill='both',side='top')
+        #s_choicelist.grid(row=1,column=0)
         s_choicelist.current(0)
         s_object = s_obj_list[0]
         
         self.s_choice = s_choicelist
 
         hw_choicelist = ttk.Combobox(self.hwfrm, values=hw_obj_list)
-        hw_choicelist.grid(row=1,column=0)
+        hw_choicelist.pack(fill='both',side='top')
+        #hw_choicelist.grid(row=1,column=0)
         hw_choicelist.current(0)
         hw_object = hw_obj_list[0]
         
@@ -169,15 +195,18 @@ class GUI :
         self.hw_choice.bind('<<ComboboxSelected>>',self.load_gui_hardware)
         
         b_entries = Frame(self.bfrm)
-        b_entries.grid(row=2,column=0)
+        b_entries.pack(fill='both',side='top')
+        #b_entries.grid(row=2,column=0)
         self.b_entries = b_entries
         
         s_entries = Frame(self.sfrm)
-        s_entries.grid(row=2,column=0)
+        s_entries.pack(fill='both',side='top')
+        #s_entries.grid(row=2,column=0)
         self.s_entries = s_entries
 
         hw_entries = Frame(self.hwfrm)
-        hw_entries.grid(row=2,column=0)
+        hw_entries.pack(fill='both',side='top')
+        #hw_entries.grid(row=2,column=0)
         self.hw_entries = hw_entries
         
         self.load_gui_behaviour(None)
@@ -233,10 +262,12 @@ class GUI :
         c = 0
         for field in query.gui_fields :
             label = Label(parent, text = field[0])
-            label.grid(row = c, column = 0)
+            label.pack(fill='both',side='top', expand='True')
+            #label.grid(row = c, column = 0)
             if field[1] == 'Edit' :
                 widg = Entry(parent)
-                widg.grid(row = c+1, column = 0)
+                widg.pack(fill='both',side='top', expand='True')
+                #widg.grid(row = c+1, column = 0)
                 set_entry_value(widg, query.variables[int(c/2)])
                 if not query.completed :
                     query.widget.append(widg)
@@ -246,10 +277,23 @@ class GUI :
                 var = IntVar()
                 var.set(bool(query.variables[int(c/2)]))
                 widg = Checkbutton(parent, variable = var)
-                widg.grid(row = c+1, column = 0)
+                widg.pack(fill='both',side='top', expand='True')
+                #widg.grid(row = c+1, column = 0)
                 if not query.completed :
                     query.widget.append(var)
             
+            elif field[1][:7] == 'Choice ' :
+                possibilities = field[1][7:].split(',')
+                widg = ttk.Combobox(parent, values=possibilities)
+                widg.pack(fill='both',side='top', expand='True')
+                #widg.grid(row = c+1, column = 0)
+                
+                choice_idx = possibilities.index(query.variables[int(c/2)])
+                widg.current(choice_idx)
+                
+                if not query.completed :
+                    query.widget.append(widg)
+                        
             
             c+=2
         query.completed = True
@@ -276,7 +320,8 @@ class GUI :
         self.stop_gui()
         
         initialize_object()
-        
+
+        #exec(open(f_path + "/BehaviourObject/" + b_object + "/cycle.py").read())
         execfile(f_path + "/BehaviourObject/" + b_object + "/cycle.py")
         
     

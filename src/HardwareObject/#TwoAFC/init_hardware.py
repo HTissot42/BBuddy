@@ -1,7 +1,7 @@
 import nidaqmx as mx
 from commands import *
 
-card_ID = "Dev2/"
+card_ID = "D0/"
 
 
 

@@ -5,6 +5,17 @@ f_path = os.path.dirname(__file__)
 
 
 
+def execfile(filepath, globals=None, locals=None):
+    if globals is None:
+        globals = {}
+    globals.update({
+        "__file__": filepath,
+        "__name__": "__main__",
+    })
+    with open(filepath, 'rb') as file:
+        exec(compile(file.read(), filepath, 'exec'), globals, locals)
+
+
 hw_object = '#TwoAFC'
 s_object = '#PureToneDisc'
 b_object = '#DiscTask'
@@ -13,10 +24,11 @@ b_path = os.path.realpath(f_path + "/BehaviourObject/" + b_object)
 s_path = os.path.realpath(f_path + "/StimObject/" + s_object)
 hw_path = os.path.realpath(f_path + "/HardwareObject/" + hw_object)
 
+
 sys.path.append(b_path)
 sys.path.append(s_path)
 sys.path.append(hw_path)
-
+    
 sys.path.append(os.path.realpath(f_path + "/BehaviourObject/General"))
 sys.path.append(os.path.realpath(f_path + "/StimObject/General"))
 sys.path.append(os.path.realpath(f_path + "/HardwareObject/General"))
@@ -41,11 +53,15 @@ def refresh_path(b_obj, s_obj, hw_obj) :
     sys.path.append(hw_path)
 
 
+"""
+def initialize_object() :
+    exec(open(f_path + "/HardwareObject/" + hw_object + "/init_hardware.py").read())
+    exec(open(f_path + "/StimObject/" + s_object + "/init_stim.py").read())
+    exec(open(f_path + "/BehaviourObject/" + b_object + "/init_behaviour.py").read())
 
-
-
+"""
 def initialize_object() :
     execfile(f_path + "/HardwareObject/" + hw_object + "/init_hardware.py")
     execfile(f_path + "/StimObject/" + s_object + "/init_stim.py")
     execfile(f_path + "/BehaviourObject/" + b_object + "/init_behaviour.py")
-    
+

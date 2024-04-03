@@ -14,37 +14,48 @@ n_block = 10
 rep_per_block = 2
 
 trial_duration = 5
-starting_delay = 0
-stim_window = [0,1]
+light_window = [0,2]
+stim_window = [1,2]
 response_delay = 0.5
-response_window = [1.5,4]
+response_window = [2.5,5]
+
 
 one_motor = False
+first_light = 'Blue'
+switch_task = False
 
-var_to_ask = [n_block, rep_per_block, trial_duration, starting_delay, \
-              stim_window, response_delay, response_window, one_motor]
-question =   ['Block number','Repetition per block','Trial duration','Starting delay', \
-              'Stim window','Reponse delay','Response window','Motor for target only']
+var_to_ask = [n_block, rep_per_block, trial_duration, light_window, \
+              stim_window, response_delay, response_window, one_motor,\
+                  first_light ,switch_task]
+question =   ['Block number','Repetition per block','Trial duration', 'Light window', \
+              'Stim window','Reponse delay','Response window','Motor for target only', \
+                'Light for first task', 'Switch task']
     
 w_types =    ['Edit', 'Edit', 'Edit', 'Edit', \
-              'Edit', 'Edit', 'Edit', 'CheckBox']
+              'Edit', 'Edit', 'Edit', 'CheckBox', \
+             'Choice Blue,Red,NoLight', 'CheckBox']
 
 
 def unwrap(string) :
-    if ' ' in string :
+    isText = any(c.isalpha() for c in string)
     
-        splitted_string = string.split()
-        
-        result = []
-        for s in splitted_string :
-            result.append(float(s))
-            
-        
-        return result
-    
+    if isText :
+        return string
     else :
-        return float(string)
+        if ' ' in string :
         
+            splitted_string = string.split()
+            
+            result = []
+            for s in splitted_string :
+                result.append(float(s))
+                
+            
+            return result
+        
+        else :
+            return float(string)
+            
 class Behaviour_query:
     def __init__(self) :
         self.variables = []
@@ -61,10 +72,10 @@ class Behaviour_query:
         #for i in range(len(self.variables)) :
         #    self.variables[i] = self.widget[i].get()
         
-        n_block, rep_per_block, trial_duration, starting_delay, \
-                      stim_window, response_delay, response_window, one_motor = self.variables
-                      
-        print(response_window)
+        n_block, rep_per_block, trial_duration, light_window,\
+        stim_window, response_delay, response_window, one_motor, \
+        first_light, switch_task = self.variables
+
         
         
         
