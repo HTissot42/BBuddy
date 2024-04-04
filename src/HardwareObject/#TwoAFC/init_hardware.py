@@ -1,7 +1,18 @@
 import nidaqmx as mx
 from commands import *
 
-card_ID = "D0/"
+from gui_hardware import load_var_from_buffer, var_to_ask, question
+
+
+
+###---###
+load_var_from_buffer(question, var_to_ask)
+
+pump_duration = var_to_ask[0]
+###---###
+
+
+card_ID = "Dev2/"
 
 
 

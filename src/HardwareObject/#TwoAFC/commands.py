@@ -107,11 +107,13 @@ class Speaker(HW_element) :
         with mx.Task() as play_sound :
             play_sound.ao_channels.add_ao_voltage_chan(self.port)
             
-            play_sound.timing.cfg_samp_clk_timing(sample_rate, samps_per_chan = sample_rate*sound.duration)
+            play_sound.timing.cfg_samp_clk_timing(sample_rate, samps_per_chan = int(sample_rate*sound.duration))
     
             print("Playing")
             
             play_sound.write(sample,auto_start=True)
+            
+            #time.sleep(sound.duration)
             play_sound.wait_until_done()
             play_sound.write([0 for _ in range(sample_rate//100)],auto_start=True)
     
@@ -130,17 +132,19 @@ detection_per_timestep = 5
 class Piezo_set() :
     def __init__(self, piezos):
         self.piezos = piezos
-
+        self.lick_events = []
     
     
     def callback(self,task_handle, every_n_samples_event_type, number_of_samples, callback_data):
+        
+        self.c += 1
+        
+        #print(self.c)
+        
         l_event = self.task.read(int(detection_per_timestep))
-        #print(l_event)
-        self.lick_events += l_event
         #print(np.shape(l_event))
-        #print(self.lick_events)
-        #print(np.any(l_event[0]) == True)
-        #print(np.any(l_event[1]) == True)
+        self.lick_events += l_event
+        #print(np.shape(self.lick_events))
         if True in l_event[0] :
             print("Lick detected on " + self.piezos[0].name)
             if self.onResponse :
@@ -161,7 +165,7 @@ class Piezo_set() :
     
     def detect_lick(self,duration, trial, isResponse = False) :
         
-        #print('OK')
+        self.c = 0
         
         self.onResponse = isResponse
         self.current_trial = trial
@@ -185,8 +189,9 @@ class Piezo_set() :
             self.task.start()
                 
             wait(duration)
-    
-        return self.lick_events
+            
+        self.lick_events = []
+        #print(len(self.lick_events))
 
 
 

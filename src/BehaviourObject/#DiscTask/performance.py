@@ -3,6 +3,8 @@ from tkinter import ttk, Canvas, messagebox, filedialog, StringVar, Checkbutton,
 import time
 from time_handling import timestep
 import numpy as np
+from init_hardware import hw_setup
+
 
 class Performance_plot() :
     
@@ -70,6 +72,21 @@ class Performance_plot() :
             
             self.root.update()
             
+            #print(len(self.trial.piezos.lick_events))
+            
+            if len(self.trial.piezos.lick_events) > 0 :
+                #print(np.shape(self.trial.lick_events))
+                last_licks = self.trial.piezos.lick_events[-2:]
+                #print(np.shape(last_licks))
+
+                if True in last_licks[0] :
+                    print('L R')
+                    self.canvas.create_rectangle(new_x, self.rec_height/2, \
+                                                 new_x + 2, self.rec_height, fill = '#0009c2')
+                elif True in last_licks[1] :
+                    print('L L')
+                    self.canvas.create_rectangle(new_x, self.rec_height/2, \
+                                                 new_x + 2, self.rec_height, fill = '#c20029')
             
         self.root.after(int(timestep*1000), self.refresh)
             

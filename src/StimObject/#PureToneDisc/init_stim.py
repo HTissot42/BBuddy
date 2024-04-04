@@ -1,13 +1,20 @@
 import numpy as np
 from sounds import PureTone
-from gui_stim import frequencies, target_pitch
+from gui_stim import load_var_from_buffer, var_to_ask, question
 
 
-#target_pitch = "High"
+###---###
 
-amp = 0.1
+load_var_from_buffer(question, var_to_ask)
+
+
+frequencies, target_pitch, boundary, amp = var_to_ask
+
+
+###---###
+
+
 duration = 2
-boundary = 1000
 
 
 stims = np.array([PureTone(amp,freq,duration) for freq in frequencies])

@@ -9,12 +9,13 @@ s_f_path = os.path.dirname(__file__)
 
 frequencies = [800,2000,4400,10000]
 target_pitch = 'High'
+boundary = 3000
+amp = 0.1
 
-
-var_to_ask = [frequencies, target_pitch]
-question =   ['Sound frequencies', 'Target']
+var_to_ask = [frequencies, target_pitch, boundary, amp]
+question =   ['Sound frequencies', 'Target', 'Category boundary', 'Amplitude (0.1 max)']
     
-w_types =    ['Edit', 'Choice High,Low']
+w_types =    ['Edit', 'Choice High,Low', 'Edit', 'Edit']
 
 def unwrap(string) :
     isText = any(c.isalpha() for c in string)
@@ -56,7 +57,7 @@ class Stim_query:
         #for i in range(len(self.variables)) :
         #    self.variables[i] = self.widget[i].get()
             
-        frequencies, target_pitch = self.variables
+        #frequencies, target_pitch = self.variables
             
         
         with open(s_f_path + '/stim_param_buffer.csv', 'w', newline='') as csvfile:
@@ -72,7 +73,7 @@ s_query = Stim_query()
 
 
 
-def load_var_from_buffer() :
+def load_var_from_buffer(label, var) :
     with open(s_f_path + '/stim_param_buffer.csv',newline='') as csvfile:
         buffer_reader = csv.reader(csvfile, delimiter=',')
         
@@ -87,13 +88,13 @@ def load_var_from_buffer() :
         
         
         for t in title :
-            idx = question.index(t)
-            var_to_ask[idx] = unwrap(value[idx]) 
+            idx = label.index(t)
+            var[idx] = unwrap(value[idx]) 
 
 
 
 if os.path.isfile(s_f_path + '/stim_param_buffer.csv') :
-    load_var_from_buffer()
+    load_var_from_buffer(question, var_to_ask)
 
 
 

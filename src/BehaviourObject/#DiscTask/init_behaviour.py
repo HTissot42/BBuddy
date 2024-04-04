@@ -2,13 +2,29 @@ import numpy as np
 import random
 import time
 from time_handling import tic, wait, timestep
-from gui_behaviour import n_block, rep_per_block, trial_duration, light_window,\
-              stim_window, response_delay, response_window, one_motor, first_light, switch_task
 
-from init_hardware import hw_setup
+from gui_behaviour import load_var_from_buffer, var_to_ask, question
+
+
+from init_hardware import hw_setup, pump_duration
 from init_stim import stims
 from commands import Piezo_set
 import threading
+
+
+###---###
+
+load_var_from_buffer(question, var_to_ask)
+
+
+n_block, rep_per_block, trial_duration, light_window,\
+stim_window, response_delay, response_window, one_motor, \
+first_light, switch_task = var_to_ask
+
+
+###---###
+
+
 
 speaker_to_display = hw_setup.speakers[0]
 delivering_pumps = hw_setup.pumps
@@ -19,21 +35,12 @@ light_cues = hw_setup.lights
 
 n_stim = len(stims)
 
+
 ending_delay = trial_duration - response_window[-1]
 motor_lapse = 0.35
-"""
-###---###
-n_block = 10
-rep_per_block = 2
 
-trial_duration = 5
-starting_delay = 1
-stim_window = [1,2]
-response_delay = 0.5
-response_window = [2.5,5]
 
-###---###
-"""
+
 
 class Timeline:
     def __init__(self, duration, cue, stim, delay, response, ending) :
@@ -65,6 +72,9 @@ class Trial:
         self.stim = stim
         self.identity = stim.istarget
         self.timeline = timeline
+        
+        self.piezos = detecting_piezos
+        
         self.rewarded = False
         self.task = task
         self.isDummy = isDummy
@@ -80,21 +90,34 @@ class Trial:
         
     def run_trial(self) :
         
+        self.start_time = time.time()
+        
         if self.isDummy :
             print('This is a dummy trial')
         
         
-        threading.Thread(target = self.run_light_cue(self.light_cue), daemon=True).start()
+        threading.Thread(target = self.run_light_cue, args = (self.light_cue,), daemon=True).start()
+        
         
         starting_delay = self.timeline.stim[0] - self.timeline.cue[0]
         
         wait(starting_delay)
         
+        print("stim at :" + str(time.time() - self.start_time))
+        
         self.run_stim(speaker_to_display)
         
         wait(self.timeline.delay)
         
-        self.run_response(spout_motors,detecting_piezos)
+        print("response at :" + str(time.time() - self.start_time))
+        
+        threading.Thread(target = self.run_response, args = (spout_motors,detecting_piezos), daemon=True).start()
+        
+        response_duration = self.timeline.response[1] - self.timeline.response[0] - motor_lapse
+        
+        wait(response_duration)
+        
+        #self.run_response(spout_motors,detecting_piezos)
         
         wait(self.timeline.ending)
         
@@ -107,6 +130,7 @@ class Trial:
             light_duration = self.timeline.cue[1] - self.timeline.cue[0] 
             
             wait(light_duration)
+        
             
             light.turnOff()
         
@@ -118,12 +142,14 @@ class Trial:
         self.stim.duration = stim_duration
         
         if not self.isDummy :
+            
             speaker.play(self.stim)
         
-        wait(stim_duration)
+        #wait(stim_duration)
     
     
     def run_response(self, motors, piezos) :
+        
         
         if not self.isDummy :
             for motor in motors :
@@ -135,6 +161,8 @@ class Trial:
         
         
         if not self.isDummy :
+            #self.lick_events = piezos.lick_events
+            #print(len(piezos.lick_events))
             piezos.detect_lick(response_duration, self, isResponse = True)
             
         else :
@@ -146,12 +174,10 @@ class Trial:
                 motor.desactivate()
                 
     def check_response(self, response) : 
-        print(int(self.identity))
-        print(response)
         if int(self.identity) == response :
             print('Licked on correct side')
             if not self.rewarded :
-                delivering_pumps[response].activate(0.2)
+                delivering_pumps[response].activate(pump_duration)
                 delivering_pumps[response].desactivate()
                 self.rewarded = True
         else :
@@ -164,13 +190,13 @@ timeline.compute_timeserie()
 
 
 def block_stim_id() :
-    stim_idx = np.array([[k for _  in range(rep_per_block)] for k in range(n_stim)])
+    stim_idx = np.array([[k for _  in range(int(rep_per_block))] for k in range(n_stim)])
     stim_idx = stim_idx.flatten()
     np.random.shuffle(stim_idx)
     return stim_idx
 
 trials = []
-for n in range(n_block) :
+for n in range(int(n_block)) :
     stim_idx = block_stim_id()
     block_trials = [Trial(n_stim*rep_per_block*n + i, stims[stim_idx[i]], timeline) for i in range(len(stim_idx))]
     trials.append(block_trials)

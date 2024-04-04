@@ -1,2 +1,2 @@
-Sound frequencies,Target
-800.0 2030.0 5400.0 10000.0,High
+Sound frequencies,Target,Category boundary,Amplitude (0.1 max)
+800.0 2000.0 4400.0 10000.0,High,3000.0,0.1

@@ -1,6 +1,6 @@
 import time
 
-timestep = 1/10
+timestep = 1/30
 
 def tic() :
     #t1 = time.time()
@@ -12,7 +12,7 @@ def tic() :
 
 def wait(duration) :
     t1 = time.time()
-    print("waiting for " + str(duration) + " s..")
+    #print("waiting for " + str(duration) + " s..")
     time.sleep(duration)
     t2 = time.time()
     lag = ((t2-t1) - duration)

@@ -6,10 +6,8 @@ import csv
 
 hw_f_path = os.path.dirname(__file__)
 
-pump_duration = 0.15
-
-var_to_ask = [pump_duration]
 question =   ['Pump duration']
+var_to_ask = [0.3]
 w_types =    ['Edit']
 
 def unwrap(string) :
@@ -56,7 +54,7 @@ class Hardware_query:
 hw_query = Hardware_query()
 
 
-def load_var_from_buffer() :
+def load_var_from_buffer(label, var) :
     with open(hw_f_path + '/hardware_param_buffer.csv',newline='') as csvfile:
         buffer_reader = csv.reader(csvfile, delimiter=',')
         
@@ -71,17 +69,14 @@ def load_var_from_buffer() :
         
         
         for t in title :
-            idx = question.index(t)
-            var_to_ask[idx] = unwrap(value[idx]) 
+            idx = label.index(t)
+            var[idx] = unwrap(value[idx]) 
 
 
 
 if os.path.isfile(hw_f_path + '/hardware_param_buffer.csv') :
-    load_var_from_buffer()
+    load_var_from_buffer(question, var_to_ask)
 
 
 for v in range(len(var_to_ask)) :
     hw_query.add_query(var_to_ask[v],question[v],w_types[v])
-
-print('In hw :')
-print(hw_query.widget)
