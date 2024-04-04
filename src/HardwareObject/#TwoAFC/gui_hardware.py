@@ -38,6 +38,9 @@ class Hardware_query:
         self.variables.append(variable)
         self.gui_fields.append([question,w_type])
     
+    def clear_widget(self) :
+        self.widget = []
+    
     def load_parameters(self) :
 
         pump_duration = self.variables
@@ -51,7 +54,6 @@ class Hardware_query:
             writer.writerow(input_dict)
                 
 hw_query = Hardware_query()
-
 
 
 def load_var_from_buffer() :
@@ -78,9 +80,8 @@ if os.path.isfile(hw_f_path + '/hardware_param_buffer.csv') :
     load_var_from_buffer()
 
 
-
-
 for v in range(len(var_to_ask)) :
     hw_query.add_query(var_to_ask[v],question[v],w_types[v])
 
-    
+print('In hw :')
+print(hw_query.widget)

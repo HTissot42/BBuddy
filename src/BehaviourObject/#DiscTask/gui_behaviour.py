@@ -67,6 +67,8 @@ class Behaviour_query:
         self.variables.append(variable)
         self.gui_fields.append([question,w_type])
     
+    def clear_widget(self) :
+        self.widget = []
     
     def load_parameters(self) :
         #for i in range(len(self.variables)) :

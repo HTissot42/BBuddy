@@ -53,7 +53,7 @@ def set_entry_value(entry, value):
 
 
 class GUI :
-    def __init__(self, size ="900x1000"):
+    def __init__(self, size ="900x900"):
         
         
         root = Tk() 
@@ -124,19 +124,18 @@ class GUI :
         self.bfrm.pack(fill='both', side='left')
         
         
+        
+        self.sfrm = Frame(root,border=25)
+        #s_frm.grid(row = 2, column = 1)
+        self.sfrm.pack(fill='both',side='left')
+        
+        
         self.hwfrm = Frame(root,border=25)
         
         #hw_frm.grid(row = 2, column = 2)
         self.hwfrm.pack(fill='both',side='left')
         
 
-        self.sfrm = Frame(root,border=25)
-        #s_frm.grid(row = 2, column = 1)
-        self.sfrm.pack(fill='both',side='left')
-        
-        
-        
-     
         self.load_choice_box()
 
     
@@ -228,6 +227,8 @@ class GUI :
         
         from gui_behaviour import b_query
         
+        b_query.clear_widget()
+        
         self.b_query = b_query
         
         self.build_window(self.b_entries, self.b_query)
@@ -238,6 +239,8 @@ class GUI :
         
         from gui_stim import s_query
         
+        s_query.clear_widget()
+        
         self.s_query = s_query
         
         self.build_window(self.s_entries, self.s_query)
@@ -247,6 +250,8 @@ class GUI :
         self.refresh_object()
         
         from gui_hardware import hw_query
+        
+        hw_query.clear_widget()
         
         self.hw_query = hw_query
         
@@ -269,8 +274,8 @@ class GUI :
                 widg.pack(fill='both',side='top', expand='True')
                 #widg.grid(row = c+1, column = 0)
                 set_entry_value(widg, query.variables[int(c/2)])
-                if not query.completed :
-                    query.widget.append(widg)
+                #if not query.completed :
+                query.widget.append(widg)
                     
                 
             elif field[1] == 'CheckBox' :
@@ -279,8 +284,8 @@ class GUI :
                 widg = Checkbutton(parent, variable = var)
                 widg.pack(fill='both',side='top', expand='True')
                 #widg.grid(row = c+1, column = 0)
-                if not query.completed :
-                    query.widget.append(var)
+                #if not query.completed :
+                query.widget.append(var)
             
             elif field[1][:7] == 'Choice ' :
                 possibilities = field[1][7:].split(',')
@@ -291,8 +296,8 @@ class GUI :
                 choice_idx = possibilities.index(query.variables[int(c/2)])
                 widg.current(choice_idx)
                 
-                if not query.completed :
-                    query.widget.append(widg)
+                #if not query.completed :
+                query.widget.append(widg)
                         
             
             c+=2

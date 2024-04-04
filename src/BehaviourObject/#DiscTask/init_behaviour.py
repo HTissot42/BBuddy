@@ -87,6 +87,7 @@ class Trial:
         threading.Thread(target = self.run_light_cue(self.light_cue), daemon=True).start()
         
         starting_delay = self.timeline.stim[0] - self.timeline.cue[0]
+        
         wait(starting_delay)
         
         self.run_stim(speaker_to_display)
@@ -103,7 +104,7 @@ class Trial:
         if (light != None) & (not self.isDummy)  :
             light.turnOn()
             
-            light_duration = self.timeline.cue[1]- self.timeline.cue[0] 
+            light_duration = self.timeline.cue[1] - self.timeline.cue[0] 
             
             wait(light_duration)
             
@@ -171,7 +172,7 @@ def block_stim_id() :
 trials = []
 for n in range(n_block) :
     stim_idx = block_stim_id()
-    block_trials = [Trial(n_stim*rep_per_block*n + i, stims[stim_idx[i]], timeline, isDummy = True) for i in range(len(stim_idx))]
+    block_trials = [Trial(n_stim*rep_per_block*n + i, stims[stim_idx[i]], timeline) for i in range(len(stim_idx))]
     trials.append(block_trials)
 
 trials = np.array(trials).flatten()

@@ -70,8 +70,6 @@ class Performance_plot() :
             
             self.root.update()
             
-        else :
-            print('cleared')
             
         self.root.after(int(timestep*1000), self.refresh)
             
