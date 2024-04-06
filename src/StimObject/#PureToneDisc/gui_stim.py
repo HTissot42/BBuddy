@@ -11,11 +11,12 @@ frequencies = [800,2000,4400,10000]
 target_pitch = 'High'
 boundary = 3000
 amp = 0.1
+stim_set = "All"
 
-var_to_ask = [frequencies, target_pitch, boundary, amp]
-question =   ['Sound frequencies', 'Target', 'Category boundary', 'Amplitude (0.1 max)']
+var_to_ask = [frequencies, target_pitch, boundary, amp, stim_set]
+question =   ['Sound frequencies', 'Target', 'Category boundary', 'Amplitude (0.1 max)', 'Stim set']
     
-w_types =    ['Edit', 'Choice High,Low', 'Edit', 'Edit']
+w_types =    ['Edit', 'Choice High,Low', 'Edit', 'Edit', 'Choice All,TargetOnly,RefOnly']
 
 def unwrap(string) :
     isText = any(c.isalpha() for c in string)

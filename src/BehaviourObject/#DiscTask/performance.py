@@ -4,11 +4,62 @@ import time
 from time_handling import timestep
 import numpy as np
 from init_hardware import hw_setup
+import matplotlib.pyplot as plt 
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from scipy.stats import norm
+
+
+def compute_dprime(h,fa) :
+    return norm.ppf(h) - norm.ppf(fa)
+
+
+integ_window = 25
+def compute_recent_perf(responses, rewards) :
+    
+    sample_size = min(len(responses),integ_window)
+    
+    resp_array = np.array(responses)[-sample_size:]
+    rew_array = np.array(rewards)[-sample_size:]
+    
+    response1 = (resp_array == 1)
+    response2 = (resp_array == -1)
+    no_response = (resp_array == 0)
+    
+    r1_rate = np.sum(response1)/sample_size
+    r2_rate = np.sum(response2)/sample_size
+    no_r_rate = np.sum(no_response)/sample_size
+
+    rew1 = rew_array[response1]
+    rew2 = rew_array[response2]
+    
+    h1 = np.sum(rew1 == 1)/sample_size
+    fa1 = np.sum(rew1 == 0)/sample_size
+    
+    h2 = np.sum(rew2 == 1)/sample_size
+    fa2 = np.sum(rew2 == 0)/sample_size
+    
+    if h1 < 0.01 :
+        dprime1 = -10
+    elif h1 > 0.99 :
+        dprime1 = 10
+    else :
+        dprime1 = compute_dprime(h1,fa1)
+    
+        
+    if h2 < 0.01 :
+        dprime2 = -10
+    elif h2 > 0.99 :
+        dprime2 = 10
+    else :
+        dprime2 = compute_dprime(h2,fa2)
+    
+    
+    return r1_rate, r2_rate, no_r_rate, dprime1, dprime2
 
 
 class Performance_plot() :
     
-    def __init__(self, init_trial , nb_trial ,size ="1000x800") :
+    def __init__(self, init_trial , nb_trial ,size ="900x900") :
         
         root = Tk() 
 
@@ -26,25 +77,94 @@ class Performance_plot() :
         self.trial_num = StringVar()
         self.trial_num.set('Trial ' + str(self.n) + '/' + str(self.nb_trial))
         
+        self.fig, self.axs = plt.subplots(2,1, figsize=(8,6), dpi=80, facecolor='whitesmoke')
+        plt.rcParams.update({'font.size': 15})
+        self.plot_formatting()
+        
+        self.responses = []
+        self.rewards = []
+        
+        self.response_rates = []
+        self.dprimes = []
         
         self.rec_width = 1000
         self.rec_height = 200
         
         self.new_trial(init_trial)
         self.root.after(100, self.refresh)
+        
+        
+        
+
+        
+        plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
+        plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
+
+    def plot_formatting(self) :
+        self.axs[0].spines['top'].set_visible(False)
+        self.axs[0].spines['right'].set_visible(False)
+        self.axs[1].spines['top'].set_visible(False)
+        self.axs[1].spines['right'].set_visible(False)
+        
+        self.axs[1].set_xlabel('Trials #',fontsize=16)
+        self.axs[1].set_yticks([0,0.5,1],['0%','50%','100%'])
+        self.axs[1].set_ylim((-0.15,1.15))
+        
+        
+        self.axs[0].set_yticks([-1,0,1,2,3],[-1,0,1,2,3])
+        self.axs[0].set_ylim((-1,3))
+        
+        self.axs[0].set_facecolor('whitesmoke')
+        self.axs[1].set_facecolor('whitesmoke')
 
     def refresh_header(self) :
+        
         self.header = Frame(self.root,border=50).pack(fill='both',side='top',expand='True')
         Label(self.header,textvariable=self.trial_num).pack(fill='both',side='top')
         
         if self.trial.identity :
-            identity = 'Target / Right'
+            identity = 'Target / Left'
         else :
-            identity = 'Reference / Left'
+            identity = 'Reference / Right'
             
         Label(self.header,text=identity).pack(fill='both',side='top')
         
         self.root.update()
+        
+    def refresh_plot(self) :
+        self.responses.append(self.trial.response)
+        self.rewards.append(self.trial.rewarded)
+        
+        print(self.trial.response)
+        print(self.trial.rewarded)
+        
+        r1_rate, r2_rate, no_r_rate, dprime1, dprime2 = \
+            compute_recent_perf(self.responses, self.rewards)
+        
+        self.response_rates.append([r1_rate, r2_rate, no_r_rate])
+        self.dprimes.append([dprime1, dprime2])
+    
+        self.axs[0].cla()
+        self.axs[1].cla()
+
+        self.axs[0].plot(range(1,self.n + 1), np.array(self.dprimes)[:,0], color='blue', \
+                         alpha=0.55, linewidth=5 ,label='d\' right') 
+        self.axs[0].plot(range(1,self.n + 1), np.array(self.dprimes)[:,1], color='red',\
+                         alpha=0.55, linewidth=5 ,label='d\' left') 
+        
+        self.axs[1].plot(range(1,self.n + 1), np.array(self.response_rates)[:,0], color='cyan', \
+                         alpha=0.55, linewidth=5 ,label='Right')
+        self.axs[1].plot(range(1,self.n + 1), np.array(self.response_rates)[:,1], color='magenta',\
+                         alpha=0.55, linewidth=5 ,label='Left')
+        self.axs[1].plot(range(1,self.n + 1), np.array(self.response_rates)[:,2], color='grey',\
+                         alpha=0.55, linewidth=5 ,label='No resp')
+        
+        self.axs[0].legend(loc="upper left")
+        self.axs[1].legend(loc="upper left")
+        
+        self.plot_formatting()
+        #plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
+        #plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
     
     def clear(self,frame) :
         for child in frame.winfo_children() :
@@ -92,11 +212,14 @@ class Performance_plot() :
             
         
     def new_trial(self, trial) :
+        
         self.trial = trial
         
         self.cleared = True
         self.clear(self.root)
         
+        plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
+        plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
                 
         canvas = Canvas(self.root, border = 50)
         canvas.pack(fill='both',side='bottom',expand='True')

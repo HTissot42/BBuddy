@@ -14,6 +14,8 @@ def cycle():
     for trial in trials :
         p_plot.new_trial(trial)
         trial.run_trial()
+        p_plot.refresh_plot()
+        
         n+=1
 
 

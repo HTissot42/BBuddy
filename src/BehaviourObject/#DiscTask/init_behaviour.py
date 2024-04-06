@@ -75,9 +75,13 @@ class Trial:
         
         self.piezos = detecting_piezos
         
+        
+        self.response = 0
         self.rewarded = False
         self.task = task
         self.isDummy = isDummy
+        
+        
         
         if first_light == 'NoLight' :
             self.light_cue = None
@@ -167,6 +171,8 @@ class Trial:
             
         else :
             wait(response_duration)
+            self.response = random.randint(-1,1)
+            self.rewarded = (random.randint(0,1) == 1)
         
         
         if not self.isDummy : 
@@ -174,6 +180,7 @@ class Trial:
                 motor.desactivate()
                 
     def check_response(self, response) : 
+        self.response = response
         if int(self.identity) == response :
             print('Licked on correct side')
             if not self.rewarded :
@@ -188,6 +195,7 @@ class Trial:
 timeline = Timeline(trial_duration,light_window,stim_window,response_delay,response_window,ending_delay)
 timeline.compute_timeserie()
 
+print(stims)
 
 def block_stim_id() :
     stim_idx = np.array([[k for _  in range(int(rep_per_block))] for k in range(n_stim)])
@@ -198,7 +206,7 @@ def block_stim_id() :
 trials = []
 for n in range(int(n_block)) :
     stim_idx = block_stim_id()
-    block_trials = [Trial(n_stim*rep_per_block*n + i, stims[stim_idx[i]], timeline) for i in range(len(stim_idx))]
+    block_trials = [Trial(n_stim*rep_per_block*n + i, stims[stim_idx[i]], timeline, isDummy=True) for i in range(len(stim_idx))]
     trials.append(block_trials)
 
 trials = np.array(trials).flatten()

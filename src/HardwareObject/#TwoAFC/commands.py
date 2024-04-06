@@ -148,12 +148,12 @@ class Piezo_set() :
         if True in l_event[0] :
             print("Lick detected on " + self.piezos[0].name)
             if self.onResponse :
-                self.current_trial.check_response(response = 0)
+                self.current_trial.check_response(response = 1)
         
         elif True in l_event[1] :
             print("Lick detected on " + self.piezos[1].name)
             if self.onResponse :
-                self.current_trial.check_response(response = 1)
+                self.current_trial.check_response(response = -1)
                     
         
         
