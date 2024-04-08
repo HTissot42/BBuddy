@@ -44,6 +44,7 @@ motor_lapse = 0.35
 
 class Timeline:
     def __init__(self, duration, cue, stim, delay, response, ending) :
+        #print(stim.istarget)
         self.duration = duration
         self.cue = cue
         self.stim = stim
@@ -70,11 +71,12 @@ class Trial:
     def __init__(self, numero, stim, timeline, task = 0,isDummy = False) :
         self.num = numero
         self.stim = stim
-        self.identity = stim.istarget
+        self.identity = int(2*stim.istarget - 1)
         self.timeline = timeline
         
         self.piezos = detecting_piezos
         
+ 
         
         self.response = 0
         self.rewarded = False
@@ -91,8 +93,16 @@ class Trial:
             elif first_light == 'Red':
                 light_idx = 1-task
             self.light_cue = light_cues[light_idx]
+            
+            
+        if one_motor : 
+            if self.task == 0 :
+                self.motors = [spout_motors[int(not self.stim.istarget)]]
+            else :
+                self.motors = [spout_motors[int(self.stim.istarget)]]
         
     def run_trial(self) :
+        
         
         self.start_time = time.time()
         
@@ -115,11 +125,11 @@ class Trial:
         
         print("response at :" + str(time.time() - self.start_time))
         
-        threading.Thread(target = self.run_response, args = (spout_motors,detecting_piezos), daemon=True).start()
+        threading.Thread(target = self.run_response, args = (self.motors,self.piezos), daemon=True).start()
         
-        response_duration = self.timeline.response[1] - self.timeline.response[0] - motor_lapse
+        waiting_for_response = self.timeline.response[1] - self.timeline.response[0]
         
-        wait(response_duration)
+        wait(waiting_for_response)
         
         #self.run_response(spout_motors,detecting_piezos)
         
@@ -174,6 +184,9 @@ class Trial:
             self.response = random.randint(-1,1)
             self.rewarded = (random.randint(0,1) == 1)
         
+        print(self.rewarded)
+        if self.rewarded :
+            wait(pump_duration)
         
         if not self.isDummy : 
             for motor in motors :
@@ -184,9 +197,11 @@ class Trial:
         if int(self.identity) == response :
             print('Licked on correct side')
             if not self.rewarded :
-                delivering_pumps[response].activate(pump_duration)
-                delivering_pumps[response].desactivate()
                 self.rewarded = True
+                delivering_pumps[response < 0].activate()
+                wait(pump_duration)
+                delivering_pumps[response < 0].desactivate()
+                
         else :
             print('Licked on incorrect side')
             spout_motors[response].desactivate()
@@ -194,8 +209,6 @@ class Trial:
             
 timeline = Timeline(trial_duration,light_window,stim_window,response_delay,response_window,ending_delay)
 timeline.compute_timeserie()
-
-print(stims)
 
 def block_stim_id() :
     stim_idx = np.array([[k for _  in range(int(rep_per_block))] for k in range(n_stim)])
@@ -206,7 +219,7 @@ def block_stim_id() :
 trials = []
 for n in range(int(n_block)) :
     stim_idx = block_stim_id()
-    block_trials = [Trial(n_stim*rep_per_block*n + i, stims[stim_idx[i]], timeline, isDummy=True) for i in range(len(stim_idx))]
+    block_trials = [Trial(n_stim*rep_per_block*n + i, stims[stim_idx[i]], timeline) for i in range(len(stim_idx))]
     trials.append(block_trials)
 
 trials = np.array(trials).flatten()

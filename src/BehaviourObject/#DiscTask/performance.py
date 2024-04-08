@@ -123,9 +123,9 @@ class Performance_plot() :
         Label(self.header,textvariable=self.trial_num).pack(fill='both',side='top')
         
         if self.trial.identity :
-            identity = 'Target / Left'
+            identity = 'Target / Right'
         else :
-            identity = 'Reference / Right'
+            identity = 'Reference / Left'
             
         Label(self.header,text=identity).pack(fill='both',side='top')
         

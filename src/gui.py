@@ -362,7 +362,7 @@ class GUI :
             for row in buffer_reader :
                 if c == 0 :   
                     title = row
-                elif c == 1 :            
+                elif c == 1 :             
                     value = row
                 
                 c += 1

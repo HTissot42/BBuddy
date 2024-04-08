@@ -16,9 +16,10 @@ frequencies, target_pitch, boundary, amp, stim_set = var_to_ask
 
 duration = 5
 
+print(boundary)
 
 
-stims = [PureTone(amp,freq,duration) for freq in frequencies]
+stims = np.array([PureTone(amp,freq,duration) for freq in frequencies])
 
 for s in stims:
     if target_pitch == 'High' :
@@ -29,11 +30,17 @@ for s in stims:
         
     else :
         print('Target identity wrongly specified')
+    
+
+
+if (stim_set == 'All') :
+    mask = np.array([True for s in stims])
+
+elif (stim_set == 'TargetOnly') :
+    mask = np.array([s.istarget for s in stims])
         
-    if (stim_set == 'TargetOnly')&(not s.istarget) :
-        stims.remove(s)
-        
-    elif (stim_set == 'RefOnly')&(s.istarget) :
-        stims.remove(s)
-        
-stims = np.array(stims)
+elif (stim_set == 'RefOnly')&(s.istarget) :
+    mask = np.array([not s.istarget for s in stims])
+    
+
+stims = stims[mask]

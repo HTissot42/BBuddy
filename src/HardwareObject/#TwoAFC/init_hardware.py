@@ -53,3 +53,16 @@ hw_setup.pumps = [r_pump, l_pump]
 hw_setup.lights = [b_light, r_light]
 hw_setup.motors = [r_motor, l_motor]
 hw_setup.piezos = [r_piezo, l_piezo]
+
+for p in hw_setup.pumps :
+    p.prepare_tasks()
+
+for l in hw_setup.lights :
+    l.prepare_tasks()
+
+for m in hw_setup.motors :
+    m.prepare_tasks()
+    
+
+
+#hw_setup.elements = hw_setup.speakers + hw_setup.pumps + hw_setup.lights + hw_setup.motors + hw_setup.piezos 

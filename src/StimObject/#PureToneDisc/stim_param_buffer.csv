@@ -1,2 +1,2 @@
 Sound frequencies,Target,Category boundary,Amplitude (0.1 max),Stim set
-800.0 2000.0 4400.0 10000.0,High,3000.0,0.1,TargetOnly
+750.0 1500.0 3000.0 6000.0,Low,2000.0,0.01,TargetOnly

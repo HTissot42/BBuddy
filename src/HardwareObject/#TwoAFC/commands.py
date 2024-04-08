@@ -41,58 +41,63 @@ class HW_element :
         
 
 class Pump(HW_element):
-    def activate(self,duration) :
-        if self.port == '' :
-            print('No port provided for ' + self.name)
+    def prepare_tasks(self) :
+        if not self.check_port() :
             return
-        with mx.Task() as pump_act :
-            pump_act.do_channels.add_do_chan(self.port)
-            
-            pump_act.write(True)
-            
-            pump_act.wait_until_done()
-            
-            if self.verbalize :
-                print("Activating " + self.name + " for " + str(duration) + "s..")
-            
-            wait(duration)
+        
+        self.pump_act = mx.Task()
+        self.pump_act.do_channels.add_do_chan(self.port)
+        
+        self.pump_desact = mx.Task()
+        self.pump_desact.do_channels.add_do_chan(self.port)
+    
+    
+    def activate(self) :
+        self.pump_act.write(True)
+        
+        self.pump_act.wait_until_done()
+        
+        if self.verbalize :
+            print("Activating " + self.name)
+        
+
         
     def desactivate(self) :
-        with mx.Task() as pump_desact :
-            pump_desact.do_channels.add_do_chan(self.port)
-            
-            pump_desact.write(False)
-            
-            pump_desact.wait_until_done()
-            
-            if self.verbalize :
-                print("Closing " + self.name)
+        self.pump_desact.write(False)
         
+        self.pump_desact.wait_until_done()
+        
+        if self.verbalize :
+            print("Closing " + self.name)
+    
         
 class Light(HW_element):
+    def prepare_tasks(self) :
+        if not self.check_port() :
+            return
+        
+        self.light_on = mx.Task()
+        self.light_on.do_channels.add_do_chan(self.port)
+        
+        self.light_off = mx.Task()
+        self.light_off.do_channels.add_do_chan(self.port)
+    
+    
     def turnOn(self) :
-        if not self.check_port() :
-            return
+        self.light_on.write(True)
         
-        with mx.Task() as light_on :
-            light_on.do_channels.add_do_chan(self.port)
+        self.light_on.wait_until_done()
+        
+        if self.verbalize :
+            print("Turning on " + self.name)
             
-            light_on.write(True)
-            
-            if self.verbalize :
-                print("Turning on " + self.name)
-                
     def turnOff(self) :
-        if not self.check_port() :
-            return
+        self.light_off.write(False)
         
-        with mx.Task() as light_off :
-            light_off.do_channels.add_do_chan(self.port)
-            
-            light_off.write(False)
-            
-            if self.verbalize :
-                print("Turning off " + self.name)
+        self.light_off.wait_until_done()
+
+        if self.verbalize :
+            print("Turning off " + self.name)
 
 class Speaker(HW_element) :
     def play(self,sound) :
@@ -200,24 +205,28 @@ class Piezo_set() :
     
 
 class Motor(HW_element) :
-    def activate(self) :
+    def prepare_tasks(self) :
         if not self.check_port() :
             return
         
-        with mx.Task() as act_motor :
-            act_motor.do_channels.add_do_chan(self.port)
-            
-            act_motor.write(True)
+        self.act_motor = mx.Task()
+        self.act_motor.do_channels.add_do_chan(self.port)
+        
+        
+        self.des_motor = mx.Task()
+        self.des_motor.do_channels.add_do_chan(self.port)
+
+    
+    def activate(self) :
+        self.act_motor.write(True)
+        
+        self.act_motor.wait_until_done()
+        
     
     def desactivate(self) :
-        if not self.check_port() :
-            return
+        self.des_motor.write(False)
         
-        with mx.Task() as des_motor :
-            des_motor.do_channels.add_do_chan(self.port)
-            
-            des_motor.write(False)
-
+        self.des_motor.wait_until_done()
         
         
         
