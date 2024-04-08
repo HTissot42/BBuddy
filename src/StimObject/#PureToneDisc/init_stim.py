@@ -32,15 +32,14 @@ for s in stims:
         print('Target identity wrongly specified')
     
 
-
-if (stim_set == 'All') :
-    mask = np.array([True for s in stims])
-
-elif (stim_set == 'TargetOnly') :
+if (stim_set == 'TargetOnly') :
     mask = np.array([s.istarget for s in stims])
         
-elif (stim_set == 'RefOnly')&(s.istarget) :
+elif (stim_set == 'RefOnly') :
     mask = np.array([not s.istarget for s in stims])
     
-
+else :
+    mask = np.array([True for s in stims])
+    
+    
 stims = stims[mask]
