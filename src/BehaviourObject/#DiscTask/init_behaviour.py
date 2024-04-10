@@ -101,6 +101,9 @@ class Trial:
             else :
                 self.motors = [spout_motors[int(self.stim.istarget)]]
         
+        else :
+            self.motors = spout_motors
+        
     def run_trial(self) :
         
         
@@ -204,7 +207,7 @@ class Trial:
                 
         else :
             print('Licked on incorrect side')
-            spout_motors[response].desactivate()
+            spout_motors[int((1-response)/2)].desactivate()
             
             
 timeline = Timeline(trial_duration,light_window,stim_window,response_delay,response_window,ending_delay)

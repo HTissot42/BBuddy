@@ -7,16 +7,17 @@ import csv
 
 s_f_path = os.path.dirname(__file__)
 
-frequencies = [800,2000,4400,10000]
-target_pitch = 'High'
-boundary = 3000
-amp = 0.1
+frequencies = [750,1500,3000,6000]
+am_rates = [4,6,9,13.5]
+target_pitch = 'Low'
+boundary = 2000
+amp = 0.01
 stim_set = "All"
 
-var_to_ask = [frequencies, target_pitch, boundary, amp, stim_set]
-question =   ['Sound frequencies', 'Target', 'Category boundary', 'Amplitude (0.1 max)', 'Stim set']
+var_to_ask = [frequencies, am_rates, target_pitch, boundary, amp, stim_set]
+question =   ['Sound frequencies', 'AM rates', 'Target', 'Category boundary', 'Amplitude (0.1 max)', 'Stim set']
     
-w_types =    ['Edit', 'Choice High,Low', 'Edit', 'Edit', 'Choice All,TargetOnly,RefOnly']
+w_types =    ['Edit', 'Edit', 'Choice High,Low', 'Edit', 'Edit', 'Choice All,TargetOnly,RefOnly']
 
 def unwrap(string) :
     isText = any(c.isalpha() for c in string)

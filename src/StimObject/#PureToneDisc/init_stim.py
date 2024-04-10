@@ -1,5 +1,5 @@
 import numpy as np
-from sounds import PureTone
+from sounds import PureTone, Tone_AM_modulated
 from gui_stim import load_var_from_buffer, var_to_ask, question
 
 
@@ -8,7 +8,7 @@ from gui_stim import load_var_from_buffer, var_to_ask, question
 load_var_from_buffer(question, var_to_ask)
 
 
-frequencies, target_pitch, boundary, amp, stim_set = var_to_ask
+frequencies, am_rates ,target_pitch, boundary, amp, stim_set = var_to_ask
 
 
 ###---###
@@ -19,7 +19,9 @@ duration = 5
 print(boundary)
 
 
-stims = np.array([PureTone(amp,freq,duration) for freq in frequencies])
+stims = np.array([[Tone_AM_modulated(amp,freq,am,duration) for freq in frequencies] for am in am_rates])
+
+stims = stims.flatten()
 
 for s in stims:
     if target_pitch == 'High' :
