@@ -29,6 +29,7 @@ class HW_element :
         self.name = name
         self.port = ''
         self.verbalize = False
+        self.prepared = False
         
     def configure_port(self,port) :
         self.port = port
@@ -41,34 +42,35 @@ class HW_element :
         
 
 class Pump(HW_element):
-    def prepare_tasks(self) :
+    def activate(self) :
         if not self.check_port() :
             return
         
-        self.pump_act = mx.Task()
-        self.pump_act.do_channels.add_do_chan(self.port)
+        with mx.Task() as pump_act :
+            pump_act.do_channels.add_do_chan(self.port)
+            
+            pump_act.write(True)
+            
+            pump_act.wait_until_done()
         
-        self.pump_desact = mx.Task()
-        self.pump_desact.do_channels.add_do_chan(self.port)
-    
-    
-    def activate(self) :
-        self.pump_act.write(True)
-        
-        self.pump_act.wait_until_done()
-        
-        if self.verbalize :
-            print("Activating " + self.name)
+            if self.verbalize :
+                print("Activating " + self.name)
         
 
         
     def desactivate(self) :
-        self.pump_desact.write(False)
+        if not self.check_port() :
+            return
         
-        self.pump_desact.wait_until_done()
+        with mx.Task() as pump_desact :
+            pump_desact.do_channels.add_do_chan(self.port)
+            
+            pump_desact.write(False)
         
-        if self.verbalize :
-            print("Closing " + self.name)
+            pump_desact.wait_until_done()
+            
+            if self.verbalize :
+                print("Closing " + self.name)
     
         
 class Light(HW_element):
@@ -76,28 +78,44 @@ class Light(HW_element):
         if not self.check_port() :
             return
         
+        
+        
         self.light_on = mx.Task()
         self.light_on.do_channels.add_do_chan(self.port)
         
         self.light_off = mx.Task()
         self.light_off.do_channels.add_do_chan(self.port)
     
-    
+        
+        self.prepared = True
+        
     def turnOn(self) :
-        self.light_on.write(True)
+        if not self.check_port() :
+            return
         
-        self.light_on.wait_until_done()
-        
-        if self.verbalize :
-            print("Turning on " + self.name)
+        with mx.Task() as light_on :
+            light_on.do_channels.add_do_chan(self.port)
+            
+            light_on.write(True)
+            
+            light_on.wait_until_done()
+            
+            if self.verbalize :
+                print("Turning on " + self.name)
             
     def turnOff(self) :
-        self.light_off.write(False)
-        
-        self.light_off.wait_until_done()
+        if not self.check_port() :
+            return
 
-        if self.verbalize :
-            print("Turning off " + self.name)
+        with mx.Task() as light_off :
+            light_off.do_channels.add_do_chan(self.port)
+            
+            light_off.write(False)
+            
+            light_off.wait_until_done()
+    
+            if self.verbalize :
+                print("Turning off " + self.name)
 
 class Speaker(HW_element) :
     def play(self,sound) :
@@ -142,14 +160,16 @@ class Piezo_set() :
     
     def callback(self,task_handle, every_n_samples_event_type, number_of_samples, callback_data):
         
-        self.c += 1
+        #self.c += 1
         
         #print(self.c)
-        
-        l_event = self.task.read(int(detection_per_timestep))
-        #print(np.shape(l_event))
+        #with mx.Task() as ttest :
+        #print(self.lick_events)
+        l_event = self.task.read(detection_per_timestep)
+        #self.task.wait_until_done()
+        #ttest.start()
         self.lick_events += l_event
-        #print(np.shape(self.lick_events))
+        
         if True in l_event[0] :
             print("Lick detected on " + self.piezos[0].name)
             if self.onResponse :
@@ -190,10 +210,12 @@ class Piezo_set() :
 
             self.task.register_every_n_samples_acquired_into_buffer_event(detection_per_timestep, self.callback)
             
-            
             self.task.start()
-                
+            
+            #self.lick_events = self.task.read(int(detection_per_timestep/timestep*duration))
+            
             wait(duration)
+            
             
         self.lick_events = []
         #print(len(self.lick_events))
@@ -205,28 +227,29 @@ class Piezo_set() :
     
 
 class Motor(HW_element) :
-    def prepare_tasks(self) :
+
+    def activate(self) :
         if not self.check_port() :
             return
         
-        self.act_motor = mx.Task()
-        self.act_motor.do_channels.add_do_chan(self.port)
-        
-        
-        self.des_motor = mx.Task()
-        self.des_motor.do_channels.add_do_chan(self.port)
-
-    
-    def activate(self) :
-        self.act_motor.write(True)
-        
-        self.act_motor.wait_until_done()
+        with mx.Task() as act_motor :
+            act_motor.do_channels.add_do_chan(self.port)
+            
+            act_motor.write(True)
+            
+            act_motor.wait_until_done()
         
     
     def desactivate(self) :
-        self.des_motor.write(False)
+        if not self.check_port() :
+            return
         
-        self.des_motor.wait_until_done()
+        with mx.Task() as desact_motor :
+            desact_motor.do_channels.add_do_chan(self.port)
+                
+            desact_motor.write(False)
+            
+            desact_motor.wait_until_done()
         
         
         

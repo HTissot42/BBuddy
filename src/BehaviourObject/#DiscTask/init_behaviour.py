@@ -201,9 +201,9 @@ class Trial:
             print('Licked on correct side')
             if not self.rewarded :
                 self.rewarded = True
-                delivering_pumps[response < 0].activate()
+                delivering_pumps[int(response < 0)].activate()
                 wait(pump_duration)
-                delivering_pumps[response < 0].desactivate()
+                delivering_pumps[int(response < 0)].desactivate()
                 
         else :
             print('Licked on incorrect side')

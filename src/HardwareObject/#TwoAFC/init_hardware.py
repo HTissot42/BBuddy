@@ -12,7 +12,7 @@ pump_duration = var_to_ask[0]
 ###---###
 
 
-card_ID = "Dev2/"
+card_ID = "D0/"
 
 
 
@@ -48,20 +48,29 @@ l_motor.configure_port(card_ID+"port1/line7")
 r_piezo.configure_port(card_ID+"port0/line5")
 l_piezo.configure_port(card_ID+"port0/line3")
 
+r_motor.desactivate()
+l_motor.desactivate()
+
+b_light.turnOff()
+r_light.turnOff()
+
+r_pump.desactivate()
+l_pump.desactivate()
+
 hw_setup.speakers = [speaker]
 hw_setup.pumps = [r_pump, l_pump]
 hw_setup.lights = [b_light, r_light]
 hw_setup.motors = [r_motor, l_motor]
 hw_setup.piezos = [r_piezo, l_piezo]
 
-for p in hw_setup.pumps :
-    p.prepare_tasks()
+#for p in hw_setup.pumps :
+#    p.prepare_tasks()
 
-for l in hw_setup.lights :
-    l.prepare_tasks()
+#for l in hw_setup.lights :
+#    l.prepare_tasks()
 
-for m in hw_setup.motors :
-    m.prepare_tasks()
+#for m in hw_setup.motors :
+#    m.prepare_tasks()
     
 
 

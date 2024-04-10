@@ -16,7 +16,6 @@ frequencies, am_rates ,target_pitch, boundary, amp, stim_set = var_to_ask
 
 duration = 5
 
-print(boundary)
 
 
 stims = np.array([[Tone_AM_modulated(amp,freq,am,duration) for freq in frequencies] for am in am_rates])

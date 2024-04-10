@@ -1,7 +1,7 @@
 import nidaqmx as mx
 import numpy as np
 
-sample_rate = 1000000
+sample_rate = 50000
 
 class Sound:
     def __init__(self, duration) :
@@ -30,5 +30,5 @@ class Tone_AM_modulated(Sound) :
         
         super().__init__(duration)
         
-        T = np.linspace(0,duration,sample_rate)
+        T = np.linspace(0,duration,sample_rate*duration)
         self.waveform = amp*np.cos(2*np.pi*am_rate*T)*np.sin(2*np.pi*freq*T)

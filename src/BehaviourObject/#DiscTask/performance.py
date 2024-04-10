@@ -136,8 +136,6 @@ class Performance_plot() :
         self.responses.append(self.trial.response)
         self.rewards.append(self.trial.rewarded)
         
-        print(self.trial.response)
-        print(self.trial.rewarded)
         
         r1_rate, r2_rate, no_r_rate, dprime1, dprime2 = \
             compute_recent_perf(self.responses, self.rewards)
@@ -201,11 +199,11 @@ class Performance_plot() :
                 #print(np.shape(last_licks))
 
                 if True in last_licks[0] :
-                    print('L R')
+                    #print('L R')
                     self.canvas.create_rectangle(new_x, self.rec_height/2, \
                                                  new_x + 2, self.rec_height, fill = '#0009c2')
                 elif True in last_licks[1] :
-                    print('L L')
+                    #print('L L')
                     self.canvas.create_rectangle(new_x, self.rec_height/2, \
                                                  new_x + 2, self.rec_height, fill = '#c20029')
             
