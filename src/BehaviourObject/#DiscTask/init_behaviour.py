@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import random
 import time
@@ -5,11 +6,15 @@ from time_handling import tic, wait, timestep
 
 from gui_behaviour import load_var_from_buffer, var_to_ask, question
 
-
-from init_hardware import hw_setup, pump_duration
 from init_stim import stims
 from commands import Piezo_set
 import threading
+
+if 'init_hardware' in sys.modules.keys() :
+    del sys.modules['init_hardware']
+
+from init_hardware import hw_setup, pump_duration
+
 
 
 ###---###
@@ -38,6 +43,7 @@ n_stim = len(stims)
 
 ending_delay = trial_duration - response_window[-1]
 motor_lapse = 0.35
+
 
 
 
@@ -105,7 +111,6 @@ class Trial:
             self.motors = spout_motors
         
     def run_trial(self) :
-        
         
         self.start_time = time.time()
         
@@ -178,9 +183,8 @@ class Trial:
         
         
         if not self.isDummy :
-            #self.lick_events = piezos.lick_events
-            #print(len(piezos.lick_events))
             piezos.detect_lick(response_duration, self, isResponse = True)
+            #wait(0.05) # Waiting for the last detection to be done properly
             
         else :
             wait(response_duration)
@@ -201,8 +205,8 @@ class Trial:
             print('Licked on correct side')
             if not self.rewarded :
                 self.rewarded = True
-                delivering_pumps[int(response < 0)].activate()
-                wait(pump_duration)
+                delivering_pumps[int(response < 0)].activate(pump_duration)
+                #wait(pump_duration)
                 delivering_pumps[int(response < 0)].desactivate()
                 
         else :

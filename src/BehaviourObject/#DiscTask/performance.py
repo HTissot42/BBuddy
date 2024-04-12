@@ -87,7 +87,7 @@ class Performance_plot() :
         self.response_rates = []
         self.dprimes = []
         
-        self.rec_width = 1000
+        self.rec_width = 900
         self.rec_height = 200
         
         self.new_trial(init_trial)

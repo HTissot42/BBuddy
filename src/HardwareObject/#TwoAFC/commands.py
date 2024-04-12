@@ -42,7 +42,7 @@ class HW_element :
         
 
 class Pump(HW_element):
-    def activate(self) :
+    def activate(self, duration) :
         if not self.check_port() :
             return
         
@@ -52,6 +52,8 @@ class Pump(HW_element):
             pump_act.write(True)
             
             pump_act.wait_until_done()
+            
+            wait(duration)
         
             if self.verbalize :
                 print("Activating " + self.name)
@@ -160,14 +162,8 @@ class Piezo_set() :
     
     def callback(self,task_handle, every_n_samples_event_type, number_of_samples, callback_data):
         
-        #self.c += 1
-        
-        #print(self.c)
-        #with mx.Task() as ttest :
-        #print(self.lick_events)
         l_event = self.task.read(detection_per_timestep)
-        #self.task.wait_until_done()
-        #ttest.start()
+
         self.lick_events += l_event
         
         if True in l_event[0] :
@@ -196,18 +192,20 @@ class Piezo_set() :
         self.current_trial = trial
         
         self.lick_events = []
+        
         with mx.Task() as d_task :
             self.task = d_task
+    
             for piezo in self.piezos:
                 if not piezo.check_port() :
                     return
-
+    
                 self.task.di_channels.add_di_chan(piezo.port)
             
             self.task.timing.cfg_samp_clk_timing(int(detection_per_timestep/timestep),sample_mode=AcquisitionType.CONTINUOUS,\
                                                      samps_per_chan = int(detection_per_timestep/timestep*duration))
             
-
+    
             self.task.register_every_n_samples_acquired_into_buffer_event(detection_per_timestep, self.callback)
             
             self.task.start()

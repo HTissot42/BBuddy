@@ -70,7 +70,8 @@ def load_var_from_buffer(label, var) :
         
         for t in title :
             idx = label.index(t)
-            var[idx] = unwrap(value[idx]) 
+            var[idx] = unwrap(value[idx])
+            
 
 
 

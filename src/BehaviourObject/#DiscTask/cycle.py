@@ -23,7 +23,5 @@ def cycle():
 
 
 p_plot = Performance_plot(trials[0],len(trials))
-
 threading.Thread(target = cycle, daemon=True).start()
-
 p_plot.loop()

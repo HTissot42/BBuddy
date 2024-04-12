@@ -64,4 +64,5 @@ def initialize_object() :
     execfile(f_path + "/HardwareObject/" + hw_object + "/init_hardware.py")
     execfile(f_path + "/StimObject/" + s_object + "/init_stim.py")
     execfile(f_path + "/BehaviourObject/" + b_object + "/init_behaviour.py")
+    
 

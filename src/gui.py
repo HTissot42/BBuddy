@@ -1,9 +1,20 @@
+import IPython
+IPython.Application.instance().kernel.do_shutdown(True)
+"""
+for name in dir():
+    if not name.startswith('_'):
+        del globals()[name]
+"""
 from tkinter import *
 from tkinter import ttk, messagebox, filedialog, StringVar, Checkbutton, IntVar, DoubleVar, END
 import csv
 import os
 import sys
 from bbuddy import b_object, s_object, hw_object, refresh_path, initialize_object, execfile
+import warnings
+
+warnings.filterwarnings(action="ignore", message="unclosed", category=ResourceWarning)
+
 
 f_path = os.path.dirname(__file__)
 
@@ -16,6 +27,7 @@ def execute_all_gui() :
     execfile(f_path + "/StimObject/" + s_object + "/gui_stim.py")
 """
 def execute_all_gui() :
+    
     exec(open(f_path + "/HardwareObject/" + hw_object + "/gui_hardware.py").read())
     exec(open(f_path + "/BehaviourObject/" + b_object + "/gui_behaviour.py").read())
     exec(open(f_path + "/StimObject/" + s_object + "/gui_stim.py").read())

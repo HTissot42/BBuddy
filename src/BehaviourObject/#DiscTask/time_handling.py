@@ -1,6 +1,6 @@
 import time
 
-timestep = 1/30
+timestep = 1/20
 
 def tic() :
     #t1 = time.time()
