@@ -13,12 +13,16 @@ import sys
 from bbuddy import b_object, s_object, hw_object, refresh_path, initialize_object, execfile
 import warnings
 
+from datetime import date, datetime
+
 warnings.filterwarnings(action="ignore", message="unclosed", category=ResourceWarning)
 
 
 f_path = os.path.dirname(__file__)
 
+now = datetime.now()
 
+current_date = now.strftime("%d%m%Y %H%M")
 
 
 def execute_all_gui() :
@@ -57,7 +61,6 @@ for hw_file in hw_files :
         
 
 
-
 def set_entry_value(entry, value):
     entry.delete(0, END)  # Clear the existing value in the entry
     entry.insert(0, value)
@@ -66,18 +69,15 @@ def set_entry_value(entry, value):
 
 class GUI :
     def __init__(self, size ="900x900"):
-        
-        
         root = Tk() 
 
         root.geometry(size)
         root.protocol("WM_DELETE_WINDOW", self.on_closing)
-        root.title("Bbuddy")
+        root.title("Bbuddy " + current_date)
         
         root.option_add("*Font", "aerial 15")
         root.option_add("*Label.Font", "aerial 16 bold")
         
-        #root.wm_attributes("-alpha", 0.7)
         
         self.root = root
         
@@ -85,17 +85,12 @@ class GUI :
         
         self.header.pack(fill='both',side='top')
         Label(self.header,text = 'Ferret name').pack(fill='both',side='left')
-        #Label(self.header,text = 'Ferret name').grid(row=0,column=0)
         animal_entry = Entry(self.header)
         
-        
-        #Label(self.header,text = 'Save directory').grid(row=0,column=2)
         btn_text = StringVar()
         self.btn_text = btn_text
         save_path = Button(self.header,text=self.btn_text, command=self.browse_button)
         
-        #animal_entry.grid(row = 1, column = 0)
-        #save_path.grid(row = 1, column = 2)
         
         animal_entry.pack(fill='both',side='left')
         save_path.pack(fill='both',side='right')
@@ -120,36 +115,32 @@ class GUI :
         
         start_button = Button(last_line,text='Start', command=self.load_all_params)
         start_button.pack(fill='both',side='right', expand='True')
-        #start_button.grid(row = 20, column = 2)
         start_button.configure(bg='blue')
         
         
         stop_button = Button(last_line,text='Stop', command=self.stop_gui)
         stop_button.pack(fill='both',side='left', expand='True')
-        #stop_button.grid(row = 20, column = 0)
         stop_button.configure(bg='red')
 
         
         
         self.bfrm = Frame(root,border=25)
-        #b_frm.grid(row = 2, column = 0)
         self.bfrm.pack(fill='both', side='left')
         
         
         
         self.sfrm = Frame(root,border=25)
-        #s_frm.grid(row = 2, column = 1)
         self.sfrm.pack(fill='both',side='left')
         
         
         self.hwfrm = Frame(root,border=25)
         
-        #hw_frm.grid(row = 2, column = 2)
         self.hwfrm.pack(fill='both',side='left')
         
 
         self.load_choice_box()
-
+        
+        self.date = current_date
     
     def load_general(self) :
         self.animal = self.animal_entry.get()
@@ -164,19 +155,15 @@ class GUI :
     def load_choice_box(self) :
         b_choicebox = Label(self.bfrm, text = "Behaviour object:")
         b_choicebox.pack(fill='both',side='top')
-        #b_choicebox.grid(row=0,column=0)
         
         s_choicebox = Label(self.sfrm, text = "Stim object:")
         s_choicebox.pack(fill='both',side='top')
-        #s_choicebox.grid(row=0,column=0)
         
         hw_choicebox = Label(self.hwfrm, text = "Hardware object:")
         hw_choicebox.pack(fill='both',side='top')
-        #hw_choicebox.grid(row=0,column=0)
         
         b_choicelist = ttk.Combobox(self.bfrm, values=b_obj_list)
         b_choicelist.pack(fill='both',side='top')
-        #b_choicelist.grid(row=1,column=0)
         b_choicelist.current(0)
         b_object = b_obj_list[0]
         
@@ -184,7 +171,6 @@ class GUI :
 
         s_choicelist = ttk.Combobox(self.sfrm, values=s_obj_list)
         s_choicelist.pack(fill='both',side='top')
-        #s_choicelist.grid(row=1,column=0)
         s_choicelist.current(0)
         s_object = s_obj_list[0]
         
@@ -192,7 +178,6 @@ class GUI :
 
         hw_choicelist = ttk.Combobox(self.hwfrm, values=hw_obj_list)
         hw_choicelist.pack(fill='both',side='top')
-        #hw_choicelist.grid(row=1,column=0)
         hw_choicelist.current(0)
         hw_object = hw_obj_list[0]
         
@@ -200,24 +185,20 @@ class GUI :
         
         self.refresh_object()
         
-        #self.b_choice.bind('<<ComboboxSelected>>',self.test)
         self.b_choice.bind('<<ComboboxSelected>>',self.load_gui_behaviour)
         self.s_choice.bind('<<ComboboxSelected>>',self.load_gui_stim)
         self.hw_choice.bind('<<ComboboxSelected>>',self.load_gui_hardware)
         
         b_entries = Frame(self.bfrm)
         b_entries.pack(fill='both',side='top')
-        #b_entries.grid(row=2,column=0)
         self.b_entries = b_entries
         
         s_entries = Frame(self.sfrm)
         s_entries.pack(fill='both',side='top')
-        #s_entries.grid(row=2,column=0)
         self.s_entries = s_entries
 
         hw_entries = Frame(self.hwfrm)
         hw_entries.pack(fill='both',side='top')
-        #hw_entries.grid(row=2,column=0)
         self.hw_entries = hw_entries
         
         self.load_gui_behaviour(None)
@@ -280,13 +261,10 @@ class GUI :
         for field in query.gui_fields :
             label = Label(parent, text = field[0])
             label.pack(fill='both',side='top', expand='True')
-            #label.grid(row = c, column = 0)
             if field[1] == 'Edit' :
                 widg = Entry(parent)
                 widg.pack(fill='both',side='top', expand='True')
-                #widg.grid(row = c+1, column = 0)
                 set_entry_value(widg, query.variables[int(c/2)])
-                #if not query.completed :
                 query.widget.append(widg)
                     
                 
@@ -295,20 +273,19 @@ class GUI :
                 var.set(bool(query.variables[int(c/2)]))
                 widg = Checkbutton(parent, variable = var)
                 widg.pack(fill='both',side='top', expand='True')
-                #widg.grid(row = c+1, column = 0)
-                #if not query.completed :
+
                 query.widget.append(var)
             
             elif field[1][:7] == 'Choice ' :
                 possibilities = field[1][7:].split(',')
                 widg = ttk.Combobox(parent, values=possibilities)
                 widg.pack(fill='both',side='top', expand='True')
-                #widg.grid(row = c+1, column = 0)
+
                 
                 choice_idx = possibilities.index(query.variables[int(c/2)])
                 widg.current(choice_idx)
                 
-                #if not query.completed :
+
                 query.widget.append(widg)
                         
             
@@ -338,9 +315,10 @@ class GUI :
         
         initialize_object()
 
-        #exec(open(f_path + "/BehaviourObject/" + b_object + "/cycle.py").read())
-        execfile(f_path + "/BehaviourObject/" + b_object + "/cycle.py")
+        #execfile(f_path + "/BehaviourObject/" + b_object + "/cycle.py")
+        from cycle import run_cycle
         
+        run_cycle(self.animal,self.date,self.dirname)
     
     def loop(self) :
         self.root.mainloop()
@@ -385,6 +363,9 @@ class GUI :
                     self.animal = value[title.index(t)]
                 elif t == 'Save directory' :
                     self.dirname = value[title.index(t)]
+                    
+    
+        
 
 
 

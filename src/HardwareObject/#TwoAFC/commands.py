@@ -214,8 +214,10 @@ class Piezo_set() :
             
             wait(duration)
             
-            
+        output = self.lick_events.copy()
         self.lick_events = []
+        
+        return output
         #print(len(self.lick_events))
 
 

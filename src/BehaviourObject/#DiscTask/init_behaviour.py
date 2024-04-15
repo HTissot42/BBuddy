@@ -42,7 +42,7 @@ n_stim = len(stims)
 
 
 ending_delay = trial_duration - response_window[-1]
-motor_lapse = 0.35
+motor_lapse = 0.4
 
 
 
@@ -139,8 +139,6 @@ class Trial:
         
         wait(waiting_for_response)
         
-        #self.run_response(spout_motors,detecting_piezos)
-        
         wait(self.timeline.ending)
         
         
@@ -167,8 +165,6 @@ class Trial:
             
             speaker.play(self.stim)
         
-        #wait(stim_duration)
-    
     
     def run_response(self, motors, piezos) :
         
@@ -183,8 +179,7 @@ class Trial:
         
         
         if not self.isDummy :
-            piezos.detect_lick(response_duration, self, isResponse = True)
-            #wait(0.05) # Waiting for the last detection to be done properly
+            self.licks = piezos.detect_lick(response_duration, self, isResponse = True)
             
         else :
             wait(response_duration)
@@ -193,7 +188,7 @@ class Trial:
         
         print(self.rewarded)
         if self.rewarded :
-            wait(pump_duration)
+            wait(1)
         
         if not self.isDummy : 
             for motor in motors :
