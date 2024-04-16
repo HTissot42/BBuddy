@@ -54,6 +54,9 @@ def cycle():
         p_plot.refresh_plot()
         
         n+=1
+        
+    if p_plot.ask_repetition() :
+        cycle()
 
 
 def run_cycle(animal, date, savedir) :

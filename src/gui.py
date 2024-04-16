@@ -15,7 +15,9 @@ import warnings
 
 from datetime import date, datetime
 
-warnings.filterwarnings(action="ignore", message="unclosed", category=ResourceWarning)
+#warnings.filterwarnings(action="ignore", message="unclosed", category=ResourceWarning)
+#warnings.filterwarnings(action="ignore", message="Enable", category=ResourceWarning)
+warnings.simplefilter('ignore', ResourceWarning)
 
 
 f_path = os.path.dirname(__file__)

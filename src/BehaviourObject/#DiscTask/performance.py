@@ -257,3 +257,12 @@ class Performance_plot() :
         self.refresh_header()
         
         self.cleared = False
+        
+    def ask_repetition(self) :
+        user_answer = messagebox.askquestion(title="Session finished !", message="Repeat the session ?")
+        if user_answer == 'yes' :
+            return True
+        
+        elif user_answer == 'no' :
+            return False
+        
