@@ -1,15 +1,32 @@
 import nidaqmx as mx
 from commands import *
 
-from gui_hardware import load_var_from_buffer, var_to_ask, question
+#from gui_hardware import load_var_from_buffer, var_to_ask, question
+from gui_hardware import hw_query, unwrap
 
-
-
+'''
 ###---###
-load_var_from_buffer(question, var_to_ask)
+hw_query.load_var_from_buffer(question, var_to_ask)
 
-pump_duration = var_to_ask[0]
+water_amount = var_to_ask[0]
 ###---###
+'''
+
+var = hw_query.variables.copy()
+#print(var)
+for i in range(len(var)) :
+    var[i] = unwrap(var[i])
+
+water_amount = var[0]
+
+
+# Measured by Hugo the 1st of May, 2024
+right_pump_rate = 0.11   #mL/s
+left_pump_rate = 0.13   #mL/s
+
+
+right_pump_duration = water_amount/right_pump_rate
+left_pump_duration = water_amount/left_pump_rate
 
 
 card_ID = "D0/"
@@ -29,8 +46,8 @@ r_light = Light('Red light')
 r_pump.configure_port(card_ID+"port1/line5")
 l_pump.configure_port(card_ID+"port1/line3")
 
-b_light.configure_port(card_ID+"port0/line4")
-r_light.configure_port(card_ID+"port2/line3")
+b_light.configure_port(card_ID+"port0/line5")
+r_light.configure_port(card_ID+"port1/line4")
 
 speaker = Speaker('Speaker')
 
@@ -45,7 +62,7 @@ l_piezo = Piezo('Left Piezo')
 r_motor.configure_port(card_ID+"port0/line7")
 l_motor.configure_port(card_ID+"port1/line7")
 
-r_piezo.configure_port(card_ID+"port0/line5")
+r_piezo.configure_port(card_ID+"port0/line4")
 l_piezo.configure_port(card_ID+"port0/line3")
 
 r_motor.desactivate()

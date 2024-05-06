@@ -6,11 +6,15 @@ import csv
 
 hw_f_path = os.path.dirname(__file__)
 
-question =   ['Pump duration']
-var_to_ask = [0.3]
+question =   ['Water amount (mL)']
+var_to_ask = [0.2]
 w_types =    ['Edit']
 
 def unwrap(string) :
+    if (type(string) == int) or (type(string) == float) :
+        return string
+    
+    
     if ' ' in string :
     
         splitted_string = string.split()
@@ -39,45 +43,56 @@ class Hardware_query:
     def clear_widget(self) :
         self.widget = []
     
-    def load_parameters(self) :
-
+    def load_parameters(self, name) :
+        
+        for i in range(len(self.variables)) :
+            self.variables[i] = self.widget[i].get()
+        
+        
         pump_duration = self.variables
         
-        with open(hw_f_path + '/hardware_param_buffer.csv', 'w', newline='') as csvfile:
+        with open(hw_f_path + '/Buffer/hardware_param_buffer_' + name + '.csv', 'w', newline='') as csvfile:
             fieldnames = question
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
             writer.writeheader()
             input_dict = {question[i]:self.variables[i] for i in range(len(self.variables))}
             writer.writerow(input_dict)
+            
+                
+        
+    def load_var_from_buffer(self, name, label=question, var=var_to_ask) :
+        if os.path.isfile(hw_f_path + '/Buffer/hardware_param_buffer_' + name + '.csv') :
+            with open(hw_f_path + '/Buffer/hardware_param_buffer_' + name + '.csv',newline='') as csvfile:
+                buffer_reader = csv.reader(csvfile, delimiter=',')
+                
+                c = 0
+                for row in buffer_reader :
+                    if c == 0 :   
+                        title = row
+                    elif c == 1 :            
+                        value = row
+                    
+                    c += 1
+                
+                
+                for t in title :
+                    idx = label.index(t)
+                    var[idx] = unwrap(value[idx])
+                    
+                    
+            self.build_queries()
+                
+    def build_queries(self):
+        self.variables = []
+        self.gui_fields = []
+        for v in range(len(var_to_ask)) :
+            hw_query.add_query(var_to_ask[v],question[v],w_types[v])
+                
+
                 
 hw_query = Hardware_query()
-
-
-def load_var_from_buffer(label, var) :
-    with open(hw_f_path + '/hardware_param_buffer.csv',newline='') as csvfile:
-        buffer_reader = csv.reader(csvfile, delimiter=',')
-        
-        c = 0
-        for row in buffer_reader :
-            if c == 0 :   
-                title = row
-            elif c == 1 :            
-                value = row
-            
-            c += 1
-        
-        
-        for t in title :
-            idx = label.index(t)
-            var[idx] = unwrap(value[idx])
-            
+hw_query.build_queries
 
 
 
-if os.path.isfile(hw_f_path + '/hardware_param_buffer.csv') :
-    load_var_from_buffer(question, var_to_ask)
-
-
-for v in range(len(var_to_ask)) :
-    hw_query.add_query(var_to_ask[v],question[v],w_types[v])

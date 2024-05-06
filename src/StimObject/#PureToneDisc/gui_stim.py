@@ -20,6 +20,9 @@ question =   ['Sound frequencies', 'AM rates', 'Target', 'Category boundary', 'A
 w_types =    ['Edit', 'Edit', 'Choice High,Low', 'Edit', 'Edit', 'Choice All,TargetOnly,RefOnly']
 
 def unwrap(string) :
+    if (type(string) == int) or (type(string) == float) :
+        return string
+    
     isText = any(c.isalpha() for c in string)
     
     if isText :
@@ -55,14 +58,14 @@ class Stim_query:
     def clear_widget(self) :
         self.widget = []
     
-    def load_parameters(self) :
+    def load_parameters(self, name) :
         #for i in range(len(self.variables)) :
         #    self.variables[i] = self.widget[i].get()
             
         #frequencies, target_pitch = self.variables
             
         
-        with open(s_f_path + '/stim_param_buffer.csv', 'w', newline='') as csvfile:
+        with open(s_f_path + '/Buffer/stim_param_buffer_' + name+ '.csv', 'w', newline='') as csvfile:
             fieldnames = question
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
@@ -70,38 +73,44 @@ class Stim_query:
             input_dict = {question[i]:self.variables[i] for i in range(len(self.variables))}
             writer.writerow(input_dict)
                 
+                
         
+    def load_var_from_buffer(self, name, label=question, var=var_to_ask) :
+        if os.path.isfile(s_f_path + '/Buffer/stim_param_buffer_' + name + '.csv') :
+            with open(s_f_path + '/Buffer/stim_param_buffer_' + name + '.csv',newline='') as csvfile:
+                buffer_reader = csv.reader(csvfile, delimiter=',')
+                
+                c = 0
+                for row in buffer_reader :
+                    if c == 0 :   
+                        title = row
+                    elif c == 1 :            
+                        value = row
+                    
+                    c += 1
+                
+                
+                for t in title :
+                    idx = label.index(t)
+                    var[idx] = unwrap(value[idx])
+                    
+            self.build_queries()
+    
+    
+        
+    def build_queries(self) :
+        self.variables = []
+        self.gui_fields = []
+        for v in range(len(var_to_ask)) :
+            s_query.add_query(var_to_ask[v],question[v],w_types[v])
+                        
 s_query = Stim_query()
-
-
-
-def load_var_from_buffer(label, var) :
-    with open(s_f_path + '/stim_param_buffer.csv',newline='') as csvfile:
-        buffer_reader = csv.reader(csvfile, delimiter=',')
-        
-        c = 0
-        for row in buffer_reader :
-            if c == 0 :   
-                title = row
-            elif c == 1 :            
-                value = row
-            
-            c += 1
-        
-        
-        for t in title :
-            idx = label.index(t)
-            var[idx] = unwrap(value[idx]) 
-
-
-
-if os.path.isfile(s_f_path + '/stim_param_buffer.csv') :
-    load_var_from_buffer(question, var_to_ask)
+s_query.build_queries()
 
 
 
 
-for v in range(len(var_to_ask)) :
-    s_query.add_query(var_to_ask[v],question[v],w_types[v])
+
+
 
     

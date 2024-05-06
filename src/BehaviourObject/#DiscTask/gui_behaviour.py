@@ -32,6 +32,9 @@ w_types =    ['Edit', 'Edit', 'Edit', 'Edit', \
 
 
 def unwrap(string) :
+    if (type(string) == int) or (type(string) == float) :
+        return string
+    
     isText = any(c.isalpha() for c in string)
     
     if isText :
@@ -67,9 +70,9 @@ class Behaviour_query:
     def clear_widget(self) :
         self.widget = []
     
-    def load_parameters(self) :
-        #for i in range(len(self.variables)) :
-        #    self.variables[i] = self.widget[i].get()
+    def load_parameters(self, name) :
+        for i in range(len(self.variables)) :
+            self.variables[i] = self.widget[i].get()
         """
         n_block, rep_per_block, trial_duration, light_window,\
         stim_window, response_delay, response_window, one_motor, \
@@ -79,46 +82,54 @@ class Behaviour_query:
         #print(trial_duration)
         
         
-        with open(b_f_path + '/behaviour_param_buffer.csv', 'w', newline='') as csvfile:
+        with open(b_f_path + '/Buffer/behaviour_param_buffer_' + name + '.csv', 'w', newline='') as csvfile:
             fieldnames = question
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
             writer.writeheader()
             input_dict = {question[i]:self.variables[i] for i in range(len(self.variables))}
             writer.writerow(input_dict)
+    
+    
+    def load_var_from_buffer(self, name, label = question, var = var_to_ask) :
+        if os.path.isfile(b_f_path + '/Buffer/behaviour_param_buffer_' + name + '.csv') :
+            with open(b_f_path + '/Buffer/behaviour_param_buffer_' + name + '.csv',newline='') as csvfile:
+                buffer_reader = csv.reader(csvfile, delimiter=',')
+                
+                c = 0
+                for row in buffer_reader :
+                    if c == 0 :   
+                        title = row
+                    elif c == 1 :            
+                        value = row
+                    
+                    c += 1
+                
+                
+                for t in title :
+                    idx = label.index(t)
+                    var[idx] = unwrap(value[idx])
+                    
+            self.build_queries()
 
-
+    def build_queries(self) :
+        self.variables = []
+        self.gui_fields = []
+        
+        for v in range(len(var_to_ask)) :
+            b_query.add_query(var_to_ask[v],question[v],w_types[v])
+        
+    
 b_query = Behaviour_query()
+b_query.build_queries()
 
 
 
 
-def load_var_from_buffer(label, var) :
-    with open(b_f_path + '/behaviour_param_buffer.csv',newline='') as csvfile:
-        buffer_reader = csv.reader(csvfile, delimiter=',')
-        
-        c = 0
-        for row in buffer_reader :
-            if c == 0 :   
-                title = row
-            elif c == 1 :            
-                value = row
-            
-            c += 1
-        
-        
-        for t in title :
-            idx = label.index(t)
-            var[idx] = unwrap(value[idx])
+    
 
 
 
-if os.path.isfile(b_f_path + '/behaviour_param_buffer.csv') :
-    load_var_from_buffer(question, var_to_ask)
 
-
-
-for v in range(len(var_to_ask)) :
-    b_query.add_query(var_to_ask[v],question[v],w_types[v])
 
     

@@ -4,7 +4,8 @@ import random
 import time
 from time_handling import tic, wait, timestep
 
-from gui_behaviour import load_var_from_buffer, var_to_ask, question
+#from gui_behaviour import load_var_from_buffer, var_to_ask, question
+from gui_behaviour import b_query, unwrap
 
 from init_stim import stims
 from commands import Piezo_set
@@ -13,10 +14,11 @@ import threading
 if 'init_hardware' in sys.modules.keys() :
     del sys.modules['init_hardware']
 
-from init_hardware import hw_setup, pump_duration
+from init_hardware import hw_setup, right_pump_duration, left_pump_duration
 
+pump_durations = [right_pump_duration,left_pump_duration]
 
-
+'''
 ###---###
 
 load_var_from_buffer(question, var_to_ask)
@@ -28,6 +30,16 @@ first_light, switch_task = var_to_ask
 
 
 ###---###
+
+'''
+var = b_query.variables.copy()
+#print(var)
+for i in range(len(var)) :
+    var[i] = unwrap(var[i])
+    
+n_block, rep_per_block, trial_duration, light_window,\
+stim_window, response_delay, response_window, one_motor, \
+first_light, switch_task = var
 
 
 
@@ -200,7 +212,9 @@ class Trial:
             print('Licked on correct side')
             if not self.rewarded :
                 self.rewarded = True
-                delivering_pumps[int(response < 0)].activate(pump_duration)
+                delivering_pumps[int(response < 0)].activate(pump_durations[int(response < 0)])
+                
+                print('Pump activated for ' + str(pump_durations[int(response < 0)]) + ' s')
                 #wait(pump_duration)
                 delivering_pumps[int(response < 0)].desactivate()
                 

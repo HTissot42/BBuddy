@@ -46,6 +46,7 @@ b_files = os.listdir(f_path + '/BehaviourObject/')
 s_files = os.listdir(f_path + '/StimObject/')
 hw_files = os.listdir(f_path + '/HardwareObject/')
 
+
 b_obj_list = []
 for b_file in b_files :
     if b_file.startswith("#") :
@@ -84,10 +85,25 @@ class GUI :
         self.root = root
         
         self.header = Frame(root, border = 25)
+
         
         self.header.pack(fill='both',side='top')
+        
+        
+        if os.path.isfile(f_path + '/general_param_buffer.csv') :
+            self.load_var_from_buffer()
+        
+        else :
+            self.animal = StringVar(value='')
+            self.dirname = ''
+        
+        self.animal.trace_add('write', self.name_callback)
+        
+        
         Label(self.header,text = 'Ferret name').pack(fill='both',side='left')
-        animal_entry = Entry(self.header)
+        animal_entry = Entry(self.header, textvariable = self.animal, validate='focusout')
+        #set_entry_value(animal_entry,self.animal.get())
+        #print(animal_entry.get())
         
         btn_text = StringVar()
         self.btn_text = btn_text
@@ -102,14 +118,8 @@ class GUI :
         Label(self.header,text = 'Save directory').pack(fill='both',side='right')
             
         
-        if os.path.isfile(f_path + '/general_param_buffer.csv') :
-            self.load_var_from_buffer()
+        set_entry_value(self.animal_entry, self.animal.get())
         
-        else :
-            self.animal = ''
-            self.dirname = ''
-        
-        set_entry_value(self.animal_entry, self.animal)
         
         
         last_line = Frame(self.root)
@@ -141,11 +151,14 @@ class GUI :
         
 
         self.load_choice_box()
+        self.name_callback()
+        
         
         self.date = current_date
     
     def load_general(self) :
-        self.animal = self.animal_entry.get()
+        pass
+        #self.animal = self.animal_entry.get()
 
     def browse_button(self):
         self.dirname = filedialog.askdirectory()
@@ -217,7 +230,7 @@ class GUI :
         execute_all_gui()
         
         
-    def load_gui_behaviour(self, event):
+    def load_gui_behaviour(self, *args):
         self.refresh_object()
         
         from gui_behaviour import b_query
@@ -226,10 +239,12 @@ class GUI :
         
         self.b_query = b_query
         
+        self.b_query.load_var_from_buffer(self.animal.get())
+        
         self.build_window(self.b_entries, self.b_query)
         
         
-    def load_gui_stim(self, event):
+    def load_gui_stim(self, *args):
         self.refresh_object()
         
         from gui_stim import s_query
@@ -241,7 +256,7 @@ class GUI :
         self.build_window(self.s_entries, self.s_query)
         
         
-    def load_gui_hardware(self, event):
+    def load_gui_hardware(self, *args):
         self.refresh_object()
         
         from gui_hardware import hw_query
@@ -306,9 +321,9 @@ class GUI :
             self.s_query.variables[i] = self.s_query.widget[i].get()
         
         
-        self.hw_query.load_parameters()
-        self.b_query.load_parameters()
-        self.s_query.load_parameters()
+        self.hw_query.load_parameters(self.animal.get())
+        self.b_query.load_parameters(self.animal.get())
+        self.s_query.load_parameters(self.animal.get())
         self.load_general()
         self.write_buffer()
         
@@ -320,7 +335,7 @@ class GUI :
         #execfile(f_path + "/BehaviourObject/" + b_object + "/cycle.py")
         from cycle import run_cycle
         
-        run_cycle(self.animal,self.date,self.dirname)
+        run_cycle(self.animal.get(),self.date,self.dirname)
     
     def loop(self) :
         self.root.mainloop()
@@ -342,7 +357,7 @@ class GUI :
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
             writer.writeheader()
-            input_dict = {'Animal' : self.animal, 'Save directory' : self.dirname}
+            input_dict = {'Animal' : self.animal.get(), 'Save directory' : self.dirname}
             writer.writerow(input_dict)
             
         
@@ -362,12 +377,21 @@ class GUI :
             
             for t in title :
                 if t == 'Animal' :
-                    self.animal = value[title.index(t)]
+                    self.animal = StringVar(value = value[title.index(t)])
                 elif t == 'Save directory' :
                     self.dirname = value[title.index(t)]
                     
     
+    def name_callback(self, *args):
+        #print('callback')
+        self.b_query.load_var_from_buffer(self.animal.get())
+        self.hw_query.load_var_from_buffer(self.animal.get())
+        self.s_query.load_var_from_buffer(self.animal.get())
         
+        
+        self.load_gui_behaviour()
+        self.load_gui_stim()
+        self.load_gui_hardware()
 
 
 
