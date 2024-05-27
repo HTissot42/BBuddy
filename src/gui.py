@@ -311,6 +311,7 @@ class GUI :
                 
     
     def load_all_params(self) :
+        
         for i in range(len(self.hw_query.variables)) :
             self.hw_query.variables[i] = self.hw_query.widget[i].get()
         
@@ -339,6 +340,7 @@ class GUI :
     
     def loop(self) :
         self.root.mainloop()
+        
     
     def on_closing(self):
         if messagebox.askokcancel("Quit", "Do you want to quit?"):

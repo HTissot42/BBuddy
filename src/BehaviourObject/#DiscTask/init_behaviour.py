@@ -38,7 +38,7 @@ for i in range(len(var)) :
     var[i] = unwrap(var[i])
     
 n_block, rep_per_block, trial_duration, light_window,\
-stim_window, response_delay, response_window, one_motor, \
+stim_window, response_delay, response_window, one_motor, motor_mode, \
 first_light, switch_task = var
 
 
@@ -55,6 +55,9 @@ n_stim = len(stims)
 
 ending_delay = trial_duration - response_window[-1]
 motor_lapse = 0.4
+
+if motor_mode == 'AtStart' :
+    motor_lapse = 0
 
 
 
@@ -121,9 +124,13 @@ class Trial:
         
         else :
             self.motors = spout_motors
+                
+        if motor_mode == 'AtStart' :
+            for motor in self.motors :
+                motor.activate()
+            self.motors = []
         
     def run_trial(self) :
-        
         self.start_time = time.time()
         
         if self.isDummy :
@@ -220,7 +227,8 @@ class Trial:
                 
         else :
             print('Licked on incorrect side')
-            spout_motors[int((1-response)/2)].desactivate()
+            #spout_motors[int((1-response)/2)].desactivate()
+            self.motors[int((1-response)/2)].desactivate()
             
             
 timeline = Timeline(trial_duration,light_window,stim_window,response_delay,response_window,ending_delay)
