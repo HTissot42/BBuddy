@@ -101,6 +101,12 @@ class Trial:
         
         self.response = 0
         self.rewarded = False
+        
+
+        self.checked = False
+        self.correct = False
+        
+        
         self.task = task
         self.isDummy = isDummy
         
@@ -215,8 +221,13 @@ class Trial:
                 
     def check_response(self, response) : 
         self.response = response
+        
         if int(self.identity) == response :
             print('Licked on correct side')
+            
+            if not self.checked :
+                self.correct = True
+            
             if not self.rewarded :
                 self.rewarded = True
                 delivering_pumps[int(response < 0)].activate(pump_durations[int(response < 0)])
@@ -230,6 +241,10 @@ class Trial:
             #spout_motors[int((1-response)/2)].desactivate()
             self.motors[int((1-response)/2)].desactivate()
             
+            if not self.checked :
+                self.correct = False
+        
+        self.checked = True
             
 timeline = Timeline(trial_duration,light_window,stim_window,response_delay,response_window,ending_delay)
 timeline.compute_timeserie()

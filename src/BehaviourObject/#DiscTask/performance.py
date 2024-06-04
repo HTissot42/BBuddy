@@ -38,21 +38,28 @@ def compute_recent_perf(responses, rewards) :
     h2 = np.sum(rew2 == 1)/sample_size
     fa2 = np.sum(rew2 == 0)/sample_size
     
+    """
     if h1 < 0.01 :
         dprime1 = -10
     elif h1 > 0.99 :
         dprime1 = 10
     else :
         dprime1 = compute_dprime(h1,fa1)
+    """
     
-        
+    """
     if h2 < 0.01 :
         dprime2 = -10
     elif h2 > 0.99 :
         dprime2 = 10
     else :
         dprime2 = compute_dprime(h2,fa2)
+    """
     
+    dprime1 = compute_dprime(h1,fa1)
+    dprime2 = compute_dprime(h2,fa2)
+    
+    print(dprime1, dprime2)
     
     return r1_rate, r2_rate, no_r_rate, dprime1, dprime2
 
@@ -82,7 +89,7 @@ class Performance_plot() :
         self.plot_formatting()
         
         self.responses = []
-        self.rewards = []
+        self.corrects = []
         
         self.response_rates = []
         self.dprimes = []
@@ -134,11 +141,11 @@ class Performance_plot() :
         
     def refresh_plot(self) :
         self.responses.append(self.trial.response)
-        self.rewards.append(self.trial.rewarded)
+        self.corrects.append(self.trial.correct)
         
         
         r1_rate, r2_rate, no_r_rate, dprime1, dprime2 = \
-            compute_recent_perf(self.responses, self.rewards)
+            compute_recent_perf(self.responses, self.corrects)
         
         self.response_rates.append([r1_rate, r2_rate, no_r_rate])
         self.dprimes.append([dprime1, dprime2])
