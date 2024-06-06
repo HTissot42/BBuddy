@@ -38,8 +38,8 @@ for i in range(len(var)) :
     var[i] = unwrap(var[i])
     
 n_block, rep_per_block, trial_duration, light_window,\
-stim_window, response_delay, response_window, one_motor, motor_mode, \
-first_light, switch_task = var
+stim_window, response_delay, response_window, one_motor, \
+motor_mode, desactivate_mode, first_light, switch_task = var
 
 
 
@@ -228,7 +228,7 @@ class Trial:
             if not self.checked :
                 self.correct = True
             
-            if not self.rewarded :
+            if not (self.rewarded)&(self.correct) :
                 self.rewarded = True
                 delivering_pumps[int(response < 0)].activate(pump_durations[int(response < 0)])
                 
@@ -239,10 +239,18 @@ class Trial:
         else :
             print('Licked on incorrect side')
             #spout_motors[int((1-response)/2)].desactivate()
+            
             self.motors[int((1-response)/2)].desactivate()
+
             
             if not self.checked :
+                
+                if desactivate_mode == 'Both' :
+                    for motor in self.motors :
+                        motor.desactivate()
+                        
                 self.correct = False
+                
         
         self.checked = True
             

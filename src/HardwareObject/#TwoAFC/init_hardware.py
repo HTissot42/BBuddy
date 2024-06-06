@@ -20,9 +20,9 @@ for i in range(len(var)) :
 water_amount = var[0]
 
 
-# Measured by Hugo the 1st of May, 2024
-right_pump_rate = 0.11   #mL/s
-left_pump_rate = 0.13   #mL/s
+# Measured by Hugo the 6th of June 2024 (water + nutriplus)
+right_pump_rate = 0.055   #mL/s
+left_pump_rate = 0.045   #mL/s
 
 
 right_pump_duration = water_amount/right_pump_rate

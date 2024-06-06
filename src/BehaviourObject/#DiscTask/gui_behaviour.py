@@ -12,13 +12,13 @@ b_f_path = os.path.dirname(__file__)
 
 
 question =   ['Block number','Repetition per block','Trial duration', 'Light window', \
-              'Stim window','Reponse delay','Response window','Motor for target only','Motor activation', \
-                'Light for first task', 'Switch task']
+              'Stim window','Reponse delay','Response window','Motor for target only',\
+              'Motor activation', 'Motor desactivation','Light for first task', 'Switch task']
     
 
 var_to_ask = [20, 1, 7,  [0,2], \
-              [1,2], 0.5, [2.5,6], 'Both',\
-                  'Always','Blue', False]
+              [1,2], 0.5, [2.5,6], False,\
+              'Always','IncorrectOnly','Blue', False]
 
 """
 v_types =  [int, int, float,  list, \
@@ -27,8 +27,8 @@ v_types =  [int, int, float,  list, \
 """
 
 w_types =    ['Edit', 'Edit', 'Edit', 'Edit', \
-              'Edit', 'Edit', 'Edit', 'CheckBox','Choice AtStart,Always', \
-             'Choice Blue,Red,NoLight', 'CheckBox']
+              'Edit', 'Edit', 'Edit', 'CheckBox',\
+              'Choice AtStart,Always','Choice IncorrectOnly,Both','Choice Blue,Red,NoLight', 'CheckBox']
 
 
 def unwrap(string) :
@@ -105,10 +105,11 @@ class Behaviour_query:
                     
                     c += 1
                 
-                
+                i = 0
                 for t in title :
                     idx = label.index(t)
-                    var[idx] = unwrap(value[idx])
+                    var[idx] = unwrap(value[i])
+                    i+=1
                     
             self.build_queries()
 

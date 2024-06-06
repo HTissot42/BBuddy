@@ -71,7 +71,7 @@ def set_entry_value(entry, value):
 
 
 class GUI :
-    def __init__(self, size ="900x900"):
+    def __init__(self, size ="900x1000"):
         root = Tk() 
 
         root.geometry(size)
@@ -298,7 +298,7 @@ class GUI :
                 widg = ttk.Combobox(parent, values=possibilities)
                 widg.pack(fill='both',side='top', expand='True')
 
-                
+
                 choice_idx = possibilities.index(query.variables[int(c/2)])
                 widg.current(choice_idx)
                 
