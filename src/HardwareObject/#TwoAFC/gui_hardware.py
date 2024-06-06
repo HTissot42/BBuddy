@@ -75,10 +75,11 @@ class Hardware_query:
                     
                     c += 1
                 
-                
+                i=0
                 for t in title :
                     idx = label.index(t)
-                    var[idx] = unwrap(value[idx])
+                    var[idx] = unwrap(value[i])
+                    i+=1
                     
                     
             self.build_queries()
