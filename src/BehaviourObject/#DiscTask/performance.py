@@ -14,12 +14,15 @@ def compute_dprime(h,fa) :
 
 
 integ_window = 25
+eps = 10**(-5)
 def compute_recent_perf(responses, rewards) :
     
     sample_size = min(len(responses),integ_window)
     
     resp_array = np.array(responses)[-sample_size:]
     rew_array = np.array(rewards)[-sample_size:]
+    
+
     
     response1 = (resp_array == 1)
     response2 = (resp_array == -1)
@@ -32,11 +35,18 @@ def compute_recent_perf(responses, rewards) :
     rew1 = rew_array[response1]
     rew2 = rew_array[response2]
     
-    h1 = np.sum(rew1 == 1)/sample_size
-    fa1 = np.sum(rew1 == 0)/sample_size
+    print(rew1)
+    print(rew2)
     
-    h2 = np.sum(rew2 == 1)/sample_size
-    fa2 = np.sum(rew2 == 0)/sample_size
+    h1 = np.sum(rew1 == 1)/(np.sum(response1) + eps)
+    fa1 = np.sum(rew1 == 0)/(np.sum(response1) + eps)
+    
+    h2 = np.sum(rew2 == 1)/(np.sum(response2) + eps)
+    fa2 = np.sum(rew2 == 0)/(np.sum(response2) + eps)
+    
+    print(h1, fa1)
+    print(h2, fa2)
+
     
     """
     if h1 < 0.01 :
@@ -101,9 +111,6 @@ class Performance_plot() :
         self.root.after(100, self.refresh)
         
         
-        
-
-        
         plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
         plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
 
@@ -143,6 +150,8 @@ class Performance_plot() :
         self.responses.append(self.trial.response)
         self.corrects.append(self.trial.correct)
         
+        print()
+        
         
         r1_rate, r2_rate, no_r_rate, dprime1, dprime2 = \
             compute_recent_perf(self.responses, self.corrects)
@@ -169,8 +178,6 @@ class Performance_plot() :
         self.axs[1].legend(loc="upper left")
         
         self.plot_formatting()
-        #plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
-        #plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
     
     def clear(self,frame) :
         for child in frame.winfo_children() :
@@ -198,19 +205,14 @@ class Performance_plot() :
             
             self.root.update()
             
-            #print(len(self.trial.piezos.lick_events))
             
             if len(self.trial.piezos.lick_events) > 0 :
-                #print(np.shape(self.trial.lick_events))
                 last_licks = self.trial.piezos.lick_events[-2:]
-                #print(np.shape(last_licks))
 
                 if True in last_licks[0] :
-                    #print('L R')
                     self.canvas.create_rectangle(new_x, self.rec_height/2, \
                                                  new_x + 2, self.rec_height, fill = '#0009c2')
                 elif True in last_licks[1] :
-                    #print('L L')
                     self.canvas.create_rectangle(new_x, self.rec_height/2, \
                                                  new_x + 2, self.rec_height, fill = '#c20029')
             
@@ -229,7 +231,6 @@ class Performance_plot() :
                 
         canvas = Canvas(self.root, border = 50)
         canvas.pack(fill='both',side='bottom',expand='True')
-        #canvas.grid(row=1,column=1)
                 
         self.canvas = canvas
         

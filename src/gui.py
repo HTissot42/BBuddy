@@ -352,6 +352,7 @@ class GUI :
         self.root.quit()
         
         
+        
     def write_buffer(self) :
     
         with open(f_path + '/general_param_buffer.csv', 'w', newline='') as csvfile:

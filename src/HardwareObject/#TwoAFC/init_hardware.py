@@ -21,8 +21,8 @@ water_amount = var[0]
 
 
 # Measured by Hugo the 6th of June 2024 (water + nutriplus)
-right_pump_rate = 0.055   #mL/s
-left_pump_rate = 0.045   #mL/s
+right_pump_rate = 0.1  #mL/s
+left_pump_rate = 0.1  #mL/s
 
 
 right_pump_duration = water_amount/right_pump_rate

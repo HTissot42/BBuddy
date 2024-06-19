@@ -55,6 +55,8 @@ n_stim = len(stims)
 
 ending_delay = trial_duration - response_window[-1]
 motor_lapse = 0.4
+patience = 0.25
+
 
 if motor_mode == 'AtStart' :
     motor_lapse = 0
@@ -220,21 +222,28 @@ class Trial:
                 motor.desactivate()
                 
     def check_response(self, response) : 
-        self.response = response
-        
+    
         if int(self.identity) == response :
             print('Licked on correct side')
             
             if not self.checked :
                 self.correct = True
-            
-            if not (self.rewarded)&(self.correct) :
-                self.rewarded = True
-                delivering_pumps[int(response < 0)].activate(pump_durations[int(response < 0)])
+                self.checked = True
                 
-                print('Pump activated for ' + str(pump_durations[int(response < 0)]) + ' s')
-                #wait(pump_duration)
-                delivering_pumps[int(response < 0)].desactivate()
+                self.response = response
+            
+            if (not self.rewarded) :
+                
+                if (desactivate_mode == 'Both')&(not self.correct) :
+                    pass
+                
+                else :
+                    self.rewarded = True
+                    delivering_pumps[int(response < 0)].activate(pump_durations[int(response < 0)])
+                    
+                    print('Pump activated for ' + str(pump_durations[int(response < 0)]) + ' s')
+                    #wait(pump_duration)
+                    delivering_pumps[int(response < 0)].desactivate()
                 
         else :
             print('Licked on incorrect side')
@@ -245,14 +254,18 @@ class Trial:
             
             if not self.checked :
                 
-                if desactivate_mode == 'Both' :
+                self.correct = False
+                self.error_time = time.time()
+                self.checked = True
+                
+                self.response = response
+                
+                if (desactivate_mode == 'Both') :
                     for motor in self.motors :
                         motor.desactivate()
                         
-                self.correct = False
                 
         
-        self.checked = True
             
 timeline = Timeline(trial_duration,light_window,stim_window,response_delay,response_window,ending_delay)
 timeline.compute_timeserie()
