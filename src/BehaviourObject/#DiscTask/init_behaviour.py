@@ -3,8 +3,6 @@ import numpy as np
 import random
 import time
 from time_handling import tic, wait, timestep
-
-#from gui_behaviour import load_var_from_buffer, var_to_ask, question
 from gui_behaviour import b_query, unwrap
 
 from init_stim import stims
@@ -18,28 +16,14 @@ from init_hardware import hw_setup, right_pump_duration, left_pump_duration
 
 pump_durations = [right_pump_duration,left_pump_duration]
 
-'''
-###---###
 
-load_var_from_buffer(question, var_to_ask)
-
-
-n_block, rep_per_block, trial_duration, light_window,\
-stim_window, response_delay, response_window, one_motor, \
-first_light, switch_task = var_to_ask
-
-
-###---###
-
-'''
 var = b_query.variables.copy()
-#print(var)
 for i in range(len(var)) :
     var[i] = unwrap(var[i])
     
 n_block, rep_per_block, trial_duration, light_window,\
 stim_window, response_delay, response_window, one_motor, \
-motor_mode, desactivate_mode, first_light, switch_task = var
+motor_mode, desactivate_mode, correction_p, first_light, switch_task = var
 
 
 
@@ -67,7 +51,6 @@ if motor_mode == 'AtStart' :
 
 class Timeline:
     def __init__(self, duration, cue, stim, delay, response, ending) :
-        #print(stim.istarget)
         self.duration = duration
         self.cue = cue
         self.stim = stim
@@ -104,7 +87,6 @@ class Trial:
         self.response = 0
         self.rewarded = False
         
-
         self.checked = False
         self.correct = False
         
@@ -139,6 +121,13 @@ class Trial:
             self.motors = []
         
     def run_trial(self) :
+        self.response = 0
+        self.rewarded = False
+        
+        self.checked = False
+        self.correct = False
+        
+        
         self.start_time = time.time()
         
         if self.isDummy :
@@ -167,6 +156,13 @@ class Trial:
         wait(waiting_for_response)
         
         wait(self.timeline.ending)
+        
+        if self.correct == False :
+            if np.random.rand() <= correction_p :
+                print('Correction trial added')
+                return True
+        else :
+            return False
         
         
     def run_light_cue(self, light) :
@@ -239,15 +235,20 @@ class Trial:
                 
                 else :
                     self.rewarded = True
-                    delivering_pumps[int(response < 0)].activate(pump_durations[int(response < 0)])
                     
-                    print('Pump activated for ' + str(pump_durations[int(response < 0)]) + ' s')
-                    #wait(pump_duration)
+                    if self.correct :
+                        pump_duration = pump_durations[int(response < 0)]
+                    else :
+                        
+                        pump_duration = pump_durations[int(response < 0)]/3
+                        
+                    delivering_pumps[int(response < 0)].activate(pump_duration)
+                    
+                    print('Pump activated for ' + str(pump_duration) + ' s')
                     delivering_pumps[int(response < 0)].desactivate()
                 
         else :
             print('Licked on incorrect side')
-            #spout_motors[int((1-response)/2)].desactivate()
             
             self.motors[int((1-response)/2)].desactivate()
 

@@ -40,12 +40,17 @@ def add_trial_to_data(t) :
 
 
 def cycle():
-    N = len(trials)
-    n=1
-    for trial in trials :
+    n=0
+    trials_to_run = trials
+    while n < len(trials):
+        trial = trials_to_run[n]
+        
         p_plot.new_trial(trial)
         
-        trial.run_trial()
+        repeat_for_correction = trial.run_trial()
+        
+        if repeat_for_correction :
+            trials_to_run = np.insert(trials_to_run,(n+1),trial)
         
         add_trial_to_data(trial)
         

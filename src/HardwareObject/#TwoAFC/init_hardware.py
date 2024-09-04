@@ -1,7 +1,5 @@
 import nidaqmx as mx
 from commands import *
-
-#from gui_hardware import load_var_from_buffer, var_to_ask, question
 from gui_hardware import hw_query, unwrap
 
 '''
@@ -13,21 +11,23 @@ water_amount = var_to_ask[0]
 '''
 
 var = hw_query.variables.copy()
-#print(var)
 for i in range(len(var)) :
     var[i] = unwrap(var[i])
 
 water_amount = var[0]
 
 
-# Measured by Hugo the 6th of June 2024 (water + nutriplus)
-right_pump_rate = 0.1  #mL/s
-left_pump_rate = 0.1  #mL/s
+
+# Measured by Hugo the 28th of June 2024 (water)
+right_pump_rate = 0.125  #mL/s
+left_pump_rate = 0.166  #mL/s
 
 
 right_pump_duration = water_amount/right_pump_rate
 left_pump_duration = water_amount/left_pump_rate
 
+
+#Spout setup : Left: 20,5 mm, Right: 20.6 mm 
 
 card_ID = "D0/"
 

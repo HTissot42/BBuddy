@@ -35,47 +35,22 @@ def compute_recent_perf(responses, rewards) :
     rew1 = rew_array[response1]
     rew2 = rew_array[response2]
     
-    print(rew1)
-    print(rew2)
-    
+
     h1 = np.sum(rew1 == 1)/(np.sum(response1) + eps)
     fa1 = np.sum(rew1 == 0)/(np.sum(response1) + eps)
     
     h2 = np.sum(rew2 == 1)/(np.sum(response2) + eps)
     fa2 = np.sum(rew2 == 0)/(np.sum(response2) + eps)
     
-    print(h1, fa1)
-    print(h2, fa2)
-
-    
-    """
-    if h1 < 0.01 :
-        dprime1 = -10
-    elif h1 > 0.99 :
-        dprime1 = 10
-    else :
-        dprime1 = compute_dprime(h1,fa1)
-    """
-    
-    """
-    if h2 < 0.01 :
-        dprime2 = -10
-    elif h2 > 0.99 :
-        dprime2 = 10
-    else :
-        dprime2 = compute_dprime(h2,fa2)
-    """
-    
+  
     dprime1 = compute_dprime(h1,fa1)
     dprime2 = compute_dprime(h2,fa2)
     
-    print(dprime1, dprime2)
     
     return r1_rate, r2_rate, no_r_rate, dprime1, dprime2
 
 
-class Performance_plot() :
-    
+class Performance_plot() :    
     def __init__(self, init_trial , nb_trial ,size ="900x900") :
         
         root = Tk() 
@@ -150,7 +125,6 @@ class Performance_plot() :
         self.responses.append(self.trial.response)
         self.corrects.append(self.trial.correct)
         
-        print()
         
         
         r1_rate, r2_rate, no_r_rate, dprime1, dprime2 = \

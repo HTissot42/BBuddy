@@ -13,12 +13,14 @@ b_f_path = os.path.dirname(__file__)
 
 question =   ['Block number','Repetition per block','Trial duration', 'Light window', \
               'Stim window','Reponse delay','Response window','Motor for target only',\
-              'Motor activation', 'Motor desactivation','Light for first task', 'Switch task']
+              'Motor activation', 'Motor desactivation','Correction trial probability','Light for first task',\
+              'Switch task']
     
 
 var_to_ask = [20, 1, 7,  [0,2], \
               [1,2], 0.5, [2.5,6], False,\
-              'Always','IncorrectOnly','Blue', False]
+              'Always','IncorrectOnly',0,'Blue', \
+              False]
 
 """
 v_types =  [int, int, float,  list, \
@@ -28,7 +30,8 @@ v_types =  [int, int, float,  list, \
 
 w_types =    ['Edit', 'Edit', 'Edit', 'Edit', \
               'Edit', 'Edit', 'Edit', 'CheckBox',\
-              'Choice AtStart,Always','Choice IncorrectOnly,Both','Choice Blue,Red,NoLight', 'CheckBox']
+              'Choice AtStart,Always','Choice IncorrectOnly,Both','Edit','Choice Blue,Red,NoLight',\
+              'CheckBox']
 
 
 def unwrap(string) :

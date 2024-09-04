@@ -1,19 +1,11 @@
 import numpy as np
 from sounds import PureTone, Tone_AM_modulated
 
-#from gui_stim import load_var_from_buffer, var_to_ask, question
 from gui_stim import s_query, unwrap
 
 ###---###
 
-"""
-load_var_from_buffer(question, var_to_ask)
-
-
-frequencies, am_rates ,target_pitch, boundary, amp, stim_set = var_to_ask
-"""
 var = s_query.variables.copy()
-#print(var)
 for i in range(len(var)) :
     var[i]=unwrap(var[i])
 

@@ -141,11 +141,8 @@ class Speaker(HW_element) :
             
             play_sound.write(sample,auto_start=True)
             
-            #time.sleep(sound.duration)
             play_sound.wait_until_done()
             play_sound.write([0 for _ in range(sample_rate//100)],auto_start=True)
-    
-            #print(len(sample) - succeed)
     
             play_sound.stop()
         
@@ -172,14 +169,12 @@ class Piezo_set() :
         if True in l_event[0] :
             print("Lick detected on " + self.piezos[0].name)
             if self.onResponse :
-                #self.current_trial.check_response(response = 1)
                 warnings.simplefilter('ignore', ResourceWarning)
                 threading.Thread(target = self.current_trial.check_response, args = (1,), daemon=True).start()
         
         elif True in l_event[1] :
             print("Lick detected on " + self.piezos[1].name)
             if self.onResponse :
-                #self.current_trial.check_response(response = -1)
                 warnings.simplefilter('ignore', ResourceWarning)
                 threading.Thread(target = self.current_trial.check_response, args = (-1,), daemon=True).start()
                     

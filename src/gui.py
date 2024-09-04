@@ -1,10 +1,6 @@
 import IPython
 IPython.Application.instance().kernel.do_shutdown(True)
-"""
-for name in dir():
-    if not name.startswith('_'):
-        del globals()[name]
-"""
+
 from tkinter import *
 from tkinter import ttk, messagebox, filedialog, StringVar, Checkbutton, IntVar, DoubleVar, END
 import csv
@@ -12,11 +8,9 @@ import os
 import sys
 from bbuddy import b_object, s_object, hw_object, refresh_path, initialize_object, execfile
 import warnings
-
 from datetime import date, datetime
 
-#warnings.filterwarnings(action="ignore", message="unclosed", category=ResourceWarning)
-#warnings.filterwarnings(action="ignore", message="Enable", category=ResourceWarning)
+
 warnings.simplefilter('ignore', ResourceWarning)
 
 
@@ -31,13 +25,7 @@ def execute_all_gui() :
     execfile(f_path + "/HardwareObject/" + hw_object + "/gui_hardware.py")
     execfile(f_path + "/BehaviourObject/" + b_object + "/gui_behaviour.py")
     execfile(f_path + "/StimObject/" + s_object + "/gui_stim.py")
-"""
-def execute_all_gui() :
-    
-    exec(open(f_path + "/HardwareObject/" + hw_object + "/gui_hardware.py").read())
-    exec(open(f_path + "/BehaviourObject/" + b_object + "/gui_behaviour.py").read())
-    exec(open(f_path + "/StimObject/" + s_object + "/gui_stim.py").read())
-"""
+
 
 execute_all_gui()
 
@@ -102,9 +90,7 @@ class GUI :
         
         Label(self.header,text = 'Ferret name').pack(fill='both',side='left')
         animal_entry = Entry(self.header, textvariable = self.animal, validate='focusout')
-        #set_entry_value(animal_entry,self.animal.get())
-        #print(animal_entry.get())
-        
+
         btn_text = StringVar()
         self.btn_text = btn_text
         save_path = Button(self.header,text=self.btn_text, command=self.browse_button)
@@ -158,7 +144,6 @@ class GUI :
     
     def load_general(self) :
         pass
-        #self.animal = self.animal_entry.get()
 
     def browse_button(self):
         self.dirname = filedialog.askdirectory()
@@ -333,7 +318,6 @@ class GUI :
         
         initialize_object()
 
-        #execfile(f_path + "/BehaviourObject/" + b_object + "/cycle.py")
         from cycle import run_cycle
         
         run_cycle(self.animal.get(),self.date,self.dirname)
@@ -386,7 +370,6 @@ class GUI :
                     
     
     def name_callback(self, *args):
-        #print('callback')
         self.b_query.load_var_from_buffer(self.animal.get())
         self.hw_query.load_var_from_buffer(self.animal.get())
         self.s_query.load_var_from_buffer(self.animal.get())

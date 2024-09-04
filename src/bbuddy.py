@@ -52,14 +52,6 @@ def refresh_path(b_obj, s_obj, hw_obj) :
     sys.path.append(s_path)
     sys.path.append(hw_path)
 
-
-"""
-def initialize_object() :
-    exec(open(f_path + "/HardwareObject/" + hw_object + "/init_hardware.py").read())
-    exec(open(f_path + "/StimObject/" + s_object + "/init_stim.py").read())
-    exec(open(f_path + "/BehaviourObject/" + b_object + "/init_behaviour.py").read())
-
-"""
 def initialize_object() :
     execfile(f_path + "/HardwareObject/" + hw_object + "/init_hardware.py")
     execfile(f_path + "/StimObject/" + s_object + "/init_stim.py")
