@@ -292,6 +292,7 @@ class GUI :
                         
             
             c+=2
+            
         query.completed = True
                 
     

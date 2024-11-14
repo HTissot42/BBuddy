@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter import ttk, Canvas, messagebox, filedialog, StringVar, Checkbutton, IntVar, DoubleVar, END
+from tkinter import ttk, Canvas, messagebox, filedialog, StringVar, Checkbutton, IntVar, DoubleVar, END, Button
 import time
 from time_handling import timestep
 import numpy as np
@@ -7,7 +7,11 @@ from init_hardware import hw_setup
 import matplotlib.pyplot as plt 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from scipy.stats import norm
+import os
 
+
+
+b_f_path = os.path.dirname(__file__)
 
 def compute_dprime(h,fa) :
     return norm.ppf(h) - norm.ppf(fa)
@@ -82,6 +86,14 @@ class Performance_plot() :
         self.rec_width = 900
         self.rec_height = 200
         
+        #print(os.getcwd())
+        
+        self.pause_image = PhotoImage(file = b_f_path + '/Pictures/pause_button.png')
+        self.play_image = PhotoImage(file = b_f_path + '/Pictures/play_button.png')
+        
+        self.in_pause = False
+        
+        
         self.new_trial(init_trial)
         self.root.after(100, self.refresh)
         
@@ -103,6 +115,10 @@ class Performance_plot() :
         self.axs[0].set_yticks([-1,0,1,2,3],[-1,0,1,2,3])
         self.axs[0].set_ylim((-1,3))
         
+        self.axs[0].axhline(0,linestyle='--',color='black',linewidth=0.5)
+        self.axs[0].axhline(2,linestyle='--',color='black',linewidth=0.5)
+        self.axs[0].axhline(1,linestyle='--',color='black',linewidth=0.5)
+        
         self.axs[0].set_facecolor('whitesmoke')
         self.axs[1].set_facecolor('whitesmoke')
 
@@ -118,6 +134,9 @@ class Performance_plot() :
             identity = 'Reference / Left'
             
         Label(self.header,text=identity).pack(fill='both',side='top')
+        
+        self.pause_button = Button(self.root, command = self.switch_pause, image = self.pause_image, height=40, width=40, bg='white')
+        self.pause_button.pack(side='top')
         
         self.root.update()
         
@@ -173,9 +192,18 @@ class Performance_plot() :
         
         if not self.cleared :
             
+            # New tkinter version syntax
+            delta_x = self.rec_width *  (time.time() - self.c_time)/self.trial.timeline.duration
+            self.canvas.move(self.c_pos, delta_x, 0)
+            
             self.c_time = time.time()
-            new_x = (self.c_time - self.start_time)*self.rec_width/self.trial.timeline.duration
-            self.canvas.moveto(self.c_pos, new_x, 0)
+            
+            # Old tkinter version syntax
+            #new_x = (self.c_time - self.start_time)*self.rec_width/self.trial.timeline.duration
+            #self.canvas.moveto(self.c_pos, new_x, 0)
+            
+            
+            
             
             self.root.update()
             
@@ -202,11 +230,12 @@ class Performance_plot() :
         
         plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
         plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
-                
+        
         canvas = Canvas(self.root, border = 50)
         canvas.pack(fill='both',side='bottom',expand='True')
                 
         self.canvas = canvas
+        
         
         self.canvas.create_rectangle(0, 0, self.rec_width, self.rec_height, fill = '#ddd')
        
@@ -239,7 +268,20 @@ class Performance_plot() :
         self.refresh_header()
         
         self.cleared = False
+    
+    def switch_pause(self) :
+        if self.in_pause:
+            self.pause_button.config(image = self.pause_image)
+
+        else :
+            self.pause_button.config(image = self.play_image)
         
+        self.in_pause = not self.in_pause
+        
+    def check_pause(self) :
+        while self.in_pause :
+            pass
+    
     def ask_repetition(self) :
         user_answer = messagebox.askquestion(title="Session finished !", message="Repeat the session ?")
         if user_answer == 'yes' :

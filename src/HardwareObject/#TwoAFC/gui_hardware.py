@@ -6,9 +6,9 @@ import csv
 
 hw_f_path = os.path.dirname(__file__)
 
-question =   ['Water amount (mL)']
-var_to_ask = [0.2]
-w_types =    ['Edit']
+question =   ['Water amount (mL)', 'Trigger at trial start']
+var_to_ask = [0.2, True]
+w_types =    ['Edit', 'CheckBox']
 
 def unwrap(string) :
     if (type(string) == int) or (type(string) == float) :

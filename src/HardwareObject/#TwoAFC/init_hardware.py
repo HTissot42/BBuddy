@@ -15,10 +15,10 @@ for i in range(len(var)) :
     var[i] = unwrap(var[i])
 
 water_amount = var[0]
+send_trig = var[1]
 
 
-
-# Measured by Hugo the 28th of June 2024 (water)
+# Measured by Hugo the 17th of september 2024 (water)
 right_pump_rate = 0.125  #mL/s
 left_pump_rate = 0.166  #mL/s
 
@@ -59,11 +59,17 @@ l_motor = Motor('Left motor')
 r_piezo = Piezo('Right Piezo')
 l_piezo = Piezo('Left Piezo')
 
+trigger = Trigger('Trial trigger')
+
 r_motor.configure_port(card_ID+"port0/line7")
 l_motor.configure_port(card_ID+"port1/line7")
 
 r_piezo.configure_port(card_ID+"port0/line4")
 l_piezo.configure_port(card_ID+"port0/line3")
+
+
+if send_trig :
+    trigger.configure_port(card_ID+"port0/line0")
 
 r_motor.desactivate()
 l_motor.desactivate()
@@ -79,6 +85,7 @@ hw_setup.pumps = [r_pump, l_pump]
 hw_setup.lights = [b_light, r_light]
 hw_setup.motors = [r_motor, l_motor]
 hw_setup.piezos = [r_piezo, l_piezo]
+hw_setup.triggers = [trigger]
 
 #for p in hw_setup.pumps :
 #    p.prepare_tasks()

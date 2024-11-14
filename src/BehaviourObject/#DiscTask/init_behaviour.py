@@ -32,7 +32,7 @@ delivering_pumps = hw_setup.pumps
 spout_motors = hw_setup.motors
 detecting_piezos = Piezo_set(hw_setup.piezos)
 light_cues = hw_setup.lights
-
+trial_trigger = hw_setup.triggers[0]
 
 n_stim = len(stims)
 
@@ -133,6 +133,7 @@ class Trial:
         if self.isDummy :
             print('This is a dummy trial')
         
+        trial_trigger.activate()
         
         threading.Thread(target = self.run_light_cue, args = (self.light_cue,), daemon=True).start()
         
@@ -156,6 +157,8 @@ class Trial:
         wait(waiting_for_response)
         
         wait(self.timeline.ending)
+        
+        trial_trigger.desactivate()
         
         if self.correct == False :
             if np.random.rand() <= correction_p :
@@ -211,7 +214,7 @@ class Trial:
         
         print(self.rewarded)
         if self.rewarded :
-            wait(1)
+            wait(1.5)
         
         if not self.isDummy : 
             for motor in motors :
@@ -240,7 +243,7 @@ class Trial:
                         pump_duration = pump_durations[int(response < 0)]
                     else :
                         
-                        pump_duration = pump_durations[int(response < 0)]/3
+                        pump_duration = pump_durations[int(response < 0)]/5
                         
                     delivering_pumps[int(response < 0)].activate(pump_duration)
                     
@@ -264,7 +267,8 @@ class Trial:
                 if (desactivate_mode == 'Both') :
                     for motor in self.motors :
                         motor.desactivate()
-                        
+    
+        
                 
         
             

@@ -56,6 +56,8 @@ def cycle():
         
         save_data()
         
+        p_plot.check_pause()
+        
         p_plot.refresh_plot()
         
         n+=1

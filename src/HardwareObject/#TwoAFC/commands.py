@@ -21,6 +21,7 @@ class HW_setup:
         self.lights = []
         self.motors = []
         self.piezos = []
+        self.triggers = []
 
 
 
@@ -254,4 +255,26 @@ class Motor(HW_element) :
             desact_motor.wait_until_done()
         
         
+
+class Trigger(HW_element) :
+    def activate(self) :
+        if not self.check_port() :
+            return
         
+        with mx.Task() as act_trigger :
+            act_trigger.do_channels.add_do_chan(self.port)
+            
+            act_trigger.write(True)
+            
+            act_trigger.wait_until_done()
+            
+    def desactivate(self) :
+        if not self.check_port() :
+            return
+        
+        with mx.Task() as desact_trigger :
+            desact_trigger.do_channels.add_do_chan(self.port)
+            
+            desact_trigger.write(False)
+            
+            desact_trigger.wait_until_done()
