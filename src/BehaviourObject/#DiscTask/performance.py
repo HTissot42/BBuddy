@@ -55,7 +55,7 @@ def compute_recent_perf(responses, rewards) :
 
 
 class Performance_plot() :    
-    def __init__(self, init_trial , nb_trial ,size ="900x900") :
+    def __init__(self, init_trial , nb_trial ,size ="900x1000") :
         
         root = Tk() 
 
@@ -75,6 +75,10 @@ class Performance_plot() :
         
         self.fig, self.axs = plt.subplots(2,1, figsize=(8,6), dpi=80, facecolor='whitesmoke')
         plt.rcParams.update({'font.size': 15})
+        
+        self.plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
+        self.plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
+        
         self.plot_formatting()
         
         self.responses = []
@@ -91,15 +95,16 @@ class Performance_plot() :
         self.pause_image = PhotoImage(file = b_f_path + '/Pictures/pause_button.png')
         self.play_image = PhotoImage(file = b_f_path + '/Pictures/play_button.png')
         
-        self.in_pause = False
+        self.flag_image = PhotoImage(file = b_f_path + '/Pictures/flag.png')
+        self.w_flag_image = PhotoImage(file = b_f_path + '/Pictures/w_flag.png')
         
+        self.in_pause = False
+        self.flagging = False
         
         self.new_trial(init_trial)
         self.root.after(100, self.refresh)
         
-        
-        plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
-        plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
+
 
     def plot_formatting(self) :
         self.axs[0].spines['top'].set_visible(False)
@@ -121,6 +126,8 @@ class Performance_plot() :
         
         self.axs[0].set_facecolor('whitesmoke')
         self.axs[1].set_facecolor('whitesmoke')
+        
+        #self.plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
 
     def refresh_header(self) :
         
@@ -134,9 +141,18 @@ class Performance_plot() :
             identity = 'Reference / Left'
             
         Label(self.header,text=identity).pack(fill='both',side='top')
+        button_line = Frame(self.header,height = 80)
+        button_line.pack(fill='both',side='top')
         
-        self.pause_button = Button(self.root, command = self.switch_pause, image = self.pause_image, height=40, width=40, bg='white')
-        self.pause_button.pack(side='top')
+        self.pause_button = Button(button_line, command = self.switch_pause, image = self.pause_image, height=40, width=40, bg='white')
+        self.pause_button.place(x=self.rec_width/2 - 60, y=30)
+        
+        if self.flagging :
+            self.flag_button = Button(button_line, command = self.flag_trial, image = self.flag_image, height=40, width=40, bg='white')
+        else :
+            self.flag_button = Button(button_line, command = self.flag_trial, image = self.w_flag_image, height=40, width=40, bg='white')
+            
+        self.flag_button.place(x=self.rec_width/2 + 20, y=30)
         
         self.root.update()
         
@@ -198,15 +214,11 @@ class Performance_plot() :
             
             self.c_time = time.time()
             
+            new_x = (self.c_time - self.start_time)*self.rec_width/self.trial.timeline.duration
             # Old tkinter version syntax
-            #new_x = (self.c_time - self.start_time)*self.rec_width/self.trial.timeline.duration
             #self.canvas.moveto(self.c_pos, new_x, 0)
             
-            
-            
-            
             self.root.update()
-            
             
             if len(self.trial.piezos.lick_events) > 0 :
                 last_licks = self.trial.piezos.lick_events[-2:]
@@ -217,7 +229,9 @@ class Performance_plot() :
                 elif True in last_licks[1] :
                     self.canvas.create_rectangle(new_x, self.rec_height/2, \
                                                  new_x + 2, self.rec_height, fill = '#c20029')
-            
+        
+        self.trial.flagged = self.flagging
+        
         self.root.after(int(timestep*1000), self.refresh)
             
         
@@ -228,8 +242,8 @@ class Performance_plot() :
         self.cleared = True
         self.clear(self.root)
         
-        plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
-        plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
+        self.plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
+        self.plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
         
         canvas = Canvas(self.root, border = 50)
         canvas.pack(fill='both',side='bottom',expand='True')
@@ -267,6 +281,7 @@ class Performance_plot() :
         self.trial_num.set('Trial ' + str(self.n) + '/' + str(self.nb_trial))
         self.refresh_header()
         
+        
         self.cleared = False
     
     def switch_pause(self) :
@@ -277,6 +292,17 @@ class Performance_plot() :
             self.pause_button.config(image = self.play_image)
         
         self.in_pause = not self.in_pause
+        
+    def flag_trial(self) :
+        if self.flagging:
+            self.flag_button.config(image = self.w_flag_image)
+
+        else :
+            self.flag_button.config(image = self.flag_image)
+        
+        self.flagging = not self.flagging
+        
+            
         
     def check_pause(self) :
         while self.in_pause :

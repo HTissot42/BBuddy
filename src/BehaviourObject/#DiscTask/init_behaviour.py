@@ -94,6 +94,7 @@ class Trial:
         self.task = task
         self.isDummy = isDummy
         
+        self.flagged = False
         
         
         if first_light == 'NoLight' :

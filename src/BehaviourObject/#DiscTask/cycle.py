@@ -7,7 +7,7 @@ from init_behaviour import trials
 from performance import Performance_plot
 
 
-columns = ["Trial index", "Stim frequency","Stim AM rate", "Category", "Response", "Task", "Licks", "Choice rate", "dprimes", "Timeline events"]
+columns = ["Trial index", "Stim frequency","Stim AM rate", "Category", "Response", "Task", "Licks", "Choice rate", "dprimes", "Timeline events", "Flagged"]
 data = {col:[] for col in columns}
 
 animal_name = ''
@@ -37,6 +37,7 @@ def add_trial_to_data(t) :
     data["dprimes"] = p_plot.dprimes
     
     data["Timeline events"].append(0)
+    data["Flagged"].append(t.flagged)
 
 
 def cycle():

@@ -66,6 +66,7 @@ class GUI :
         root.protocol("WM_DELETE_WINDOW", self.on_closing)
         root.title("Bbuddy " + current_date)
         
+        
         root.option_add("*Font", "aerial 15")
         root.option_add("*Label.Font", "aerial 16 bold")
         
