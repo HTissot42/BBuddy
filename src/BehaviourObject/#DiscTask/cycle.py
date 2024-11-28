@@ -15,7 +15,7 @@ current_date = ''
 saving_dir = ''
 
 def save_data() :
-    with open(saving_dir + '/' + animal_name + ' ' + current_date +'.csv', 'w', newline='') as csvfile:
+    with open(saving_dir + '/' + animal_name + '/' + animal_name + ' ' + current_date +'.csv', 'w', newline='') as csvfile:
         w = csv.DictWriter(csvfile, fieldnames=columns)
         w.writeheader()
         w.writerow(data)

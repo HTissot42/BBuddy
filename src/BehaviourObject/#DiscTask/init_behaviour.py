@@ -120,6 +120,9 @@ class Trial:
             for motor in self.motors :
                 motor.activate()
             self.motors = []
+                
+        elif motor_mode == 'Never' :
+            self.motors = []
         
     def run_trial(self) :
         self.response = 0

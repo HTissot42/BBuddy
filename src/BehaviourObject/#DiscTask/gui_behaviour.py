@@ -17,8 +17,8 @@ question =   ['Block number','Repetition per block','Trial duration', 'Light win
               'Switch task']
     
 
-var_to_ask = [20, 1, 7,  [0,2], \
-              [1,2], 0.5, [2.5,6], False,\
+var_to_ask = [80, 1, 8,  [0,2], \
+              [1,2], 0.75, [2.75,6.5], False,\
               'Always','IncorrectOnly',0,'Blue', \
               False]
 
@@ -30,7 +30,7 @@ v_types =  [int, int, float,  list, \
 
 w_types =    ['Edit', 'Edit', 'Edit', 'Edit', \
               'Edit', 'Edit', 'Edit', 'CheckBox',\
-              'Choice AtStart,Always','Choice IncorrectOnly,Both','Edit','Choice Blue,Red,NoLight',\
+              'Choice AtStart,Always,Never','Choice IncorrectOnly,Both','Edit','Choice Blue,Red,NoLight',\
               'CheckBox']
 
 
