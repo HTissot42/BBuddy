@@ -3,25 +3,25 @@ import pandas as pd
 import time
 import threading
 import csv
-
+import os  
 from init_behaviour import trials
 from performance import Performance_plot
 
 
 columns = ["Trial index", "Stim frequency","Stim AM rate", "Category", "Response", "Task", "Licks", "Choice rate", "dprimes", "Timeline events", "Flagged"]
 data = {col:[] for col in columns}
-data_df = pd.DataFrame(data)
+
 
 animal_name = ''
 current_date = ''
 saving_dir = ''
 
 def save_data() :
-    with open(saving_dir + '/' + animal_name + '/' + animal_name + ' ' + current_date +'.csv', 'w', newline='') as csvfile:
-        w = csv.DictWriter(csvfile, fieldnames=columns)
-        w.writeheader()
-        for r in range(len(data_df)) :
-            w.writerow(data_df[r].to_numpy())
+    data_df = pd.DataFrame(data)
+    filepath = saving_dir + '/' + animal_name + '/' + animal_name + ' ' + current_date +'.csv'
+    data_df.to_csv(filepath)
+
+
 
 
 

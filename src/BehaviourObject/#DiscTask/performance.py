@@ -40,11 +40,11 @@ def compute_recent_perf(responses, rewards) :
     rew2 = rew_array[response2]
     
 
-    h1 = np.sum(rew1 == 1)/(np.sum(response1) + eps)
-    fa1 = np.sum(rew1 == 0)/(np.sum(response1) + eps)
+    h1 = eps + np.sum(rew1 == 1)/(np.sum(response1) + eps)
+    fa1 = eps + np.sum(rew1 == 0)/(np.sum(response1) + eps)
     
-    h2 = np.sum(rew2 == 1)/(np.sum(response2) + eps)
-    fa2 = np.sum(rew2 == 0)/(np.sum(response2) + eps)
+    h2 = eps + np.sum(rew2 == 1)/(np.sum(response2) + eps)
+    fa2 = eps + np.sum(rew2 == 0)/(np.sum(response2) + eps)
     
   
     dprime1 = compute_dprime(h1,fa1)
@@ -84,8 +84,8 @@ class Performance_plot() :
         self.responses = []
         self.corrects = []
         
-        self.response_rates = []
-        self.dprimes = []
+        self.response_rates = [[0,0,0]]
+        self.dprimes = [[0,0]]
         
         self.rec_width = 900
         self.rec_height = 200
@@ -171,16 +171,16 @@ class Performance_plot() :
         self.axs[0].cla()
         self.axs[1].cla()
 
-        self.axs[0].plot(range(1,self.n + 1), np.array(self.dprimes)[:,0], color='blue', \
+        self.axs[0].plot(range(0,self.n + 1), np.array(self.dprimes)[:,0], color='blue', \
                          alpha=0.55, linewidth=5 ,label='d\' right') 
-        self.axs[0].plot(range(1,self.n + 1), np.array(self.dprimes)[:,1], color='red',\
+        self.axs[0].plot(range(0,self.n + 1), np.array(self.dprimes)[:,1], color='red',\
                          alpha=0.55, linewidth=5 ,label='d\' left') 
         
-        self.axs[1].plot(range(1,self.n + 1), np.array(self.response_rates)[:,0], color='cyan', \
+        self.axs[1].plot(range(0,self.n + 1), np.array(self.response_rates)[:,0], color='cyan', \
                          alpha=0.55, linewidth=5 ,label='Right')
-        self.axs[1].plot(range(1,self.n + 1), np.array(self.response_rates)[:,1], color='magenta',\
+        self.axs[1].plot(range(0,self.n + 1), np.array(self.response_rates)[:,1], color='magenta',\
                          alpha=0.55, linewidth=5 ,label='Left')
-        self.axs[1].plot(range(1,self.n + 1), np.array(self.response_rates)[:,2], color='grey',\
+        self.axs[1].plot(range(0,self.n + 1), np.array(self.response_rates)[:,2], color='grey',\
                          alpha=0.55, linewidth=5 ,label='No resp')
         
         self.axs[0].legend(loc="upper left")
