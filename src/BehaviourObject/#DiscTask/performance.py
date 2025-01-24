@@ -51,7 +51,7 @@ def compute_recent_perf(responses, rewards) :
     dprime2 = compute_dprime(h2,fa2)
     
     
-    return r1_rate, r2_rate, no_r_rate, dprime1, dprime2
+    return r1_rate, r2_rate, no_r_rate, dprime1, dprime2, h1, h2
 
 
 class Performance_plot() :    
@@ -85,6 +85,7 @@ class Performance_plot() :
         self.corrects = []
         
         self.response_rates = [[0,0,0]]
+        self.accuracies = [[0,0]]
         self.dprimes = [[0,0]]
         
         self.rec_width = 900
@@ -117,8 +118,9 @@ class Performance_plot() :
         self.axs[1].set_ylim((-0.15,1.15))
         
         
-        self.axs[0].set_yticks([-1,0,1,2,3],[-1,0,1,2,3])
-        self.axs[0].set_ylim((-1,3))
+        #self.axs[0].set_yticks([-1,0,1,2,3],[-1,0,1,2,3])
+        #self.axs[0].set_ylim((-1,3))
+        self.axs[0].set_ylim((-0.05,1.05))
         
         self.axs[0].axhline(0,linestyle='--',color='black',linewidth=0.5)
         self.axs[0].axhline(2,linestyle='--',color='black',linewidth=0.5)
@@ -162,18 +164,24 @@ class Performance_plot() :
         
         
         
-        r1_rate, r2_rate, no_r_rate, dprime1, dprime2 = \
+        r1_rate, r2_rate, no_r_rate, dprime1, dprime2, h1, h2 = \
             compute_recent_perf(self.responses, self.corrects)
         
         self.response_rates.append([r1_rate, r2_rate, no_r_rate])
+        self.accuracies.append([h1,h2])
         self.dprimes.append([dprime1, dprime2])
     
         self.axs[0].cla()
         self.axs[1].cla()
 
-        self.axs[0].plot(range(0,self.n + 1), np.array(self.dprimes)[:,0], color='blue', \
+        #self.axs[0].plot(range(0,self.n + 1), np.array(self.dprimes)[:,0], color='blue', \
+        #                 alpha=0.55, linewidth=5 ,label='d\' right') 
+        #self.axs[0].plot(range(0,self.n + 1), np.array(self.dprimes)[:,1], color='red',\
+        #                 alpha=0.55, linewidth=5 ,label='d\' left') 
+        
+        self.axs[0].plot(range(0,self.n + 1), np.array(self.accuracies)[:,0], color='blue', \
                          alpha=0.55, linewidth=5 ,label='d\' right') 
-        self.axs[0].plot(range(0,self.n + 1), np.array(self.dprimes)[:,1], color='red',\
+        self.axs[0].plot(range(0,self.n + 1), np.array(self.accuracies)[:,1], color='red',\
                          alpha=0.55, linewidth=5 ,label='d\' left') 
         
         self.axs[1].plot(range(0,self.n + 1), np.array(self.response_rates)[:,0], color='cyan', \
