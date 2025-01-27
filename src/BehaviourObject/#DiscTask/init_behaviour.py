@@ -47,8 +47,6 @@ if motor_mode == 'AtStart' :
 
 
 
-
-
 class Timeline:
     def __init__(self, duration, cue, stim, delay, response, ending) :
         self.duration = duration
@@ -82,7 +80,6 @@ class Trial:
         
         self.piezos = detecting_piezos
         
- 
         
         self.response = 0
         self.rewarded = False
@@ -96,6 +93,8 @@ class Trial:
         
         self.flagged = False
         
+        self.easy = False
+        
         
         if first_light == 'NoLight' :
             self.light_cue = None
@@ -105,16 +104,22 @@ class Trial:
             elif first_light == 'Red':
                 light_idx = 1-task
             self.light_cue = light_cues[light_idx]
-            
-            
-        if one_motor : 
+    
+    
+    def setup_motors(self, motor_config) :
+        #Setup motors at each trial
+        if motor_config : #Config = 1 (Only correct motor), = 0 both motors
             if self.task == 0 :
                 self.motors = [spout_motors[int(not self.stim.istarget)]]
             else :
                 self.motors = [spout_motors[int(self.stim.istarget)]]
+            
+            print('Easy trial')
+            self.easy = True
         
         else :
             self.motors = spout_motors
+            self.easy = False
                 
         if motor_mode == 'AtStart' :
             for motor in self.motors :
@@ -164,12 +169,14 @@ class Trial:
         
         trial_trigger.desactivate()
         
+        """
         if self.correct == False :
             if np.random.rand() <= correction_p :
                 print('Correction trial added')
                 return True
         else :
             return False
+        """
         
         
     def run_light_cue(self, light) :

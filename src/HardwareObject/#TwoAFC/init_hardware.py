@@ -29,7 +29,7 @@ left_pump_duration = water_amount/left_pump_rate
 
 #Spout setup : Left: 21 mm, Right: 20.6 mm 
 
-card_ID = "D0/"
+card_ID = "Dev1/"
 
 
 

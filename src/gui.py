@@ -1,6 +1,3 @@
-import IPython
-IPython.Application.instance().kernel.do_shutdown(True)
-
 from tkinter import *
 from tkinter import ttk, messagebox, filedialog, StringVar, Checkbutton, IntVar, DoubleVar, END
 import csv
@@ -59,7 +56,7 @@ def set_entry_value(entry, value):
 
 
 class GUI :
-    def __init__(self, size ="900x1000"):
+    def __init__(self, size ="900x1000+300+0"):
         root = Tk() 
 
         root.geometry(size)
@@ -74,7 +71,7 @@ class GUI :
         self.root = root
         
         self.header = Frame(root, border = 25)
-
+        
         
         self.header.pack(fill='both',side='top')
         
@@ -263,10 +260,10 @@ class GUI :
         c = 0
         for field in query.gui_fields :
             label = Label(parent, text = field[0])
-            label.pack(fill='both',side='top', expand='True')
+            label.pack(fill='both',side='top', expand=1)
             if field[1] == 'Edit' :
                 widg = Entry(parent)
-                widg.pack(fill='both',side='top', expand='True')
+                widg.pack(fill='both',side='top', expand=1)
                 set_entry_value(widg, query.variables[int(c/2)])
                 query.widget.append(widg)
                     
@@ -275,14 +272,14 @@ class GUI :
                 var = IntVar()
                 var.set(bool(query.variables[int(c/2)]))
                 widg = Checkbutton(parent, variable = var)
-                widg.pack(fill='both',side='top', expand='True')
+                widg.pack(fill='both',side='top', expand=1)
 
                 query.widget.append(var)
             
             elif field[1][:7] == 'Choice ' :
                 possibilities = field[1][7:].split(',')
                 widg = ttk.Combobox(parent, values=possibilities)
-                widg.pack(fill='both',side='top', expand='True')
+                widg.pack(fill='both',side='top', expand=1)
 
 
                 choice_idx = possibilities.index(query.variables[int(c/2)])
@@ -336,7 +333,6 @@ class GUI :
         self.clear(self.root)
         self.root.destroy()
         self.root.quit()
-        
         
         
     def write_buffer(self) :

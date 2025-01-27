@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter import ttk, Canvas, messagebox, filedialog, StringVar, Checkbutton, IntVar, DoubleVar, END, Button
+from tkinter import ttk, Canvas, messagebox, filedialog, StringVar, Checkbutton, IntVar, DoubleVar, END, Button, Scale
 import time
 from time_handling import timestep
 import numpy as np
@@ -55,7 +55,7 @@ def compute_recent_perf(responses, rewards) :
 
 
 class Performance_plot() :    
-    def __init__(self, init_trial , nb_trial ,size ="900x1000") :
+    def __init__(self, init_trial , nb_trial, easy, correction, size ="900x1000+300+0") :
         
         root = Tk() 
 
@@ -101,6 +101,9 @@ class Performance_plot() :
         
         self.in_pause = False
         self.flagging = False
+        self.easy_val = 100*easy
+        self.correction_val = 100*correction
+    
         
         self.new_trial(init_trial)
         self.root.after(100, self.refresh)
@@ -133,28 +136,49 @@ class Performance_plot() :
 
     def refresh_header(self) :
         
-        self.header = Frame(self.root,border=50).pack(fill='both',side='top',expand='True')
+        self.header = Frame(self.root,border=40).pack(fill='both',side='top',expand='True')
         Label(self.header,textvariable=self.trial_num).pack(fill='both',side='top')
         
 
         if self.trial.identity == 1 :
-            identity = 'Target / Right'
+            identity = 'Target/Right'
         else :
-            identity = 'Reference / Left'
+            identity = 'Reference/Left'
+            
+        if self.trial.easy :
+            identity += '\n Easy'
+        else :
+            identity += '\n Difficult'
             
         Label(self.header,text=identity).pack(fill='both',side='top')
-        button_line = Frame(self.header,height = 80)
+        button_line = Frame(self.header,height = 160)
         button_line.pack(fill='both',side='top')
         
         self.pause_button = Button(button_line, command = self.switch_pause, image = self.pause_image, height=40, width=40, bg='white')
-        self.pause_button.place(x=self.rec_width/2 - 60, y=30)
+        self.pause_button.place(x=self.rec_width/2 - 60, y=40)
         
         if self.flagging :
             self.flag_button = Button(button_line, command = self.flag_trial, image = self.flag_image, height=40, width=40, bg='white')
         else :
             self.flag_button = Button(button_line, command = self.flag_trial, image = self.w_flag_image, height=40, width=40, bg='white')
             
-        self.flag_button.place(x=self.rec_width/2 + 20, y=30)
+        self.flag_button.place(x=self.rec_width/2 + 20, y=40)
+        
+        slider_label = Label(button_line, text = "Easy trial ratio")
+        slider_label.place(x = self.rec_width/2 + 160, y=0)
+        
+        self.slider_easy = Scale(button_line, from_=0, to=100,  length=150, orient=HORIZONTAL)
+        self.slider_easy.place(x = self.rec_width/2 + 160, y=25)
+        self.slider_easy.set(self.easy_val)
+        
+        slider_label = Label(button_line, text = "Correction trial ratio")
+        slider_label.place(x = self.rec_width/2 - 335, y=0)
+        
+        self.slider_correction = Scale(button_line, from_=0, to=100,  length=150, orient=HORIZONTAL)
+        self.slider_correction.place(x = self.rec_width/2 - 310, y=25)
+        self.slider_correction.set(self.correction_val)
+
+        
         
         self.root.update()
         
@@ -212,9 +236,11 @@ class Performance_plot() :
         self.root.destroy()
         self.root.quit()
         
+        os._exit(00)
+        
     def refresh(self) :
         
-        if not self.cleared :
+        if not self.cleared :  #Every command that interacts with a widget should be in this statement
             
             # New tkinter version syntax
             delta_x = self.rec_width *  (time.time() - self.c_time)/self.trial.timeline.duration
@@ -237,8 +263,12 @@ class Performance_plot() :
                 elif True in last_licks[1] :
                     self.canvas.create_rectangle(new_x, self.rec_height/2, \
                                                  new_x + 2, self.rec_height, fill = '#c20029')
+                        
+            self.easy_val = self.slider_easy.get()
+            self.correction_val = self.slider_correction.get()
         
         self.trial.flagged = self.flagging
+        
         
         self.root.after(int(timestep*1000), self.refresh)
             
@@ -253,7 +283,7 @@ class Performance_plot() :
         self.plot_canvas = FigureCanvasTkAgg(self.fig, master = self.root)
         self.plot_canvas.get_tk_widget().pack(fill='both',side='top',expand='True')
         
-        canvas = Canvas(self.root, border = 50)
+        canvas = Canvas(self.root, border = 40)
         canvas.pack(fill='both',side='bottom',expand='True')
                 
         self.canvas = canvas

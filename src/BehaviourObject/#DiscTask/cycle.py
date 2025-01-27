@@ -4,11 +4,11 @@ import time
 import threading
 import csv
 import os  
-from init_behaviour import trials
+from init_behaviour import trials, one_motor, correction_p
 from performance import Performance_plot
 
 
-columns = ["Trial index", "Stim frequency","Stim AM rate", "Category", "Response", "Task", "Licks", "Choice rate", "dprimes", "Timeline events", "Flagged"]
+columns = ["Trial index", "Stim frequency","Stim AM rate", "Category", "Response", "Task", "Licks", "Choice rate", "dprimes", "Timeline events", "Flagged","Easy"]
 data = {col:[] for col in columns}
 
 
@@ -24,8 +24,7 @@ def save_data() :
 
 
 
-
-p_plot = Performance_plot(trials[0],len(trials))
+p_plot = Performance_plot(trials[0],len(trials),one_motor,correction_p)
 
 
 def add_trial_to_data(t) :
@@ -41,6 +40,7 @@ def add_trial_to_data(t) :
     
     data["Timeline events"].append(0)
     data["Flagged"].append(t.flagged)
+    data["Easy"].append(t.easy)
 
 
 def cycle():
@@ -51,10 +51,17 @@ def cycle():
         
         p_plot.new_trial(trial)
         
-        repeat_for_correction = trial.run_trial()
+        #Define if 1 (easy trial) or two motors will be active for this trial.
+        #One motor if an easy trial is repeated or if we draw a number below the easy ratio value (from performance GUI)
+        motor_config = (p_plot.easy_val > np.random.randint(0,100)) or trial.easy 
+        trial.setup_motors(motor_config)
         
-        if repeat_for_correction :
-            trials_to_run = np.insert(trials_to_run,(n+1),trial)
+        trial.run_trial()
+        
+        if trial.correct == False :
+            if p_plot.correction_val > np.random.randint(0,100) :
+                print('Correction trial added')
+                trials_to_run = np.insert(trials_to_run,(n+1),trial)
         
         add_trial_to_data(trial)
         
