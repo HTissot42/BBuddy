@@ -108,7 +108,7 @@ class Trial:
     
     def setup_motors(self, motor_config) :
         #Setup motors at each trial
-        if motor_config : #Config = 1 (Only correct motor), = 0 both motors
+        if motor_config : #Config = True (Only correct motor), = False both motors
             if self.task == 0 :
                 self.motors = [spout_motors[int(not self.stim.istarget)]]
             else :
@@ -169,14 +169,6 @@ class Trial:
         
         trial_trigger.desactivate()
         
-        """
-        if self.correct == False :
-            if np.random.rand() <= correction_p :
-                print('Correction trial added')
-                return True
-        else :
-            return False
-        """
         
         
     def run_light_cue(self, light) :

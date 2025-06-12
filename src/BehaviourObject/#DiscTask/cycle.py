@@ -49,12 +49,13 @@ def cycle():
     while n < len(trials):
         trial = trials_to_run[n]
         
+        #Define if one (easy trial) or two motors will be active for this trial.
+        #One motor if an easy trial is repeated or if we draw a number below the easy ratio value (from performance GUI)
+        motor_config = (p_plot.easy_val > np.random.randint(0,100)) or trial.easy
+        trial.setup_motors(motor_config)
+        
         p_plot.new_trial(trial)
         
-        #Define if 1 (easy trial) or two motors will be active for this trial.
-        #One motor if an easy trial is repeated or if we draw a number below the easy ratio value (from performance GUI)
-        motor_config = (p_plot.easy_val > np.random.randint(0,100)) or trial.easy 
-        trial.setup_motors(motor_config)
         
         trial.run_trial()
         

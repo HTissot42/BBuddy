@@ -1,3 +1,7 @@
+
+
+
+
 import nidaqmx as mx
 from commands import *
 from gui_hardware import hw_query, unwrap
@@ -18,9 +22,9 @@ water_amount = var[0]
 send_trig = var[1]
 
 
-# Measured by Hugo the 17th of september 2024 (water)
-right_pump_rate = 0.125  #mL/s
-left_pump_rate = 0.166  #mL/s
+# Measured by Hugo the 21th of may 2025 (water)
+right_pump_rate = 0.1  #mL/s
+left_pump_rate = 0.1  #mL/s
 
 
 right_pump_duration = water_amount/right_pump_rate

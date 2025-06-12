@@ -241,35 +241,37 @@ class Performance_plot() :
     def refresh(self) :
         
         if not self.cleared :  #Every command that interacts with a widget should be in this statement
+            try :
+                # New tkinter version syntax
+                delta_x = self.rec_width *  (time.time() - self.c_time)/self.trial.timeline.duration
+                self.canvas.move(self.c_pos, delta_x, 0)
+                
+                self.c_time = time.time()
+                
+                new_x = (self.c_time - self.start_time)*self.rec_width/self.trial.timeline.duration
+                # Old tkinter version syntax
+                #self.canvas.moveto(self.c_pos, new_x, 0)
+                
+                self.root.update()
+                
+                if len(self.trial.piezos.lick_events) > 0 :
+                    last_licks = self.trial.piezos.lick_events[-2:]
+    
+                    if True in last_licks[0] :
+                        self.canvas.create_rectangle(new_x, self.rec_height/2, \
+                                                     new_x + 2, self.rec_height, fill = '#0009c2')
+                    elif True in last_licks[1] :
+                        self.canvas.create_rectangle(new_x, self.rec_height/2, \
+                                                     new_x + 2, self.rec_height, fill = '#c20029')
+                            
+                self.easy_val = self.slider_easy.get()
+                self.correction_val = self.slider_correction.get()
             
-            # New tkinter version syntax
-            delta_x = self.rec_width *  (time.time() - self.c_time)/self.trial.timeline.duration
-            self.canvas.move(self.c_pos, delta_x, 0)
+            except :
+                print('Error when refreshing..')
             
-            self.c_time = time.time()
-            
-            new_x = (self.c_time - self.start_time)*self.rec_width/self.trial.timeline.duration
-            # Old tkinter version syntax
-            #self.canvas.moveto(self.c_pos, new_x, 0)
-            
-            self.root.update()
-            
-            if len(self.trial.piezos.lick_events) > 0 :
-                last_licks = self.trial.piezos.lick_events[-2:]
-
-                if True in last_licks[0] :
-                    self.canvas.create_rectangle(new_x, self.rec_height/2, \
-                                                 new_x + 2, self.rec_height, fill = '#0009c2')
-                elif True in last_licks[1] :
-                    self.canvas.create_rectangle(new_x, self.rec_height/2, \
-                                                 new_x + 2, self.rec_height, fill = '#c20029')
-                        
-            self.easy_val = self.slider_easy.get()
-            self.correction_val = self.slider_correction.get()
         
         self.trial.flagged = self.flagging
-        
-        
         self.root.after(int(timestep*1000), self.refresh)
             
         
