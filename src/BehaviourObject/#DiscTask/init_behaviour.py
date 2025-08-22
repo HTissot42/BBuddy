@@ -142,9 +142,9 @@ class Trial:
         if self.isDummy :
             print('This is a dummy trial')
         
-        trial_trigger.activate()
+        trial_trigger.activate() # Send trigger to align with neural data
         
-        threading.Thread(target = self.run_light_cue, args = (self.light_cue,), daemon=True).start()
+        threading.Thread(target = self.run_light_cue, args = (self.light_cue,), daemon=True).start()  # Activate light
         
         
         starting_delay = self.timeline.stim[0] - self.timeline.cue[0]
@@ -153,7 +153,7 @@ class Trial:
         
         print("stim at :" + str(time.time() - self.start_time))
         
-        self.run_stim(speaker_to_display)
+        self.run_stim(speaker_to_display) # Activate sound
         
         wait(self.timeline.delay)
         
@@ -196,7 +196,7 @@ class Trial:
         
     
     def run_response(self, motors, piezos) :
-        
+        """Get piezo signal and process animal response"""
         
         if not self.isDummy :
             for motor in motors :
@@ -228,7 +228,7 @@ class Trial:
         if int(self.identity) == response :
             print('Licked on correct side')
             
-            if not self.checked :
+            if not self.checked : # Register the correct response and flag the response as checked to move on
                 self.correct = True
                 self.checked = True
                 

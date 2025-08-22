@@ -154,7 +154,8 @@ class Piezo(HW_element) :
     pass
 
 
-detection_per_timestep = 5
+detection_per_timestep = 5 # Number of time we check piezo on each trial logic timestep
+lick_patience = 1  # Number of licks required on one side to be considered as the response
 class Piezo_set() :
     def __init__(self, piezos):
         self.piezos = piezos
@@ -167,17 +168,27 @@ class Piezo_set() :
 
         self.lick_events += l_event
         
-        if True in l_event[0] :
+        if True in l_event[0] : # Lick detected on piezo 1
             print("Lick detected on " + self.piezos[0].name)
             if self.onResponse :
-                warnings.simplefilter('ignore', ResourceWarning)
-                threading.Thread(target = self.current_trial.check_response, args = (1,), daemon=True).start()
-        
-        elif True in l_event[1] :
+                
+                if self.lick_counts[0] < lick_patience : # If not enough licks increment lick counts to reach lick_patience
+                    self.lick_counts[0] += 1
+                    
+                else : # Enough licks to be considered a response
+                    warnings.simplefilter('ignore', ResourceWarning)
+                    threading.Thread(target = self.current_trial.check_response, args = (1,), daemon=True).start() # Send the response 1 to the trial object to check what to do
+            
+        elif True in l_event[1] :  # Lick detected on piezo 2
             print("Lick detected on " + self.piezos[1].name)
             if self.onResponse :
-                warnings.simplefilter('ignore', ResourceWarning)
-                threading.Thread(target = self.current_trial.check_response, args = (-1,), daemon=True).start()
+                
+                if self.lick_counts[1] < lick_patience :
+                    self.lick_counts[1] += 1
+                    
+                else :
+                    warnings.simplefilter('ignore', ResourceWarning)
+                    threading.Thread(target = self.current_trial.check_response, args = (-1,), daemon=True).start() # Send the response -1 to the trial object to check what to do
                     
         
         
@@ -189,9 +200,9 @@ class Piezo_set() :
     
     def detect_lick(self,duration, trial, isResponse = False) :
         
-        self.c = 0
+        self.lick_counts = [0,0] 
         
-        self.onResponse = isResponse
+        self.onResponse = isResponse # Define if we detect licks during response window or not
         self.current_trial = trial
         
         self.lick_events = []
@@ -209,7 +220,7 @@ class Piezo_set() :
                                                      samps_per_chan = int(detection_per_timestep/timestep*duration))
             
     
-            self.task.register_every_n_samples_acquired_into_buffer_event(detection_per_timestep, self.callback)
+            self.task.register_every_n_samples_acquired_into_buffer_event(detection_per_timestep, self.callback)  # Method to chack what to do depending on response
             
             self.task.start()
             
@@ -220,7 +231,7 @@ class Piezo_set() :
         output = self.lick_events.copy()
         self.lick_events = []
         
-        return output
+        return output  # Return lick events
         #print(len(self.lick_events))
 
 

@@ -23,6 +23,7 @@ def execute_all_gui() :
     execfile(f_path + "/HardwareObject/" + hw_object + "/gui_hardware.py")
     execfile(f_path + "/BehaviourObject/" + b_object + "/gui_behaviour.py")
     execfile(f_path + "/StimObject/" + s_object + "/gui_stim.py")
+    
 
 
 execute_all_gui()
@@ -38,6 +39,7 @@ b_obj_list = []
 for b_file in b_files :
     if b_file.startswith("#") :
         b_obj_list.append(b_file)
+        
         
 s_obj_list = []
 for s_file in s_files :
@@ -108,6 +110,7 @@ class GUI :
         
         
         
+        
         last_line = Frame(self.root)
         last_line.pack(fill='both',side='bottom')
         
@@ -146,7 +149,7 @@ class GUI :
         pass
 
     def browse_button(self):
-        self.dirname = filedialog.askdirectory()
+        
         self.btn_text.set(self.dirname)
         
         return self.dirname
@@ -242,6 +245,7 @@ class GUI :
         
         
     def load_gui_hardware(self, *args):
+        
         self.refresh_object()
         
         from gui_hardware import hw_query
@@ -281,11 +285,13 @@ class GUI :
             elif field[1][:7] == 'Choice ' :
                 possibilities = field[1][7:].split(',')
                 widg = ttk.Combobox(parent, values=possibilities)
+                
                 widg.pack(fill='both',side='top', expand=1)
 
 
                 choice_idx = possibilities.index(query.variables[int(c/2)])
                 widg.current(choice_idx)
+                
                 
 
                 query.widget.append(widg)
@@ -334,6 +340,9 @@ class GUI :
     def stop_gui(self) :
         self.clear(self.root)
         self.root.destroy()
+        
+        
+        
         self.root.quit()
         
         
@@ -346,6 +355,7 @@ class GUI :
             writer.writeheader()
             input_dict = {'Animal' : self.animal.get(), 'Save directory' : self.dirname}
             writer.writerow(input_dict)
+            
             
         
     def load_var_from_buffer(self) :
