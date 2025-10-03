@@ -32,7 +32,7 @@ delivering_pumps = hw_setup.pumps
 spout_motors = hw_setup.motors
 detecting_piezos = Piezo_set(hw_setup.piezos)
 light_cues = hw_setup.lights
-trial_trigger = hw_setup.triggers[0]
+trial_tracker = hw_setup.trackers[0]
 
 n_stim = len(stims)
 
@@ -142,20 +142,25 @@ class Trial:
         if self.isDummy :
             print('This is a dummy trial')
         
-        trial_trigger.activate() # Send trigger to align with neural data
+        trial_tracker.update(1) # Track trial phases : 1) Trial start + Light, 2) Sound, 3) Delay, 4) Response, 5) Reward, 0) Inter-trial
         
         threading.Thread(target = self.run_light_cue, args = (self.light_cue,), daemon=True).start()  # Activate light
-        
         
         starting_delay = self.timeline.stim[0] - self.timeline.cue[0]
         
         wait(starting_delay)
         
+        trial_tracker.update(2)
+        
         print("stim at :" + str(time.time() - self.start_time))
         
         self.run_stim(speaker_to_display) # Activate sound
         
+        trial_tracker.update(3)
+        
         wait(self.timeline.delay)
+        
+        trial_tracker.update(4)
         
         print("response at :" + str(time.time() - self.start_time))
         
@@ -167,7 +172,7 @@ class Trial:
         
         wait(self.timeline.ending)
         
-        trial_trigger.desactivate()
+        trial_tracker.update(0)
         
         
         
@@ -208,7 +213,10 @@ class Trial:
         
         
         if not self.isDummy :
-            self.licks = piezos.detect_lick(response_duration, self, isResponse = True)
+            licks = piezos.detect_lick(response_duration, self, isResponse = True)
+            self.right_licks = np.any(np.array(licks),axis=1)[::2]
+            self.left_licks = np.any(np.array(licks),axis=1)[1::2]
+
             
         else :
             wait(response_duration)
@@ -240,6 +248,7 @@ class Trial:
                     pass
                 
                 else :
+                    trial_tracker.update(5)
                     self.rewarded = True
                     
                     if self.correct :

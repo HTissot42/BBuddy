@@ -8,7 +8,7 @@ from init_behaviour import trials, one_motor, correction_p
 from performance import Performance_plot
 
 
-columns = ["Trial index", "Stim frequency","Stim AM rate", "Category", "Response", "Task", "Licks", "Choice rate", "dprimes", "Timeline events", "Flagged","Easy"]
+columns = ["Trial index", "Stim frequency","Stim AM rate", "Category", "Response", "Task", "Right licks", "Left licks","Choice rate", "dprimes", "Timeline events", "Flagged","Easy"]
 data = {col:[] for col in columns}
 
 
@@ -34,7 +34,8 @@ def add_trial_to_data(t) :
     data["Category"].append(t.identity)
     data["Response"].append(t.response)
     data["Task"].append(t.task)
-    data["Licks"].append(t.licks)
+    data["Right licks"].append(t.right_licks)
+    data["Left licks"].append(t.left_licks)
     data["Choice rate"] = p_plot.response_rates
     data["dprimes"] = p_plot.dprimes
     

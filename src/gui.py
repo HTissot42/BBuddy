@@ -219,6 +219,8 @@ class GUI :
         
         
     def load_gui_behaviour(self, *args):
+        
+        
         self.refresh_object()
         
         from gui_behaviour import b_query
@@ -230,6 +232,10 @@ class GUI :
         self.b_query.load_var_from_buffer(self.animal.get())
         
         self.build_window(self.b_entries, self.b_query)
+        
+        
+        
+        
         
         
     def load_gui_stim(self, *args):
@@ -264,6 +270,7 @@ class GUI :
         
         self.clear(parent)
         c = 0
+        
         for field in query.gui_fields :
             label = Label(parent, text = field[0])
             label.pack(fill='both',side='top', expand=1)

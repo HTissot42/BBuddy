@@ -1,2 +1,2 @@
 Block number,Repetition per block,Trial duration,Light window,Stim window,Reponse delay,Response window,Motor for target only,Motor activation,Motor desactivation,Correction trial probability,Light for first task,Switch task
-20.0,1.0,8.0,0.0 2.0,1.0 2.0,0.75,2.75 6.5,1,Always,Both,0.5,Red,0
+20.0,2.0,8.0,0.0 2.0,1.0 2.0,0.75,2.75 6.5,1,Always,Both,0.5,Red,0

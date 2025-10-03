@@ -280,8 +280,7 @@ class Trigger(HW_element) :
             act_trigger.wait_until_done()
             
     def desactivate(self) :
-        if not self.check_port() :
-            return
+
         
         with mx.Task() as desact_trigger :
             desact_trigger.do_channels.add_do_chan(self.port)
@@ -289,3 +288,35 @@ class Trigger(HW_element) :
             desact_trigger.write(False)
             
             desact_trigger.wait_until_done()
+
+"""
+class Tracker(HW_element) :
+    def update(self,value) :
+        if not self.check_port() :
+            return
+        
+        with mx.Task() as update_v :
+            update_v.ao_channels.add_ao_voltage_chan(self.port)
+            
+            update_v.write(value,auto_start=True)
+            
+            update_v.wait_until_done()
+    
+            update_v.stop()
+"""
+            
+class Tracker(HW_element):
+    def update(self, value):
+        if not self.check_port() :
+            return
+        voltage = float(value) 
+        
+        with mx.Task() as update_v :
+            update_v.ao_channels.add_ao_voltage_chan(self.port, min_val=0.0, max_val=5.0)
+            
+            update_v.write(voltage,auto_start=True)
+            
+            update_v.wait_until_done()
+
+            update_v.stop()
+        

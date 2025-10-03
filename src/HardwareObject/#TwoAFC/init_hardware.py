@@ -63,7 +63,7 @@ l_motor = Motor('Left motor')
 r_piezo = Piezo('Right Piezo')
 l_piezo = Piezo('Left Piezo')
 
-trigger = Trigger('Trial trigger')
+tracker = Tracker('Trial tracker')
 
 r_motor.configure_port(card_ID+"port0/line7")
 l_motor.configure_port(card_ID+"port1/line7")
@@ -71,9 +71,9 @@ l_motor.configure_port(card_ID+"port1/line7")
 r_piezo.configure_port(card_ID+"port0/line4")
 l_piezo.configure_port(card_ID+"port0/line3")
 
-
 if send_trig :
-    trigger.configure_port(card_ID+"port0/line0")
+    tracker.configure_port(card_ID+"ao0")
+    #tracker.prepare_task()
 
 r_motor.desactivate()
 l_motor.desactivate()
@@ -89,7 +89,7 @@ hw_setup.pumps = [r_pump, l_pump]
 hw_setup.lights = [b_light, r_light]
 hw_setup.motors = [r_motor, l_motor]
 hw_setup.piezos = [r_piezo, l_piezo]
-hw_setup.triggers = [trigger]
+hw_setup.trackers = [tracker]
 
 #for p in hw_setup.pumps :
 #    p.prepare_tasks()
