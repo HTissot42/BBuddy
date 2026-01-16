@@ -77,7 +77,7 @@ class Trial:
         self.stim = stim
         self.identity = int(2*stim.istarget - 1)
         self.timeline = timeline
-        
+ 
         self.piezos = detecting_piezos
         
         
@@ -136,19 +136,20 @@ class Trial:
         self.checked = False
         self.correct = False
         
+        trial_tracker.update(0)
         
         self.start_time = time.time()
         
         if self.isDummy :
             print('This is a dummy trial')
         
-        trial_tracker.update(1) # Track trial phases : 1) Trial start + Light, 2) Sound, 3) Delay, 4) Response, 5) Reward, 0) Inter-trial
+        trial_tracker.update(1) # Track trial phases : 0) Inter-trial, 1) Trial start + Light, 2) Sound, 3) Delay, 4) Response, 5) Reward
         
         threading.Thread(target = self.run_light_cue, args = (self.light_cue,), daemon=True).start()  # Activate light
         
-        starting_delay = self.timeline.stim[0] - self.timeline.cue[0]
+        cue_delay = self.timeline.stim[0] - self.timeline.cue[0]
         
-        wait(starting_delay)
+        wait(cue_delay)
         
         trial_tracker.update(2)
         
@@ -226,10 +227,13 @@ class Trial:
         print(self.rewarded)
         if self.rewarded :
             wait(1.5)
+ 
         
         if not self.isDummy : 
             for motor in motors :
                 motor.desactivate()
+                
+        trial_tracker.update(0)
                 
     def check_response(self, response) : 
     
@@ -248,13 +252,13 @@ class Trial:
                     pass
                 
                 else :
-                    trial_tracker.update(5)
+                   
                     self.rewarded = True
+                    trial_tracker.update(5)
                     
                     if self.correct :
                         pump_duration = pump_durations[int(response < 0)]
                     else :
-                        
                         pump_duration = pump_durations[int(response < 0)]/5
                         
                     delivering_pumps[int(response < 0)].activate(pump_duration)

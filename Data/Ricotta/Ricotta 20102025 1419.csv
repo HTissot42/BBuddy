@@ -1,0 +1,2344 @@
+,Trial index,Stim frequency,Stim AM rate,Category,Response,Task,Right licks,Left licks,Choice rate,dprimes,Timeline events,Flagged,Easy
+0,0.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False  True False False False False  True False False
+ False False False False  True  True False False  True  True False False
+  True  True False False False False  True False False False  True False
+ False False False False False False False False  True False False False
+ False False  True False False False False False False False  True False
+ False False False False False False False]","[0, 0, 0]","[0, 0]",0,False,False
+1,1.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False False False False False  True False False False
+  True False False False False False False False False False False False
+ False False False  True False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.0, 1.0, 0.0]","[0.0, nan]",0,False,False
+2,2.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False  True False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.5, 0.5, 0.0]","[nan, nan]",0,False,False
+3,2.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6666666666666666, 0.3333333333333333, 0.0]","[0.0, nan]",0,False,False
+4,3.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False  True False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False  True False False False False]","[0.75, 0.25, 0.0]","[-0.8614515429653226, nan]",0,False,False
+5,4.0,1500.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.8, 0.2, 0.0]","[0.0, nan]",0,False,True
+6,4.0,1500.0,0.0,1,1,0,"[False False False False False  True False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6666666666666666, 0.16666666666666666, 0.16666666666666666]","[0.0, nan]",0,False,True
+7,5.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+  True False False False False False False False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.7142857142857143, 0.14285714285714285, 0.14285714285714285]","[0.5066931710605553, nan]",0,False,True
+8,6.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.75, 0.125, 0.125]","[0.8614530709359598, nan]",0,False,True
+9,7.0,3000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6666666666666666, 0.1111111111111111, 0.2222222222222222]","[0.8614530709359598, nan]",0,False,True
+10,7.0,3000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.1, 0.3]","[0.8614530709359598, nan]",0,False,True
+11,7.0,3000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.5454545454545454, 0.09090909090909091, 0.36363636363636365]","[0.8614530709359598, nan]",0,False,True
+12,7.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+  True False False False False False False False False  True False False
+ False False False False False False False False False False  True False
+ False False False False  True False False False  True False False  True
+  True False False False False False  True]","[0.5, 0.08333333333333333, 0.4166666666666667]","[0.8614530709359598, nan]",0,False,True
+13,8.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False  True False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.46153846153846156, 0.15384615384615385, 0.38461538461538464]","[0.8614530709359598, nan]",0,False,True
+14,9.0,750.0,0.0,1,1,0,"[False False  True False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False False False False False  True False
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.5, 0.14285714285714285, 0.35714285714285715]","[1.1318958430703367, nan]",0,False,True
+15,10.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+  True False False False  True False False False False  True False False
+ False  True False False False False  True False False False  True False
+ False False False False False False False False  True False False False
+ False False False False False False  True]","[0.5333333333333333, 0.13333333333333333, 0.3333333333333333]","[1.348977534191646, nan]",0,False,True
+16,11.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False False False False False False  True False False False False
+  True False False False False False False False False  True False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.5, 0.1875, 0.3125]","[1.348977534191646, nan]",0,False,True
+17,12.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.5294117647058824, 0.17647058823529413, 0.29411764705882354]","[1.5294172755398876, nan]",0,False,True
+18,12.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.5, 0.16666666666666666, 0.3333333333333333]","[1.5294172755398876, nan]",0,False,True
+19,12.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False  True False False  True  True False False
+ False False  True False False False  True False False False False  True
+ False False  True False False False False False False False False False
+ False False False False False False  True False False False False False
+ False False False False False False False]","[0.47368421052631576, 0.15789473684210525, 0.3684210526315789]","[1.5294172755398876, nan]",0,False,True
+20,13.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+  True False False False False  True False False False  True False False
+ False False  True False False False  True False False False False False
+ False False False False  True False False False  True False False False
+ False False False  True False False False]","[0.45, 0.2, 0.35]","[1.5294172755398876, nan]",0,False,True
+21,14.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False False False False False
+  True False False False False  True False False  True False False False
+ False  True False False False False False  True False False False  True
+ False False False  True  True False False]","[0.42857142857142855, 0.23809523809523808, 0.3333333333333333]","[1.5294172755398876, nan]",0,False,True
+22,15.0,750.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4090909090909091, 0.2727272727272727, 0.3181818181818182]","[1.5294172755398876, nan]",0,False,True
+23,15.0,750.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.391304347826087, 0.2608695652173913, 0.34782608695652173]","[1.5294172755398876, nan]",0,False,True
+24,15.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False False  True False False False False  True False False False  True
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.375, 0.25, 0.375]","[1.5294172755398876, nan]",0,False,True
+25,16.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.24, 0.36]","[1.6832403249694212, nan]",0,False,True
+26,16.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False  True  True False False False  True False False
+ False False  True False False False  True False False False False False
+ False False False False  True False False False  True False False False
+ False False  True False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.2, 0.4]","[1.6832403249694212, nan]",0,False,True
+27,17.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False False False False False False  True False False False  True
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.36, 0.24, 0.4]","[1.5294172755398876, nan]",0,False,True
+28,18.0,3000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.36, 0.24, 0.4]","[2.4412761378064363, nan]",0,False,True
+29,18.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False  True  True False False
+ False False  True False False False  True False False False  True False
+ False False False  True False False False False  True False False False
+  True False False False False False False False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False]","[0.32, 0.24, 0.44]","[nan, nan]",0,False,True
+30,19.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+  True False False False  True False False False False False False False
+ False False  True False False False False False False False False  True
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.28, 0.28, 0.44]","[nan, nan]",0,False,True
+31,20.0,750.0,0.0,1,1,0,"[ True False False False False False False False False False False False
+ False False False False False False False  True False False False  True
+  True False False False  True False False False False False False False
+ False False False False False False False  True False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.32, 0.28, 0.4]","[nan, nan]",0,False,True
+32,21.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False False False False False  True
+ False False False  True False False False False False  True False False
+  True False False False False  True False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.32, 0.28, 0.4]","[nan, nan]",0,False,True
+33,22.0,3000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.32, 0.28, 0.4]","[nan, nan]",0,False,True
+34,23.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False  True False False False False  True False False False False
+  True False False False False False False False  True False False False
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True False False False False False
+ False False False False False False False]","[0.32, 0.28, 0.4]","[nan, nan]",0,False,True
+35,24.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False  True False False False
+ False False False False False False False False False False  True False
+ False False  True  True False False False  True False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False False False False]","[0.32, 0.32, 0.36]","[nan, nan]",0,False,False
+36,25.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False  True False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.36, 0.32, 0.32]","[nan, nan]",0,False,False
+37,26.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False False  True False False False False  True False
+ False False  True False False False  True False False False  True False
+ False False False  True False False False False False  True False False
+ False  True False False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.32, 0.28]","[2.5630985764077403, nan]",0,False,False
+38,27.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False  True False False False False False False False False
+ False  True False False False  True  True False False False  True False
+ False False  True False False False False  True False False False False
+ False False False False False False  True False False False False False
+ False False  True False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True  True False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.32, 0.28]","[2.5630985764077403, nan]",0,False,False
+39,28.0,1500.0,0.0,1,1,0,"[False  True False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False  True False False False  True False
+ False False  True False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False  True False False False False False
+ False False False False False False False False False  True False False
+ False False False False False False False]","[0.4, 0.32, 0.28]","[2.5630985764077403, nan]",0,False,False
+40,29.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.32, 0.28]","[2.5630985764077403, nan]",0,False,False
+41,30.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.28, 0.28]","[1.8169135474117328, nan]",0,False,False
+42,31.0,750.0,0.0,1,1,0,"[False False  True False False False False  True False False False False
+  True False False False False  True False False False False False False
+ False False  True False False False False False False False False False
+ False False False False  True False False False False False False False
+ False False False False False False False False False False False  True
+ False False False  True False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.28, 0.28]","[1.2091694501633, nan]",0,False,False
+43,32.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False  True False False False  True False False False False
+ False  True False False False False False False False  True False False
+ False False  True False False False False False False False False  True
+  True False False False False False  True False False False False  True
+ False False False False False False False]","[0.48, 0.28, 0.24]","[1.348978189813191, nan]",0,False,False
+44,33.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False False False False False False
+ False False False False False  True False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False False]","[0.48, 0.32, 0.2]","[1.348978189813191, nan]",0,False,False
+45,34.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False  True False
+ False False False False  True False False False  True False False False
+ False False False False False  True False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.28, 0.2]","[1.472630473950306, nan]",0,False,False
+46,35.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False  True False False False  True False False False False
+  True False False False  True False False False  True False False False
+ False False False  True False False False False  True False False False
+ False False False False False False False]","[0.56, 0.24, 0.2]","[1.583275816739861, nan]",0,False,False
+47,36.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False  True  True False
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False False False False False False False False False False
+  True False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False  True False False False False False False False False False False
+ False False False False  True False False]","[0.56, 0.24, 0.2]","[1.583275816739861, nan]",0,False,False
+48,37.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False  True  True False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.24, 0.16]","[1.6832410393848654, nan]",0,False,False
+49,37.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False False  True False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.28, 0.12]","[1.6832410393848654, 2.135136527393951]",0,False,False
+50,37.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False  True False False False False False False False False
+ False  True False False False False False False False False False False
+ False False  True False False False False False False False  True False
+ False False False False False False  True]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False  True False False False False]","[0.56, 0.32, 0.12]","[1.583275816739861, 1.348977534191646]",0,False,False
+51,38.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False  True
+ False False False False  True False False False False  True False False
+ False  True False False False False False False False False False  True
+  True False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False False  True  True False False]","[0.6, 0.32, 0.08]","[1.6832410393848654, 1.348977534191646]",0,False,False
+52,39.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False  True False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.28, 0.08]","[1.7742916679085448, 1.1318958430703367]",0,False,False
+53,39.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False  True False False False False False
+ False False  True False False False False  True False False False False
+ False False False False False False False False False False False False
+  True False False False False False  True False False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.28, 0.08]","[1.34897851762444, 1.1318958430703367]",0,False,False
+54,40.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False  True False False False False False False False
+ False False  True False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.32, 0.04]","[1.34897851762444, 1.348977534191646]",0,False,False
+55,40.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False  True False False
+ False  True  True False False False  True False False False  True False
+ False False False  True False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.28, 0.04]","[1.0827894677165155, 1.1318958430703367]",0,False,False
+56,41.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False  True False False False  True  True False False False False  True
+ False False False False False False False False False False False False
+  True False False False  True False False False False False  True False
+ False False  True False False False False False False False False False
+ False False False False False False False]","[0.64, 0.32, 0.04]","[0.9775521605649683, 1.348977534191646]",0,False,False
+57,42.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False  True False False False  True False False False
+ False False  True False False False  True False False False False False
+ False False False False False False False False False  True False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False  True False False False False False]","[0.6, 0.36, 0.04]","[0.8614539877232001, 1.5294172755398876]",0,False,False
+58,43.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.36, 0.04]","[0.8614539877232001, 1.5294172755398876]",0,False,False
+59,44.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False False False False False  True False False False
+  True False False False False  True False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False False False False False False
+ False False False False False  True False]","[0.64, 0.36, 0.0]","[0.6372783160801316, 1.5294172755398876]",0,False,False
+60,45.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, 1.348977534191646]",0,False,False
+61,46.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.4460153952645921, 1.348977534191646]",0,False,False
+62,46.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+  True False False False False False False False False False False False
+  True  True False False False False  True False False False  True False
+ False False False  True False False False  True False False False  True
+ False False False False False  True False False False  True False False
+ False False  True False False False False]","[0.68, 0.32, 0.0]","[0.4460153952645921, 1.348977534191646]",0,False,False
+63,47.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False  True False
+ False False False False False False False False False False False  True
+ False False False False False False False False False  True False False
+ False  True False False False  True False False False False False False
+ False False False False False False False False False  True False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False  True False
+ False False False False False False False False False False False False
+ False  True False False False False False]","[0.68, 0.32, 0.0]","[0.4460153952645921, 1.348977534191646]",0,False,False
+64,48.0,1500.0,0.0,1,1,0,"[False False False False False  True False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False  True False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.4460153952645921, 1.348977534191646]",0,False,False
+65,49.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False False False False False False False False False
+ False  True False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.4460153952645921, 1.348977534191646]",0,False,False
+66,50.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False  True  True False False False  True  True False
+ False False False False False False  True False False False  True False
+ False False False  True False False False False False  True False False
+ False  True False False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.4460153952645921, 1.348977534191646]",0,False,False
+67,51.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+  True False False False False  True False False False False False False
+ False False  True False False False False  True False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True  True False False False  True
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.6372783160801316, 1.5294172755398876]",0,False,False
+68,52.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False  True  True False False False  True False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False False False False False False False
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.6372783160801316, 1.5294172755398876]",0,False,False
+69,53.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False  True False False False  True False False False False  True
+ False False False  True False False False False  True False False False
+  True False False False False  True False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.6372783160801316, 1.5294172755398876]",0,False,False
+70,54.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False  True False False False  True
+ False False False False False False False False False False  True False
+ False  True False False False False False False False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True False False False False False
+ False False  True False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.5066938613135554, 1.6832403249694212]",0,False,False
+71,55.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False  True  True
+ False False False False  True False False False  True False False False
+  True False False False False  True False False False  True False False
+ False False False False False False False  True False False False False
+ False False False False False False  True False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.5066938613135554, 1.6832403249694212]",0,False,False
+72,56.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False  True False False False
+ False False False False False  True False False False False False False
+ False False  True False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False False False False False False  True]","[0.6, 0.4, 0.0]","[0.5066938613135554, 1.6832403249694212]",0,False,False
+73,57.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False  True  True False False False False
+  True False False False  True False False False False  True False False
+ False False False False False False False  True False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+ False  True False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.5066938613135554, 1.6832403249694212]",0,False,False
+74,58.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False  True False False False  True False False False False
+  True False False False  True False False]","[False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+  True False False False False False False]","[0.64, 0.36, 0.0]","[0.6372783160801316, 2.4412761378064363]",0,False,False
+75,59.0,1500.0,0.0,1,1,0,"[False False False False  True False False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False False False False  True False False
+ False False False False False False  True False False False False False
+ False False False False False False False False False  True False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False  True False False False False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, nan]",0,False,False
+76,60.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False  True False False False False  True False False False
+ False  True False False False  True False False False False False False
+ False False  True False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, nan]",0,False,False
+77,61.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True  True False False False False  True False False False False
+ False False  True False False False  True False False False False  True
+ False False False False False  True False False False  True False False
+ False False False False  True False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, nan]",0,False,False
+78,62.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.9775521605649683, nan]",0,False,False
+79,62.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True  True False False False  True False False False  True False False
+ False  True False False False False  True False False False  True False
+ False False  True False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, nan]",0,False,False
+80,63.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False  True False False False
+  True False False False  True  True False False False  True False False
+ False False False False False False  True False False False False  True
+ False False False False  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.9775521605649683, nan]",0,False,False
+81,64.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False  True False False
+ False False False False False False  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.9775521605649683, nan]",0,False,False
+82,64.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False  True False False False False False False False
+  True False False False False  True False False False  True False False
+ False False  True False False False  True False False False False False
+ False False False False  True False False False False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, nan]",0,False,False
+83,65.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False  True False False False False False False
+ False False  True  True False False False  True False False False False
+ False False False False False False False False False False False  True
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True  True False False False  True False False False  True
+ False False False False False False False False False False False False
+ False False False  True False False False]","[0.64, 0.36, 0.0]","[0.6372783160801316, nan]",0,False,False
+84,66.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False  True False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.9775521605649683, nan]",0,False,False
+85,67.0,750.0,0.0,1,1,0,"[False False False False False False False False  True False False False
+ False False False False False  True False False False False  True False
+ False False False  True False False False False  True False False False
+ False False False False  True False False False False False False False
+ False False False  True False False False False False False False  True
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False  True
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.8614539877232001, 2.5630985764077403]",0,False,False
+86,68.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False  True False False False  True False False False False  True
+ False False False  True False False False False  True False False False
+  True False False False False  True False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[1.2458505001420814, 2.5630985764077403]",0,False,False
+87,69.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False  True False False  True  True False False False
+ False  True False False False False False False False False False False
+ False False  True False False False False False False False False  True
+ False False False False  True  True False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.583275816739861, 2.670350930522295]",0,False,False
+88,70.0,1500.0,0.0,1,1,0,"[False False False False False False False  True False False False False
+ False False False False False False False False False  True False False
+ False False  True False False False  True False False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.583275816739861, 2.670350930522295]",0,False,False
+89,71.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False  True False False
+ False False  True False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.583275816739861, 2.670350930522295]",0,False,False
+90,71.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False False False  True False False]","[0.52, 0.48, 0.0]","[1.472630473950306, 1.9348409100817299]",0,False,False
+91,72.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True False False False False False
+ False False False  True False False False False False False False False
+ False  True False False False False  True]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False]","[0.52, 0.48, 0.0]","[2.0401502213058973, 1.9348409100817299]",0,False,False
+92,73.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+  True False False False  True False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[2.135138788617833, 1.8169135474117328]",0,False,False
+93,74.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False  True  True False False
+  True  True False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False  True False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.583275816739861, 1.8169135474117328]",0,False,False
+94,75.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False  True False False  True  True False False False False False
+ False False False False False False False False False False False False
+  True False False False  True False False False False  True  True False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.583275816739861, 1.8169135474117328]",0,False,False
+95,76.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False  True False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.583275816739861, 1.8169135474117328]",0,False,False
+96,77.0,1500.0,0.0,1,1,0,"[False False False False False  True False False False False False False
+ False False False False False False  True  True False False False False
+ False False False False False  True False False False  True False False
+ False False False False False False False False False False False False
+  True False False False False False False False False False False False
+ False False False  True False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False  True False False False False False False False False False False
+  True False False False  True False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.1318967437115721, 1.8169135474117328]",0,False,False
+97,78.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False  True
+ False False False False  True  True False False False  True False False
+ False  True False False False False  True False False False False False
+ False False False False  True False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False  True False False False False  True False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[1.2458505001420814, 1.6832403249694212]",0,False,False
+98,79.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False  True False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[1.2458505001420814, 1.6832403249694212]",0,False,False
+99,80.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.8614539877232001, 1.6832403249694212]",0,False,False
+100,81.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False False  True False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.5066938613135554, 1.6832403249694212]",0,False,False
+101,82.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False  True False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.5066938613135554, 1.6832403249694212]",0,False,False
+102,83.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False  True
+ False False False  True  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.16730335606762126, 1.6832403249694212]",0,False,False
+103,83.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False False  True False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.16730335606762126, 1.04879987536743]",0,False,False
+104,83.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False  True
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[0.3600244797379033, 0.6975107308138484]",0,False,False
+105,83.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False  True False False False False
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[0.3600244797379033, 0.2283703801950016]",0,False,False
+106,84.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False  True False False False  True]","[0.56, 0.44, 0.0]","[0.3600244797379033, -0.2283703801950016]",0,False,False
+107,85.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False  True False False False False  True False False False  True
+  True False False False  True False False False False  True False False
+ False False False False False False False  True False False False  True
+ False False False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 0.0]",0,False,False
+108,86.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False  True]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 0.0]",0,False,False
+109,87.0,3000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 0.0]",0,False,False
+110,87.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False  True False False False False  True False False False
+  True False False False False  True False False False  True False False
+ False  True False False False False  True False False False False False
+  True False False False False  True False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.44, 0.04]","[0.5867619998972957, 0.2283703801950016]",0,False,False
+111,88.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False  True False False False  True  True False False False False
+  True False False False  True False False False  True False False False
+ False  True False False False False False  True False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.48, 0.04]","[0.42085643268640105, 0.42085643268640105]",0,False,False
+112,89.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False  True False False False False False
+ False False False False False False False False False False False False
+ False  True False False False  True False False False False  True False
+ False False False False False False False  True False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False False False False False  True
+ False False False False False False False]","[0.48, 0.48, 0.04]","[0.42085643268640105, 0.42085643268640105]",0,False,False
+113,90.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False  True
+ False False  True  True False False False False  True False False False
+ False  True False False False  True False False False  True False False
+ False False False False  True False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.44, 0.04]","[0.5867619998972957, 0.2283703801950016]",0,False,False
+114,91.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.48, 0.04]","[0.42085643268640105, 0.42085643268640105]",0,False,False
+115,91.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True  True False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.48, 0.04]","[0.42085643268640105, 0.42085643268640105]",0,False,False
+116,92.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False  True False False False  True
+  True False False False False False False False  True False False False
+ False  True False False False False False False False False  True False
+ False False False False  True False False False False False  True False
+ False False False  True False False False  True False False False False
+ False False False False False False False]","[0.44, 0.52, 0.04]","[0.2283703801950016, 0.1931170816217559]",0,False,False
+117,93.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False  True False False False  True False
+ False False False False False False False False False False False False
+  True False False False False False False False False False False False
+ False False False False False False False]","[ True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.56, 0.04]","[0.0, 0.3600244797379033]",0,False,False
+118,94.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+  True False False False False False False False False  True False False
+ False False False False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True  True False False False  True
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.56, 0.04]","[0.5066936887499858, 0.3600244797379033]",0,False,False
+119,95.0,1500.0,0.0,1,1,0,"[False  True False False False False False False False False False False
+ False False False  True False False False False False False False False
+ False  True False False False  True False False False False False False
+ False False  True False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False False False False False False  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.52, 0.04]","[0.6975107308138484, 0.1931170816217559]",0,False,False
+120,96.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False  True False False False False  True False False False False  True
+ False False False False False False False False  True False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False False False False  True
+  True False False False False False False]","[0.48, 0.48, 0.04]","[0.8614538349250738, 0.0]",0,False,False
+121,97.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False  True False False False False False
+ False False False False False False False False  True False False False
+ False  True False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+  True False False False False  True False False False False False False
+ False False False False False False False]","[0.48, 0.48, 0.04]","[1.348978189813191, 0.0]",0,False,False
+122,98.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False False False False False False False False False
+ False False  True False False False False  True False False False  True
+ False False False False  True False False False  True False False False
+ False  True False False False False  True False False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False]","[0.48, 0.48, 0.04]","[1.348978189813191, 0.0]",0,False,False
+123,99.0,1500.0,0.0,1,1,0,"[False False False False False False False False False  True False False
+ False False  True False False False False False False False False False
+  True False False False  True False False False False  True False False
+ False False False False False False False False False False False False
+ False False False False  True False False False False False False  True
+ False False False False  True False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False  True False False False  True False False False
+  True  True False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.52, 0.04]","[1.2091694501633, 0.1931170816217559]",0,False,False
+124,100.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False  True False False False  True False False False
+ False  True False False False  True False False False  True False False
+ False False False False False False False False  True False False False
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.52, 0.04]","[1.8169135474117328, 0.1931170816217559]",0,False,False
+125,101.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False  True False False False False False False False False False
+ False False False False False False False]","[False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.56, 0.04]","[2.5630985764077403, 0.3600244797379033]",0,False,False
+126,101.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False  True False False
+ False  True False False False False  True False False False False False
+ False False False False False False False  True False False False  True
+ False False False False False False False False False False False False
+ False False  True False False False  True False False False False False
+ False False False False False False False]","[0.4, 0.56, 0.04]","[1.6832403249694212, 0.3600244797379033]",0,False,False
+127,102.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False  True  True False False False  True False False
+ False False  True False False False False False False False False  True
+ False False False False False False False False False False False False
+ False  True False False False False False False False False False False
+ False False False False False  True False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.36, 0.6, 0.04]","[2.4412761378064363, 0.5066938613135554]",0,False,False
+128,103.0,750.0,0.0,1,1,0,"[False False False False False False  True False False False False False
+ False False False  True False False False False  True False False False
+ False  True False False False  True False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False False False False  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.56, 0.04]","[2.5630985764077403, 0.7322121668315051]",0,False,False
+129,104.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False False False False False
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.52, 0.04]","[2.670350930522295, 1.0048036057610192]",0,False,False
+130,105.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+  True False False False  True False False False False  True False False
+ False False False False False False  True False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.48, 0.04]","[1.9348409100817299, 1.348978189813191]",0,False,False
+131,106.0,750.0,0.0,1,1,0,"[False False False False False False False False False False  True False
+ False False False False False False False False False False False  True
+ False False False False False False False False False False False False
+ False  True False False False False False False False False  True False
+ False False False False False False False False  True False False False
+ False  True False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True False False False  True False
+ False False  True False False False False False False False False False
+ False False False False False False False]","[0.52, 0.44, 0.04]","[2.0401502213058973, 1.8169135474117328]",0,False,False
+132,107.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False False  True False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.4, 0.04]","[2.135138788617833, 1.6832403249694212]",0,False,False
+133,108.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False  True False False False False  True False False False  True False
+ False False False False False False False  True False False False  True
+ False False False False  True False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.36, 0.04]","[1.6832410393848654, 1.5294172755398876]",0,False,False
+134,109.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False  True  True
+ False False False  True  True False False False False False False False
+  True False False False  True False False False False False False False
+ False  True False False False False False  True False False False False
+  True False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.4, 0.04]","[1.583275816739861, 1.6832403249694212]",0,False,False
+135,110.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False  True False False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.583275816739861, 1.8169135474117328]",0,False,False
+136,111.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False  True  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[1.2458505001420814, 1.6832403249694212]",0,False,False
+137,111.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False  True False False False  True  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[1.2458505001420814, 1.04879987536743]",0,False,False
+138,112.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+  True  True False False False  True False False False False False False
+ False False False False False False  True False False False  True False
+ False False False False  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.1318967437115721, 0.6975107308138484]",0,False,False
+139,113.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False  True False
+ False False False False False False False  True False False False False
+  True False False False  True False False False False  True False False
+ False  True False False False  True False False False False False  True
+ False False False False  True False False False  True False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.1318967437115721, 0.6975107308138484]",0,False,False
+140,114.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[1.1318967437115721, 1.2091694501633]",0,False,False
+141,115.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False  True  True False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.8614539877232001, 1.6832403249694212]",0,False,False
+142,115.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False  True False False False False False False False
+ False False False False False  True False False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False  True False False False]","[0.6, 0.4, 0.0]","[0.8614539877232001, 1.04879987536743]",0,False,False
+143,116.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False  True False False False False False False
+ False False False False False False False  True False False False  True
+ False False False False False False False False False  True False False
+ False False False False False  True False False False False False False
+  True False False False False False False False  True False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.8614539877232001, 1.04879987536743]",0,False,False
+144,117.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True False False False False False
+ False False False  True False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[0.7322121668315051, 1.2091694501633]",0,False,False
+145,118.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False  True False False False False  True False False False False  True
+ False False False  True False False False False  True False False False
+ False False False False  True False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[0.7322121668315051, 1.2091694501633]",0,False,False
+146,119.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False  True
+ False False False False False False False False  True False False False
+ False False False False False False  True False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False  True False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 1.348978189813191]",0,False,False
+147,120.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False  True False False False  True  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 1.348978189813191]",0,False,False
+148,121.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False  True  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 0.8614538349250738]",0,False,False
+149,121.0,1500.0,0.0,1,1,0,"[False False False False False False False  True False False False  True
+ False False False False False False False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False  True False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.52, 0.0]","[0.42085643268640105, 0.5867619998972957]",0,False,False
+150,122.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False  True False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 0.42085643268640105]",0,False,False
+151,122.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False  True False False False  True  True False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.52, 0.0]","[0.8614538349250738, 0.1931170816217559]",0,False,False
+152,123.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False  True False False False False  True
+ False False False False  True False False False  True False False False
+ False False False False False  True False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+  True False False False False False False]","[0.48, 0.52, 0.0]","[0.8614538349250738, -0.1931170816217559]",0,False,False
+153,124.0,1500.0,0.0,1,1,0,"[False False False False  True False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False  True False False False  True False False False False
+ False False False False  True False False False False False False False
+ False False False False False False  True  True False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.52, 0.0]","[0.8614538349250738, -0.1931170816217559]",0,False,False
+154,125.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False  True False False False  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.52, 0.0]","[0.8614538349250738, -0.1931170816217559]",0,False,False
+155,126.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False False  True False False False  True  True False
+ False False  True False False False  True False False False False  True
+ False False False  True False False False False False  True False False
+ False  True False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.52, 0.0]","[0.8614538349250738, -0.1931170816217559]",0,False,False
+156,127.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False  True False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.56, 0.0]","[0.6975107308138484, 0.0]",0,False,False
+157,128.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False  True False False False False  True False False
+ False False False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False  True False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False  True False False False False False False False False False
+ False False False False False False False]","[0.44, 0.56, 0.0]","[0.2283703801950016, 0.0]",0,False,False
+158,129.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False  True  True
+ False False False False  True False  True  True  True False False False
+  True False False False  True False False False False  True False False
+ False False False  True False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.56, 0.0]","[0.6975107308138484, 0.0]",0,False,False
+159,130.0,750.0,0.0,1,1,0,"[False False False False False False False False False  True False False
+ False  True False False False False False False False False  True  True
+ False False False False False False False False  True False False False
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False False False False False  True
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.56, 0.0]","[0.6975107308138484, 0.0]",0,False,False
+160,131.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False  True False False
+ False  True False False False False  True False False False  True False
+ False False False False False False False False False False False False
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.52, 0.0]","[0.8614538349250738, -0.1931170816217559]",0,False,False
+161,132.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.44, 0.56, 0.0]","[1.2091694501633, 0.0]",0,False,False
+162,132.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False  True
+ False False False  True False False False False  True False False False
+  True False False False False False False False False  True False False
+ False False False False False False  True False False False False False
+  True False False False  True False False False False False False False
+ False False False False False False False]","[0.48, 0.52, 0.0]","[0.8614538349250738, 0.1931170816217559]",0,False,False
+163,133.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.52, 0.0]","[0.8614538349250738, 0.5867619998972957]",0,False,False
+164,134.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False False False False False False  True False False
+ False False  True False False False  True False False False  True False
+ False False False False False False False False False False False False
+ False False False False False  True False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 0.42085643268640105]",0,False,False
+165,135.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False  True False False
+ False False False False False False False False False False False False
+ False False False False  True False False False False False False False
+ False False False False False False  True]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False False False False  True False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[0.5867619998972957, 0.42085643268640105]",0,False,False
+166,136.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False  True False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.48, 0.0]","[1.0048036057610192, 0.42085643268640105]",0,False,False
+167,137.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False  True False False False False False False False False
+  True False False False False False False False False  True False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False  True  True False False False False False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[0.7322121668315051, 0.6975107308138484]",0,False,False
+168,138.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False  True False False False  True False False False False
+ False False False False False  True False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False False False False False False]","[0.56, 0.44, 0.0]","[0.7322121668315051, 0.6975107308138484]",0,False,False
+169,139.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False False False False False False False False False False False False
+ False False False  True False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.8614539877232001, 0.5066936887499858]",0,False,False
+170,140.0,750.0,0.0,1,1,0,"[ True False False False  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.4, 0.0]","[0.8614539877232001, 0.5066936887499858]",0,False,False
+171,141.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False  True  True False False False
+ False False False False False False False False False  True False False
+ False False False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False  True False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False  True False False False False False False
+ False False  True False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.9775521605649683, 0.2794202853486787]",0,False,False
+172,142.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False  True False False False False False False False
+ False False False False False False  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.36, 0.0]","[0.9775521605649683, 0.2794202853486787]",0,False,False
+173,143.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False  True False False
+ False False False False False False  True False False False  True False
+ False False False  True False False False  True False False False  True
+ False False False False False False False False False False  True False
+ False  True  True False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, 0.6372779040108865]",0,False,False
+174,144.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False  True False False
+ False False False False False False  True False False False False  True
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, 1.348977534191646]",0,False,False
+175,145.0,1500.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.32, 0.0]","[0.7547834222332187, 1.348977534191646]",0,False,False
+176,146.0,1500.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.28, 0.04]","[0.7547834222332187, 2.135136527393951]",0,False,False
+177,147.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False  True False False False  True False
+ False False False False False False False  True False False False False
+ False False False False False False False  True False False False False
+ False  True False False False  True False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.68, 0.24, 0.08]","[0.7547834222332187, nan]",0,False,False
+178,148.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False  True False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.64, 0.28, 0.08]","[0.6372783160801316, nan]",0,False,False
+179,148.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False  True False False False  True  True False False False  True False
+ False False  True False False False False False False False  True False
+ False False False  True False False  True False False False False False
+ False  True False False  True  True False False False False False False
+ False False False False False False False]","[0.64, 0.28, 0.08]","[0.31462117104709175, nan]",0,False,False
+180,149.0,750.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False  True False False False False  True False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.32, 0.08]","[0.5066938613135554, nan]",0,False,False
+181,150.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False  True False False False False False False False False
+ False False False False  True False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.6, 0.32, 0.08]","[0.5066938613135554, 2.300694208940575]",0,False,False
+182,150.0,1500.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False  True False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.36, 0.08]","[0.7322121668315051, 1.5294172755398876]",0,False,False
+183,150.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False False False False False False
+ False False False  True False False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False  True  True False False False False False False
+ False False False False False False False]","[0.52, 0.36, 0.12]","[0.5867619998972957, 1.5294172755398876]",0,False,False
+184,151.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.32, 0.12]","[0.7322121668315051, 1.348977534191646]",0,False,False
+185,151.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False False False False False False False False
+ False  True False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.32, 0.16]","[0.5867619998972957, 1.348977534191646]",0,False,False
+186,151.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[ True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.28, 0.16]","[0.3600244797379033, 1.1318958430703367]",0,False,False
+187,152.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+  True False False False False False False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.28, 0.2]","[0.5867619998972957, 1.1318958430703367]",0,False,False
+188,152.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.56, 0.24, 0.2]","[0.3600244797379033, 0.8614530709359598]",0,False,False
+189,152.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.52, 0.24, 0.24]","[0.5867619998972957, 0.8614530709359598]",0,False,False
+190,152.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False  True False False
+ False  True False False False  True False False False False False False
+ False False False False False False False False False  True False False
+ False  True False False False False  True False False False False  True
+ False False False False  True  True False False False  True False False
+ False False False False False False False]","[0.52, 0.2, 0.28]","[0.5867619998972957, 0.5066931710605553]",0,False,False
+191,153.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False  True False False
+ False  True  True False False False  True False False False False False
+ False False False  True False False False False False False False  True
+ False False False  True False False False False False  True False False
+ False  True False False False False False False False False False False
+ False False False False False False False]","[0.48, 0.24, 0.28]","[0.42085643268640105, 0.8614530709359598]",0,False,False
+192,154.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False  True False False False False
+ False False False  True  True False False False  True False False False
+  True False False False  True False False False False  True False False
+ False False  True False False False False  True False False False False
+  True False False False False False False]","[0.44, 0.28, 0.28]","[0.6975107308138484, 1.1318958430703367]",0,False,False
+193,155.0,3000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.4, 0.32, 0.28]","[0.5066936887499858, 1.348977534191646]",0,False,False
+194,155.0,3000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.36, 0.32, 0.32]","[0.2794202853486787, 1.348977534191646]",0,False,False
+195,155.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False  True False False False  True False False
+ False False False False False False  True False False False  True False
+ False False  True False False False False False False False False False
+ False False  True False False False False False  True  True False False
+ False  True False False False False False False False False False False
+ False False False False False False False]","[0.32, 0.32, 0.36]","[0.0, 1.348977534191646]",0,False,False
+196,156.0,750.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.28, 0.36, 0.36]","[-0.36002421977424204, 1.5294172755398876]",0,False,False
+197,157.0,750.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.24, 0.36, 0.4]","[-0.8614530709359598, 1.5294172755398876]",0,False,False
+198,157.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+ False False False False False  True False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True False False False False False
+ False False  True False False False False False False False False False
+ False False False False False False False]","[0.2, 0.36, 0.44]","[-0.5066931710605553, 1.5294172755398876]",0,False,False
+199,158.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.24, 0.32, 0.44]","[0.0, 1.348977534191646]",0,False,False
+200,159.0,1500.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.24, 0.32, 0.44]","[-0.8614530709359598, 1.348977534191646]",0,False,False
+201,159.0,1500.0,0.0,1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False  True False False False
+  True False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.24, 0.32, 0.44]","[-0.8614530709359598, 1.348977534191646]",0,False,False
+202,160.0,3000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False  True False False False
+  True False False False False False False False False False False False
+ False  True False False False False  True False False False  True False
+ False False  True False False False False False  True False False False
+ False False False False False False False]","[0.24, 0.36, 0.4]","[-0.8614530709359598, 0.8614535802617546]",0,False,False
+203,161.0,6000.0,0.0,-1,-1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False  True
+ False False False False False False False  True False False False False
+  True False False False  True False False False  True False False False
+ False False False False  True False False False  True False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.24, 0.36, 0.4]","[-0.8614530709359598, 0.8614535802617546]",0,False,False
+204,162.0,750.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False False False False False False False False False
+ False False False False False  True False False False  True False False
+ False False  True False False False  True]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False  True]","[0.2, 0.4, 0.4]","[-0.5066931710605553, 1.04879987536743]",0,False,False
+205,163.0,750.0,0.0,1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.24, 0.36, 0.4]","[0.0, 0.8614535802617546]",0,False,False
+206,164.0,1500.0,0.0,1,1,0,"[False False False False False False False False False False False False
+ False False False False  True False False False  True False False False
+ False False False False False False  True False False False False False
+ False False False False False False False False False False  True False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False  True False False False False False
+ False False False False False False False]","[0.24, 0.32, 0.44]","[0.0, 1.348977534191646]",0,False,False
+207,165.0,6000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False  True False False False False False False False  True False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.28, 0.28, 0.44]","[0.36002421977424204, 2.135136527393951]",0,False,False
+208,165.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.32, 0.28, 0.4]","[0.0, 2.135136527393951]",0,False,False
+209,165.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.28, 0.28, 0.44]","[-0.36002421977424204, 2.135136527393951]",0,False,False
+210,166.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False  True False False False False False False False False False
+ False False False  True False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.28, 0.28, 0.44]","[-0.36002421977424204, 2.135136527393951]",0,False,False
+211,167.0,6000.0,0.0,-1,0,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.28, 0.28, 0.44]","[-0.36002421977424204, 2.135136527393951]",0,False,False
+212,168.0,3000.0,0.0,-1,1,0,"[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False  True
+ False False False False  True False False]","[False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False False False False False False
+ False False False False False False False]","[0.28, 0.28, 0.44]","[-0.36002421977424204, 2.135136527393951]",0,False,False

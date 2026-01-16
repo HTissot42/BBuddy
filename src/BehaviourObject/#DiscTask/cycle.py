@@ -6,6 +6,7 @@ import csv
 import os  
 from init_behaviour import trials, one_motor, correction_p
 from performance import Performance_plot
+from time_handling import tic, wait, timestep
 
 
 columns = ["Trial index", "Stim frequency","Stim AM rate", "Category", "Response", "Task", "Right licks", "Left licks","Choice rate", "dprimes", "Timeline events", "Flagged","Easy"]
@@ -20,7 +21,6 @@ def save_data() :
     data_df = pd.DataFrame(data)
     filepath = saving_dir + '/' + animal_name + '/' + animal_name + ' ' + current_date +'.csv'
     data_df.to_csv(filepath)
-
 
 
 
@@ -42,21 +42,25 @@ def add_trial_to_data(t) :
     data["Timeline events"].append(0)
     data["Flagged"].append(t.flagged)
     data["Easy"].append(t.easy)
-
+    
 
 def cycle():
+    
     n=0
     trials_to_run = trials
     while n < len(trials):
         trial = trials_to_run[n]
+        
+        inter_trial_interval = np.random.uniform(low=0.8,high=1.5)  # Delay before starting the trial
         
         #Define if one (easy trial) or two motors will be active for this trial.
         #One motor if an easy trial is repeated or if we draw a number below the easy ratio value (from performance GUI)
         motor_config = (p_plot.easy_val > np.random.randint(0,100)) or trial.easy
         trial.setup_motors(motor_config)
         
-        p_plot.new_trial(trial)
+        wait(inter_trial_interval)
         
+        p_plot.new_trial(trial)
         
         trial.run_trial()
         
